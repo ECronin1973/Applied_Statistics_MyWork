@@ -1,18 +1,29 @@
-# My Assessment Repository
+# Applied Statistics Assessment Submission
 
-This repository contains my assessment submission for the module Applied Statistics
+Welcome to my repository for the Applied Statistics module assessment for the academic year 2024/2025. This repository contains my submissions for the module, including detailed tasks and a comprehensive project.
 
-# Tasks 2024/2025 Applied Statistics
-# Project 2024/2025 Applied Statistics
+### Overview
+This README file is structured into two main sections:
 
-The tasks.ipynb file within this repository consists of five tasks completed as outlined in the Tasks Section of the 2024 Applied Statistics Module README document [Link to Document](https://github.com/ianmcloughlin/2425_applied_statistics/blob/main/README.md)
+Tasks 2024/2025 Applied Statistics: This section includes various tasks assigned throughout the module, showcasing my understanding and application of statistical concepts and techniques.
 
-The project.ipynb file within this repository consists of completed project work as outlined in the Project Section of the 2024 Applied Statistics Module README document [Link to Document](https://github.com/ianmcloughlin/2425_applied_statistics/blob/main/README.md)
+Project 2024/2025 Applied Statistics: This section presents my final project, which integrates the knowledge and skills acquired during the course to address a complex statistical problem.
 
-Author: Edward Cronin g00425645
-Author email: g00425645@atu.ie
+Feel free to explore the repository to see my approach and solutions to the tasks and project. Your feedback is always welcome!
 
-# How to download this repository
+### Contents
+tasks.ipynb: This file contains five tasks completed as outlined in the Tasks Section of the ![2024 Applied Statistics Module README document](https://github.com/ianmcloughlin/2425_applied_statistics/blob/main/README.md).
+
+project.ipynb: This file contains the completed project work as outlined in the Project Section of the ![2024 Applied Statistics Module README document](https://github.com/ianmcloughlin/2425_applied_statistics/blob/main/README.md).
+
+### Author
+Name: Edward Cronin
+
+Student ID: g00425645
+
+Email: g00425645@atu.ie
+
+## How to download this repository
 
 1. Logon to GitHub to locate my specific repository dedicated to this project located at [My repository for Applied Statistics on GitHub]( https://github.com/ECronin1973/Applied_Statistics_MyWork) .
 2. Click the download button.
@@ -22,6 +33,8 @@ Author email: g00425645@atu.ie
 
 A code of conduct governs the use of this repository and has been uploaded within the repository for ease of reference.
 
+# Tasks 2024/2025 Applied Statistics
+_______________________________________________________________________________________________________________________________________________________________________________________
 # Task One
 
 ## Lady Tasting Tea Experiment
@@ -101,7 +114,7 @@ The following online resources were used to complete these tasks and compile thi
 
 _______________________________________________________________________________________________________________________________________________________________________________________
 
-# Project
+# Project 2024/2025 Applied Statistics
 
 ### Overview
 In this project, you will analyze the [PlantGrowth R dataset](https://vincentarelbundock.github.io/Rdatasets/csv/datasets/PlantGrowth.csv).
