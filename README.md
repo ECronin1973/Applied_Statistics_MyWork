@@ -12,9 +12,9 @@ Project 2024/2025 Applied Statistics: This section presents my final project, wh
 Feel free to explore the repository to see my approach and solutions to the tasks and project. Your feedback is always welcome!
 
 ### Contents
-tasks.ipynb: This file contains five tasks completed as outlined in the Tasks Section of the ![2024 Applied Statistics Module README document](https://github.com/ianmcloughlin/2425_applied_statistics/blob/main/README.md).
+tasks.ipynb: This file contains five tasks completed as outlined in the Tasks Section of the [2024 Applied Statistics Module README document](https://github.com/ianmcloughlin/2425_applied_statistics/blob/main/README.md).
 
-project.ipynb: This file contains the completed project work as outlined in the Project Section of the ![2024 Applied Statistics Module README document](https://github.com/ianmcloughlin/2425_applied_statistics/blob/main/README.md).
+project.ipynb: This file contains the completed project work as outlined in the Project Section of the [2024 Applied Statistics Module README document](https://github.com/ianmcloughlin/2425_applied_statistics/blob/main/README.md).
 
 ### Author
 Name: Edward Cronin
