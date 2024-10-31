@@ -79,24 +79,26 @@ In the lecture videos, I discovered various methods of calculating the total num
 Further Reading Performed
 I explored research on this topic conducted by others. On the site https://lisds.github.io/textbook/wild-pandas/fishers_tea.html, it was noted that 'Muriel guessed correctly for each of the eight cups, and so correctly identified all four milk-first cups'. This test was not performed on an individual but outlined the necessary parameters for a test, comparing 'real-world' results versus the null hypothesis. I analyzed the code on that site and adapted it to display Fisher's table with 12 cups of tea. The four categories outlined in that experiment are also relevant in this test.
 
-# REFERENCES
-The following online resources were used to complete this task and compile this README.md document. 
-1. ATU Lectures - Applied Statistics, Dr Ian McLoughlin (https://vlegalwaymayo.atu.ie/course/view.php?id=10454)
-2. Writing readme.md files on Github (https://help.github.com/en/articles/basic-writing-and-formatting-syntax)
-3. Creating tables in markdown (https://www.makeuseof.com/tag/create-markdown-table/)
-4. https://docs.python.org/3/library/math.html#math.comb (Task One)
-5. https://www.w3schools.com/python/ref_math_comb.asp (Task One)
-6. https://www.w3schools.com/python/numpy/numpy_random_binomial.asp (Task One)
-7. https://docs.python.org/3.12/library/math.html#math.factorial (Task One)
-8. https://docs.python.org/3/library/itertools.html#itertools.combinations (Task One)
-9. Understanding error types in Data Analytics: https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Table_of_error_types (Task One)
-10. Understanding Power in Data Analytics: https://en.wikipedia.org/wiki/Power_(statistics)#Description (Task One)
-11. Images not displaying in Github : https://stackoverflow.com/questions/41468951/images-not-displaying-in-github-pages (Task One)
-12. GitHub Copilot in VS Code : https://code.visualstudio.com/docs/copilot/overview (Task One)
-13. https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes (all tasks)
-14. Further information the Design on Experiments: https://en.wikipedia.org/wiki/The_Design_of_Experiments (Task One)
-15. https://lisds.github.io/textbook/wild-pandas/fishers_tea.html (Task One)
-16. Python for Data Analysis, Wes McKinney, O Reilly, Third Edition
+## References
+The following online resources were used to complete Task 1 in `tasks.ipynb` and compile content in the Task 1 section of the `README.md` document:
+
+1. [ATU Lectures - Applied Statistics, Dr Ian McLoughlin](https://vlegalwaymayo.atu.ie/course/view.php?id=10454)
+2. [Writing README.md files on GitHub](https://help.github.com/en/articles/basic-writing-and-formatting-syntax)
+3. [Creating tables in Markdown](https://www.makeuseof.com/tag/create-markdown-table/)
+4. [Python Documentation - `math.comb`](https://docs.python.org/3/library/math.html#math.comb)
+5. [W3Schools - `math.comb`](https://www.w3schools.com/python/ref_math_comb.asp)
+6. [W3Schools - `numpy.random.binomial`](https://www.w3schools.com/python/numpy/numpy_random_binomial.asp)
+7. [Python Documentation - `math.factorial`](https://docs.python.org/3.12/library/math.html#math.factorial)
+8. [Python Documentation - `itertools.combinations`](https://docs.python.org/3/library/itertools.html#itertools.combinations)
+9. [Understanding Error Types in Data Analytics](https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Table_of_error_types)
+10. [Understanding Power in Data Analytics](https://en.wikipedia.org/wiki/Power_(statistics)#Description)
+11. [Images Not Displaying in GitHub](https://stackoverflow.com/questions/41468951/images-not-displaying-in-github-pages)
+12. [GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/overview)
+13. [GitHub Documentation - About READMEs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)
+14. [Further Information on The Design of Experiments](https://en.wikipedia.org/wiki/The_Design_of_Experiments)
+15. [Fisher's Tea Experiment](https://lisds.github.io/textbook/wild-pandas/fishers_tea.html)
+16. *Python for Data Analysis*, Wes McKinney, O'Reilly, Third Edition
+
 _______________________________________________________________________________________________________________________________________________________________________________________
 
 # Task 2: Assessing Normality of `numpy.random.normal()`
@@ -137,6 +139,10 @@ plt.title(title)
 plt.show()
 
 3.Test for Normality
+Three tests are performed to test for Normality, QQ-Plot, Shapiro-Wilk Test and Kolmogorov-Smirnov Test.  Each test will test if the results come from a normal distribution.
+
+### Shapiro-Wilk Test
+
 Apply the scipy.stats.shapiro() function to test if your sample comes from a normal distribution. The function will return a test statistic and a p-value.
 
 from scipy.stats import shapiro
@@ -145,10 +151,9 @@ from scipy.stats import shapiro
 stat, p_value = shapiro(sample[:10000])  # Shapiro test is sensitive to sample sizes > 5000
 print(f"Shapiro-Wilk Test: Stat={stat}, p-value={p_value}")
 
-4.Analyze Results
 Interpret the output from the Shapiro-Wilk test. If the p-value is greater than 0.05, it suggests that the sample likely comes from a normal distribution. Conversely, a p-value less than 0.05 suggests non-normality.
 
-5.QQ-Plot
+### QQ-Plot Test ###
 Create a Q-Q (Quantile-Quantile) plot to test whether the dataset follows a normal distribution.
 
 from scipy import stats
@@ -158,31 +163,58 @@ fig, ax = plt.subplots()
 stats.probplot(sample, dist='norm', plot=ax)
 plt.show()
 
-## Summary
-Based on the results of the Shapiro-Wilk test and the Q-Q plot, we can conclude that the sample is likely normally distributed.
+### Kolmogorov-Smirnov Test
+The kstest function will return a test statistic and a p-value. If the p-value is greater than 0.05, it suggests that the sample likely comes from a normal distribution. Conversely, a p-value less than 0.05 suggests non-normality.
+
+### Integration Test
+The 97.5th percentile test is performed to determine if 95% of the area under the normal distribution lies within 1.96 standard deviations away from the mean. 
+
+## Summary of Analysis
+According to the website [STATOLOGY](https://www.statology.org/normality-test-python/) there are four common ways to test for Normality in Python.
+
+1. (Visual Method) Create a histogram.
+If the histogram is roughly “bell-shaped”, then the data is assumed to be normally distributed.  In this case the shape of the histogram is 'bell shaped'.
+
+2. (Visual Method) Create a Q-Q plot.
+If the points in the plot roughly fall along a straight diagonal line, then the data is assumed to be normally distributed. In this case the points do plot roughly along a straight diagonal line.
+
+3. (Formal Statistical Test) Perform a Shapiro-Wilk Test.
+If the p-value of the test is greater than α = .05, then the data is assumed to be normally distributed.  P value in this test is (p-value)=0.35617671455482214 so is greater than .05.
+
+4. (Formal Statistical Test) Perform a Kolmogorov-Smirnov Test.
+If the p-value of the test is greater than α = .05, then the data is assumed to be normally distributed.  p value in this test is (p-value) 0.7485155595727593 so is greater than 0.05.
+
+5. Integration Test.  
+95% of the area under the normal distribution was within 1.96 standard deviations away from the mean.
+
+Based on the results of the above tests we can conclude that the sample is likely normally distributed.
+
+### Further Reading Performed
+
+In order to complete this task, I performed a google search on testing for Normality in Python.  The website Statology gave me a good approach in addition to the great instruction I received when completing the online ATU lectures. I identified a useful youtube video titled 'Normality test - Simply explained'.  This video taught me that there are two ways to test for normal distribution 1. Analytical and 2. Graphically. There are three tests identified for Analytical testing 1. Shapiro-Wilk Test, 2. Kolmogorov-Smirnov Test and 3. Anderson-Darling Test. the objective of each of the tests is to determine if the p-value is smaller than 0.05.  If it is smaller,  Normal Distribution is not assumed.  If greater than 0.05 we assume normal distribution.  The disadvantage of analytical testing is the calculated p-value depends on the sample size (the larger the sample, the smaller the potential p-value). With a very large sample, it could be the case that the p-value is smaller than 0.05 and thus reject the null hypotesis, that it is a normal distribution.  To get around this problem, graphical tests of normal distribution are being used.  For graphical tests we either look at the histogram or QQ-Plot. If using the histogram we plot the normal distribution in the histogram of the data to see whether the curve of the normal distribution roughly corresponds to that of the normal distribution curve. The QQ-Plot is better as the Theoretical Quantiles the data should have if they are perfectly normally distributed and the quantiles of the measured values are compared. If the data is perfectly normally distributed, all points would lie on the line. The more the data deviates form the line, the less it is normall distributed. In addition, data that plots the 95% interval, if all your data lies within this interval, it is a very strong indication that  the data is normally distributed.  The 95% interval was further explored in Wikipedia (97.5th percentile point) where it states in probability and statistics, the 97.5th percentile point of the standard normal distribution is a number commonly used for statistical calculations. The approximate value of this number is 1.96, meaning that 95% of the area under a normal curve lies within approximately 1.96 standard deviations of the mean.    
+
 
 ## Libraries Used
 numpy: For numerical operations and generating random samples.
 scipy.stats: For statistical tests and probability distributions.
 matplotlib: For plotting and visualizing data
 
-## REFERENCES
+## References
+The following online resources were used to complete Task 2 in `tasks.ipynb` and compile content in the Task 2 section of the `README.md` document:
 
-NumPy Documentation
-https://numpy.org/doc/stable/reference/random/generated/numpy.random.normal.html#numpy-random-normal
-https://numpy.org/doc/stable/reference/generated/numpy.histogram.html#numpy-histogram
+1. [ATU Lectures - Applied Statistics, Dr Ian McLoughlin](https://vlegalwaymayo.atu.ie/course/view.php?id=10454)
+2. [Writing README.md files on GitHub](https://help.github.com/en/articles/basic-writing-and-formatting-syntax)
+3. [Creating tables in Markdown](https://www.makeuseof.com/tag/create-markdown-table/)
+4. [NumPy Documentation - `numpy.random.normal`](https://numpy.org/doc/stable/reference/random/generated/numpy.random.normal.html)
+5. [NumPy Documentation - `numpy.histogram`](https://numpy.org/doc/stable/reference/generated/numpy.histogram.html)
+6. [Normal Distribution - Wikipedia](https://en.wikipedia.org/wiki/Normal_distribution)
+7. [Matplotlib Documentation - `matplotlib.pyplot.hist`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html)
+8. [Statsmodels Q-Q Plot](https://www.statsmodels.org/stable/generated/statsmodels.graphics.gofplots.qqplot.html)
+9. [SciPy Documentation - `scipy.stats.shapiro`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.shapiro.html)
+10. [SciPy Documentation - `scipy.stats.kstest`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kstest.html)
+11. [Normality test - Simply Explained](https://www.youtube.com/watch?v=AVketBmpUTE)
+12. [97.5 th Percentile Point](https://en.wikipedia.org/wiki/97.5th_percentile_point)
 
-Normal Distribution - Wikipedia
-https://en.wikipedia.org/wiki/Normal_distribution
-
-Matplotlib Documentation
-https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html#matplotlib-pyplot-hist
-
-Statsmodels Q-Q Plot
-https://www.statsmodels.org/stable/generated/statsmodels.graphics.gofplots.qqplot.html
-
-SciPy Documentation
-https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.shapiro.html#shapiro
 
 _______________________________________________________________________________________________________________________________________________________________________________________
 
