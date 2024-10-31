@@ -35,9 +35,7 @@ A code of conduct governs the use of this repository and has been uploaded withi
 
 # Tasks 2024/2025 Applied Statistics
 _______________________________________________________________________________________________________________________________________________________________________________________
-# Task One
-
-## Lady Tasting Tea Experiment
+# Task 1: Lady Tasting Tea Experiment
 
 ### Overview
 This project is inspired by the famous “Lady Tasting Tea” experiment, as described in Ronald A. Fisher’s book “The Design of Experiments”. We aim to replicate the experiment with a twist, involving twelve cups of tea, where six cups have milk poured in first and the other six have tea poured in first.
@@ -81,20 +79,8 @@ In the lecture videos, I discovered various methods of calculating the total num
 Further Reading Performed
 I explored research on this topic conducted by others. On the site https://lisds.github.io/textbook/wild-pandas/fishers_tea.html, it was noted that 'Muriel guessed correctly for each of the eight cups, and so correctly identified all four milk-first cups'. This test was not performed on an individual but outlined the necessary parameters for a test, comparing 'real-world' results versus the null hypothesis. I analyzed the code on that site and adapted it to display Fisher's table with 12 cups of tea. The four categories outlined in that experiment are also relevant in this test.
 
-_______________________________________________________________________________________________________________________________________________________________________________________
-
-# Task Two
-
-# Task Three
-
-# Task Four
-
-# Task Five
-
-
-
 # REFERENCES
-The following online resources were used to complete these tasks and compile this README.md document. 
+The following online resources were used to complete this task and compile this README.md document. 
 1. ATU Lectures - Applied Statistics, Dr Ian McLoughlin (https://vlegalwaymayo.atu.ie/course/view.php?id=10454)
 2. Writing readme.md files on Github (https://help.github.com/en/articles/basic-writing-and-formatting-syntax)
 3. Creating tables in markdown (https://www.makeuseof.com/tag/create-markdown-table/)
@@ -111,6 +97,112 @@ The following online resources were used to complete these tasks and compile thi
 14. Further information the Design on Experiments: https://en.wikipedia.org/wiki/The_Design_of_Experiments (Task One)
 15. https://lisds.github.io/textbook/wild-pandas/fishers_tea.html (Task One)
 16. Python for Data Analysis, Wes McKinney, O Reilly, Third Edition
+_______________________________________________________________________________________________________________________________________________________________________________________
+
+# Task 2: Assessing Normality of `numpy.random.normal()`
+
+## Overview
+In this task, we will assess whether `numpy.random.normal()` properly generates normal values. We will generate a sample of 100,000 values with a mean of 10.0 and a standard deviation of 3.0. We will then use the `scipy.stats.shapiro()` function to test for normality and visualize the results.
+
+## Steps
+
+1.Generate a Sample
+Use the `numpy.random.normal()` function to generate a sample of 100,000 values with a mean of 10.0 and a standard deviation of 3.0.
+
+```python
+import numpy as np
+
+mean = 10.0
+std_dev = 3.0
+sample_size = 100000
+sample = np.random.normal(mean, std_dev, sample_size)
+
+2.Visualize Data
+
+Create a histogram of the sample values and overlay the probability density function (PDF) of a normal distribution with the same mean and standard deviation.
+
+import matplotlib.pyplot as plt
+from scipy.stats import norm
+
+## Plot histogram of the sample
+plt.hist(sample, bins=50, edgecolor='black', density=True, alpha=0.8, color='g')
+
+## Plot the corresponding normal distribution
+xmin, xmax = plt.xlim()
+x = np.linspace(xmin, xmax, 100)
+p = norm.pdf(x, mean, std_dev)
+plt.plot(x, p, 'k', linewidth=2)
+title = f"Fit results: mean = {mean}, std = {std_dev}"
+plt.title(title)
+plt.show()
+
+3.Test for Normality
+Apply the scipy.stats.shapiro() function to test if your sample comes from a normal distribution. The function will return a test statistic and a p-value.
+
+from scipy.stats import shapiro
+
+## Perform the Shapiro-Wilk test for normality
+stat, p_value = shapiro(sample[:10000])  # Shapiro test is sensitive to sample sizes > 5000
+print(f"Shapiro-Wilk Test: Stat={stat}, p-value={p_value}")
+
+4.Analyze Results
+Interpret the output from the Shapiro-Wilk test. If the p-value is greater than 0.05, it suggests that the sample likely comes from a normal distribution. Conversely, a p-value less than 0.05 suggests non-normality.
+
+5.QQ-Plot
+Create a Q-Q (Quantile-Quantile) plot to test whether the dataset follows a normal distribution.
+
+from scipy import stats
+
+## Create a Q-Q plot
+fig, ax = plt.subplots()
+stats.probplot(sample, dist='norm', plot=ax)
+plt.show()
+
+## Summary
+Based on the results of the Shapiro-Wilk test and the Q-Q plot, we can conclude that the sample is likely normally distributed.
+
+## Libraries Used
+numpy: For numerical operations and generating random samples.
+scipy.stats: For statistical tests and probability distributions.
+matplotlib: For plotting and visualizing data
+
+## REFERENCES
+
+NumPy Documentation
+https://numpy.org/doc/stable/reference/random/generated/numpy.random.normal.html#numpy-random-normal
+https://numpy.org/doc/stable/reference/generated/numpy.histogram.html#numpy-histogram
+
+Normal Distribution - Wikipedia
+https://en.wikipedia.org/wiki/Normal_distribution
+
+Matplotlib Documentation
+https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html#matplotlib-pyplot-hist
+
+Statsmodels Q-Q Plot
+https://www.statsmodels.org/stable/generated/statsmodels.graphics.gofplots.qqplot.html
+
+SciPy Documentation
+https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.shapiro.html#shapiro
+
+_______________________________________________________________________________________________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+# Task Three
+
+# Task Four
+
+# Task Five
+
+
+
+
 
 _______________________________________________________________________________________________________________________________________________________________________________________
 
