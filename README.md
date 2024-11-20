@@ -220,6 +220,163 @@ ________________________________________________________________________________
 
 # Task Three: t-Test Calculation
 
+## Overview
+# Task 3: Analysis of Resting Heart Rates Before and After Exercise Program
+
+## Dataset
+
+This task will consider the following dataset containing resting heart rates for patients before and after embarking on a two-week exercise program.
+
+| Patient ID | 0  | 1  | 2  | 3  | 4  | 5  | 6  | 7  | 8  | 9  |
+|------------|----|----|----|----|----|----|----|----|----|----|
+| Before     | 63 | 68 | 70 | 64 | 74 | 67 | 70 | 57 | 66 | 65 |
+| After      | 64 | 64 | 68 | 64 | 73 | 70 | 72 | 54 | 61 | 63 |
+
+## Objective
+
+Calculate the t-statistic based on this dataset using Python. Compare it to the value given by `scipy.stats`. Explain the work and list any sources used.
+
+## Task Requirements
+
+1. Calculate the differences between the before and after values.
+2. Compute the mean and standard deviation of the differences.
+3. Calculate the t-statistic using the formula: 
+
+$$ t = \frac{\bar{d}}{s_d / \sqrt{n}} $$
+
+where:
+
+- $\bar{d}$ is the mean of the differences,
+
+- $s_d$ is the standard deviation of the differences,
+
+- $n$ is the number of observations.
+
+4. Use `scipy.stats` to verify the t-statistic.
+
+## Importing Relevant Libraries
+```python
+import numpy as np
+from scipy import stats
+import matplotlib.pyplot as plt
+
+Steps to Complete the Task
+
+### Data
+before = np.array([63, 68, 70, 64, 74, 67, 70, 57, 66, 65])
+after = np.array([64, 64, 68, 64, 73, 70, 72, 54, 61, 63])
+
+### Step 1: Calculate the Differences
+differences = before - after
+
+### Step 2: Compute the Mean and Standard Deviation of the Differences
+mean_diff = np.mean(differences)
+std_diff = np.std(differences, ddof=1)  # ddof=1 for sample standard deviation
+n = len(differences)
+
+### Step 3: Calculate the t-statistic
+t_statistic = mean_diff / (std_diff / np.sqrt(n))
+print(f"Calculated t-statistic: {t_statistic}")
+
+### Step 4: Use scipy.stats to Verify the t-statistic
+t_statistic_scipy, p_value = stats.ttest_rel(before, after)
+print(f"scipy.stats t-statistic: {t_statistic_scipy}, p-value: {p_value}")
+
+### Results
+- Calculated t-statistic: 1.3372274824806283
+- scipy.statst-statistic: 1.337227482480628
+- p-value: 0.21396011317404623
+
+### Initial Analysis of Values
+t-statistic: A t-statistic of 1.337 suggests that the mean difference between the before and after heart rates is 1.337 standard deviations away from zero.
+p-value: A p-value of approximately 0.214 indicates that there is a 21.4% chance that the differences observed are due to random variation rather than a true effect of the exercise program. This p-value is greater than the common significance level of 0.05, indicating that the observed differences are not statistically significant.
+
+### Analysis Utilizing Various Charts
+__Generate Bar Chart__
+x = np.arange(len(before))
+width = 0.35  # the width of the bars
+
+fig, ax = plt.subplots()
+bars_before = ax.bar(x - width/2, before, width, label='Before', color='blue', alpha=0.7)
+bars_after = ax.bar(x + width/2, after, width, label='After', color='green', alpha=0.7)
+
+ax.set_xlabel('Patient ID')
+ax.set_ylabel('Heart Rate')
+ax.set_title('Heart Rates Before and After Exercise Program')
+ax.set_xticks(x)
+ax.set_xticklabels(range(len(before)))
+ax.legend()
+
+plt.show()
+
+__Generate Line Plot__
+plt.figure()
+plt.plot(range(len(before)), before, marker='o', linestyle='-', color='blue', label='Before')
+plt.plot(range(len(after)), after, marker='o', linestyle='-', color='green', label='After')
+plt.xlabel('Patient ID')
+plt.ylabel('Heart Rate')
+plt.title('Heart Rates Before and After Exercise Program')
+plt.legend()
+plt.show()
+
+__Generate Scatter Plot__
+plt.figure()
+plt.scatter(range(len(before)), before, color='blue', label='Before')
+plt.scatter(range(len(after)), after, color='green', label='After')
+plt.xlabel('Patient ID')
+plt.ylabel('Heart Rate')
+plt.title('Heart Rates Before and After Exercise Program')
+plt.legend()
+plt.show()
+
+__Generate Histogram__
+plt.figure(figsize=(10, 6))
+
+plt.hist(before, bins=10, color='blue', alpha=0.5, label='Before', edgecolor='black')
+plt.hist(after, bins=10, color='green', alpha=0.5, label='After', edgecolor='black')
+
+plt.title('Histogram of Heart Rates Before and After Exercise Program')
+plt.xlabel('Heart Rate')
+plt.ylabel('Frequency')
+plt.legend()
+
+plt.show()
+
+__Generate Box Plot__
+plt.figure(figsize=(10, 6))
+plt.boxplot([before, after], labels=['Before', 'After'], patch_artist=True,
+            boxprops=dict(facecolor='lightblue', color='blue'),
+            medianprops=dict(color='red'))
+
+plt.title('Box Plot of Heart Rates Before and After Exercise Program')
+plt.xlabel('Condition')
+plt.ylabel('Heart Rate')
+
+plt.show()
+
+### Conclusion
+
+The charts displayed values of heart rates before and after an exercise program.  The visual results matched the results of t-statistic which was verified using scipy.stats.
+Both the manually calculated t-statistic and the one from scipy.stats are the same, and the p-value suggests that the changes in heart rates are not statistically significant. 
+
+## Libraries Used
+Here are the libraries used in Task 3:
+NumPy: Essential for numerical computing. It supports arrays, matrices, and functions for high-level mathematical operations.
+SciPy: Provides functions for statistical tests, including the paired t-test.
+Matplotlib: A 2D plotting library for creating graphs and visualizations.
+These libraries are crucial for performing the calculations and visualizations required in this task.
+
+## References
+The following online resources were used to complete Task 3 in `tasks.ipynb` and compile content in the Task 3 section of the `README.md` document:
+
+1. [ATU Lectures - Applied Statistics, Dr Ian McLoughlin](https://vlegalwaymayo.atu.ie/course/view.php?id=10454)
+2. [Writing README.md files on GitHub](https://help.github.com/en/articles/basic-writing-and-formatting-syntax)
+3. [Creating tables in Markdown](https://www.makeuseof.com/tag/create-markdown-table/)
+4. [Statistical functions](https://docs.scipy.org/doc/scipy/reference/stats.html#statistical-functions-scipy-stats)
+5. [scipy.stats](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_rel.html#ttest-rel)
+
+_______________________________________________________________________________________________________________________________________________________________________________________
+
 
 # Task Four
 
