@@ -218,15 +218,8 @@ The following online resources were used to complete Task 2 in `tasks.ipynb` and
 
 _______________________________________________________________________________________________________________________________________________________________________________________
 
+# Task Three: t-Test Calculation
 
-
-
-
-
-
-
-
-# Task Three
 
 # Task Four
 
