@@ -361,6 +361,38 @@ plt.show()
 The charts displayed values of heart rates before and after an exercise program.  The visual results matched the results of t-statistic which was verified using scipy.stats.
 Both the manually calculated t-statistic and the one from scipy.stats are the same, and the p-value suggests that the changes in heart rates are not statistically significant. 
 
+### Assumptions
+
+The t-test makes five key assumptions:
+
+1. Paired Samples
+The t-test assumes that the data consists of paired samples. In this case, the heart rates before and after the exercise program are paired for each patient.
+
+2. Normality
+The differences between the paired samples (before and after values) should be approximately normally distributed. This assumption is crucial for the validity of the t-test results.
+
+3. Independence
+The pairs of observations (before and after values for each patient) should be independent of each other. This means that the heart rate measurements for one patient should not influence the measurements for another patient.
+
+4. Scale of Measurement
+The data should be measured on an interval or ratio scale. In this case, heart rates are measured on a ratio scale, which is appropriate for the t-test.
+
+5. No Significant Outliers
+The differences between the paired samples should not have significant outliers, as outliers can affect the results of the t-test.
+
+Summary of Assumptions
+Paired Samples: Each before value is paired with an after value for the same patient.
+
+Normality: The differences between the paired samples should be normally distributed.
+
+Independence: The pairs of observations should be independent of each other.
+
+Scale of Measurement: The data should be measured on an interval or ratio scale.
+
+No Significant Outliers: The differences should not have significant outliers.
+
+These assumptions ensured the validity and reliability of these t-test results. If any of these assumptions were violated, the results of the t-test would not be accurate.
+
 ## Libraries Used
 Here are the libraries used in Task 3:
 NumPy: Essential for numerical computing. It supports arrays, matrices, and functions for high-level mathematical operations.
@@ -376,6 +408,11 @@ The following online resources were used to complete Task 3 in `tasks.ipynb` and
 3. [Creating tables in Markdown](https://www.makeuseof.com/tag/create-markdown-table/)
 4. [Statistical functions](https://docs.scipy.org/doc/scipy/reference/stats.html#statistical-functions-scipy-stats)
 5. [scipy.stats](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_rel.html#ttest-rel)
+6. [Statology - The Four Assumptions Made in a T-Test](https://www.statology.org/t-test-assumptions/): This article explains the four key assumptions of a t-test, including independence, normality, homogeneity of variances, and random sampling.
+7. [Statistics for Research Students - Independent T-Test Assumptions](https://usq.pressbooks.pub/statisticsforresearchstudents/chapter/independent-t-test-assumptions/): This resource provides a detailed explanation of the assumptions underlying the independent t-test and how to interpret the results.
+8. [Statistics By Jim - T Test Overview](https://statisticsbyjim.com/hypothesis-testing/t-test/) : How to Use & Examples: This article offers an overview of different types of t-tests, their assumptions, and examples of how to use them.
+9. [Real Statistics Using Excel - Violations of T-Test Assumptions](https://real-statistics.com/students-t-distribution/problems-data-t-tests/): This page discusses what to do when the assumptions of a t-test are violated and provides references for further reading.
+10. [Datanovia - Independent T-Test Assumptions](https://www.datanovia.com/en/lessons/t-test-assumptions/independent-t-test-assumptions/): This tutorial explains the assumptions of the independent t-test and provides examples of how to check these assumptions using R.
 
 _______________________________________________________________________________________________________________________________________________________________________________________
 
