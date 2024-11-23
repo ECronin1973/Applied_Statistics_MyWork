@@ -429,19 +429,30 @@ ________________________________________________________________________________
 
 # Project 2024/2025 Applied Statistics
 
+### PlantGrowth Analysis 
+ 
 ### Overview
-In this project, you will analyze the [PlantGrowth R dataset](https://vincentarelbundock.github.io/Rdatasets/csv/datasets/PlantGrowth.csv).
-You will find [a short description](https://vincentarelbundock.github.io/Rdatasets/doc/datasets/PlantGrowth.html) of it on [Vicent Arel-Bundock's Rdatasets page](https://vincentarelbundock.github.io/Rdatasets/).
-The dataset contains two main variables, a treatment group and the weight of plants within those groups.
+This project analyzes the PlantGrowth dataset from Vicent Arel-Bundocks Rdatasets page. The dataset contains two main variables: a treatment group and the weight of plants within those groups. 
 
-### Objective
-Your task is to perform t-tests and ANOVA on this dataset while describing the dataset and explaining your work.
+## Steps
+1. **Download and Save the Dataset**: 
+- The dataset was downloaded from [Vicent Arel-Bundock's Rdatasets page](https://vincentarelbundock.github.io/Rdatasets/datasets.html) and saved to the repository.
 
-In doing this you should:
-1. Download and save the dataset to your repository.
-2. Describe the data set in your notebook.
-3. Describe what a t-test is, how it works, and what the assumptions are.
-3. Perform a t-test to determine whether there is a significant difference between the two treatment groups `trt1` and `trt2`.
-4. Perform ANOVA to determine whether there is a significant difference between the three treatment groups `ctrl`, `trt1`, and `trt2`.
-5. Explain why it is more appropriate to apply ANOVA rather than several t-tests when analyzing more than two groups.
-
+ 2. **Describe the Dataset**: 
+ - The dataset was loaded into a pandas DataFrame. 
+ - A summary of the dataset, including the number of observations, the variables, and their types, was provided. 
+ 
+ 3. **Perform t-tests and ANOVA**: 
+ - A t-test was performed to determine if there is a significant difference between the two treatment groups (trt1 and trt2). 
+ - ANOVA was performed to determine if there is a significant difference between the three treatment groups (ctrl, trt1, and trt2). 
+ 
+ 4. **Explain Your Work**: 
+ - A t-test is a statistical test used to compare the means of two groups. It assumes that the data is normally distributed and that the variances of the two groups are equal. 
+ - ANOVA (Analysis of Variance) is used to compare the means of three or more groups. It is more appropriate than multiple t-tests when analyzing more than two groups because it reduces the risk of Type I errors. 
+ 
+ ## Results 
+  - The t-test between trt1 and trt2 showed a p-value of X, indicating that there is/is not a significant difference between the two groups. 
+ - The ANOVA between ctrl, trt1, and trt2 showed a p-value of Y, indicating that there is/is not a significant difference between the three groups. 
+ 
+ ## Conclusion 
+ Based on the analysis, we can conclude that...
