@@ -510,39 +510,49 @@ Visualizations are essential for communicating your findings and making data-dri
  
  b.__Choosing the Type of t-test__
  https://statisticsbyjim.com/hypothesis-testing/t-test/
- Choosing the Type of t-test:
+  
  - Independent t-test: Compares the means of two independent groups.
  - Paired t-test: Compares means from the same group at different times (e.g., before and after a treatment)
  - One-sample t-test: Compares the mean of a single group against a known value or population mean 
 
  c. __Calculating the t-statistic:__ This involves the following steps;
  https://www.statisticshowto.com/probability-and-statistics/t-test/
+
  - Compute the mean and standard deviation of the groups
  - Use these values to calculate the t-statistic, which reflects the size of the difference relative to the variability in the data
 
  d. __Determining the p-value:__
  https://statisticsbyjim.com/hypothesis-testing/t-test/
+
  The p-value indicates the probability of obtaining the observed difference (or more extreme) under the null hypothesis. A low p-value (typically < 0.05) suggests that the observed difference is statistically significant
 
  ### Assumptions of a t-test
 
-__Normality:__ 
+ __Normality:__ 
   https://statisticsbyjim.com/hypothesis-testing/t-test/
  The data should be approximately normally distributed. This is especially important for small sample sizes
+
+ In the context of the PlantGrowth dataset, we need to check if the weights of the plants within each treatment group (ctrl, trt1, trt2) are normally distributed. This can be done using visual methods like histograms or Q-Q plots, or statistical tests like the Shapiro-Wilk test.
  
   __Homogeneity of Variances:__ 
  https://www.statisticshowto.com/probability-and-statistics/hypothesis-testing/anova/homogeneity-tests/
  The variances of the two groups should be equal. This assumption can be tested using tests such as Levene's test
 
+ For the PlantGrowth dataset, we need to ensure that the variances of the plant weights across the different treatment groups are equal. If the variances are not equal, the results of the t-test may not be valid.
+
  __Independence:__ 
  https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/independence-statistics/
  The observations within each group should be independent of each other
+
+ In the PlantGrowth dataset, this means that the weight of one plant should not influence the weight of another plant within the same treatment group. This assumption is crucial to ensure that the results of the t-test are valid.
 
  __Random sampling:__ 
  https://www.statology.org/t-test-assumptions/
  Both samples should be obtained using a random sampling method.
 
- It is important to note that if one or more of these assumptions are violated, then the results of the two sample t-test may be unreliable or even misleading (https://www.statology.org/t-test-assumptions/).
+ For the PlantGrowth dataset, this means that the plants should have been randomly assigned to the different treatment groups. Random sampling helps to ensure that the samples are representative of the population and that the results of the t-test are generalizable.
+
+ By ensuring that these assumptions are met, we can confidently perform t-tests on the PlantGrowth dataset to determine if there are significant differences in plant weights between the treatment groups.  It is important to note however, that if one or more of these assumptions are violated, then the results of the two sample t-test may be unreliable or even misleading. (https://www.statology.org/t-test-assumptions/).
 
  4. **Perform t-tests and ANOVA**: 
  - A t-test was performed to determine if there is a significant difference between the two treatment groups (trt1 and trt2). 
