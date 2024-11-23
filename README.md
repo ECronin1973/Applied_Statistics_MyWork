@@ -443,7 +443,7 @@ https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html
 1. Ease of Data Manipulation
 DataFrames provide a powerful and flexible way to manipulate and analyze data. They allow you to easily filter, sort, and transform data using intuitive syntax.
 For example, you can quickly select specific rows or columns, apply functions to the data, and perform aggregations.
-"Ease of Data Manipulation." pandas documentation, https://pandas.pydata.org/docs/.
+"Ease of Data Manipulation." pandas documentation, https://pandas.pydata.org/docs/#pandas-documentation
 
 2. Integration with Other Libraries
 pandas integrates seamlessly with other Python libraries commonly used in data analysis, such as NumPy, SciPy, Matplotlib, and Seaborn.
@@ -471,7 +471,7 @@ Visualizations are essential for communicating your findings and making data-dri
 "Data Visualization." pandas documentation, https://pandas.pydata.org/docs/user_guide/index.html.
 
  __Exploration of Dataset__
-  To get an initial look at the dataset, the first few rows were displayed using the head() method. This gives us a quick overview of the data.  Next, we provide a summary of the dataset using the describe() method. This method gives us important statistical information about the numerical columns in the dataset, such as the count, mean, standard deviation, minimum, and maximum values.
+  To get an initial look at the dataset, the first few rows were displayed using the head() method (https://www.w3schools.com/python/pandas/ref_df_head.asp). This gives us a quick overview of the data.  Next, we provide a summary of the dataset using the describe() method (https://www.w3schools.com/python/pandas/ref_df_describe.asp). This method gives us important statistical information about the numerical columns in the dataset, such as the count, mean, standard deviation, minimum, and maximum values.  To get information on the dataset such as the number of observation, the info() is used https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.info.html#pandas.DataFrame.info.
  
  __A summary of the dataset__
  Observations: The dataset contains 30 observations ie. there are 30 individual data points or entries in the dataset. Each observation represents a single instance of data collected for analysis. In this case, each observation corresponds to the weight of a plant and the treatment group it belongs to.
@@ -491,8 +491,60 @@ Visualizations are essential for communicating your findings and making data-dri
  Data Types: The weight variable is of type float64, the Unnamed: 0 variable is of type int64, and the group variable is of type object.
  https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dtypes.html
 
+ 3. **Describe what a t-test is, how it works and what the assumptions are**
+
+ ### What is a T-Test
+ https://www.scribbr.com/statistics/t-test/
+ a t-test is a statistical test used to compare the means of two groups to determine if they are significantly different from each other. This is a fundamental method in hypothesis testing to assess the differences between groups
+
+ ### How a T-Test Works
+ https://www.statisticshowto.com/probability-and-statistics/t-test/
+ A t-test is a statistical test used to compare the means of two groups to determine if they are significantly different from each other. This is a fundamental method in hypothesis testing to assess the differences between groups
+
+ a. __Formulating Hypotheses__
+ https://www.scribbr.com/statistics/t-test/
+ Formulating hypotheses is a crucial step in the t-test process, establishing a foundation for statistical analysis.
+
+ **Null Hypothesis (\(H_0\))**: Assumes there is no difference between the group means.
+ **Alternative Hypothesis (\(H_a\))**: Assumes there is a significant difference between the group means.
  
- 3. **Perform t-tests and ANOVA**: 
+ b.__Choosing the Type of t-test__
+ https://statisticsbyjim.com/hypothesis-testing/t-test/
+ Choosing the Type of t-test:
+ - Independent t-test: Compares the means of two independent groups.
+ - Paired t-test: Compares means from the same group at different times (e.g., before and after a treatment)
+ - One-sample t-test: Compares the mean of a single group against a known value or population mean 
+
+ c. __Calculating the t-statistic:__ This involves the following steps;
+ https://www.statisticshowto.com/probability-and-statistics/t-test/
+ - Compute the mean and standard deviation of the groups
+ - Use these values to calculate the t-statistic, which reflects the size of the difference relative to the variability in the data
+
+ d. __Determining the p-value:__
+ https://statisticsbyjim.com/hypothesis-testing/t-test/
+ The p-value indicates the probability of obtaining the observed difference (or more extreme) under the null hypothesis. A low p-value (typically < 0.05) suggests that the observed difference is statistically significant
+
+ ### Assumptions of a t-test
+
+__Normality:__ 
+  https://statisticsbyjim.com/hypothesis-testing/t-test/
+ The data should be approximately normally distributed. This is especially important for small sample sizes
+ 
+  __Homogeneity of Variances:__ 
+ https://www.statisticshowto.com/probability-and-statistics/hypothesis-testing/anova/homogeneity-tests/
+ The variances of the two groups should be equal. This assumption can be tested using tests such as Levene's test
+
+ __Independence:__ 
+ https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/independence-statistics/
+ The observations within each group should be independent of each other
+
+ __Random sampling:__ 
+ https://www.statology.org/t-test-assumptions/
+ Both samples should be obtained using a random sampling method.
+
+ It is important to note that if one or more of these assumptions are violated, then the results of the two sample t-test may be unreliable or even misleading (https://www.statology.org/t-test-assumptions/).
+
+ 4. **Perform t-tests and ANOVA**: 
  - A t-test was performed to determine if there is a significant difference between the two treatment groups (trt1 and trt2). 
  - ANOVA was performed to determine if there is a significant difference between the three treatment groups (ctrl, trt1, and trt2). 
  
@@ -506,3 +558,34 @@ Visualizations are essential for communicating your findings and making data-dri
  
  ## Conclusion 
  Based on the analysis, we can conclude that...
+
+ ## References
+1. [ATU Lectures - Applied Statistics, Dr Ian McLoughlin](https://vlegalwaymayo.atu.ie/course/view.php?id=10454)
+2. [Writing README.md files on GitHub](https://help.github.com/en/articles/basic-writing-and-formatting-syntax)
+3. [Creating tables in Markdown](https://www.makeuseof.com/tag/create-markdown-table/)
+4.  Dobson, A. J. (1983) An Introduction to Statistical Modelling. London: Chapman and Hall
+5. [Vicent Arel-Bundocks Rdatasets page](https://vincentarelbundock.github.io/Rdatasets/datasets.html)
+6. [pandas.DataFrame] (https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html)
+7. ["Ease of Data Manipulation." pandas documentation,](https://pandas.pydata.org/docs/#pandas-documentation)
+8. ["Integration with Other Libraries." pandas documentation,](https://pandas.pydata.org/docs/user_guide/index.html.)
+9. ["Handling Missing Data." pandas documentation,](https://pandas.pydata.org/docs/user_guide/missing_data.html.)
+10. ["Data Cleaning and Preparation." pandas documentation,](https://pandas.pydata.org/docs/user_guide/index.html.)
+11. ["Descriptive Statistics and Summarization." pandas documentation,](https://pandas.pydata.org/docs/user_guide/index.html.)
+12. ["Data Visualization." pandas documentation,](https://pandas.pydata.org/docs/user_guide/index.html.)
+13. [Pandas.DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.info.html#pandas-dataframe-info)
+13. [df.head()]((https://www.w3schools.com/python/pandas/ref_df_head.asp))
+14. [df.describe](https://www.w3schools.com/python/pandas/ref_df_describe.asp)
+15. [df.info](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.info.html#pandas.DataFrame.info)
+16. [pandas.DataFrame.columns](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.columns.html#pandas-dataframe-columns)
+17. [pandas.DataFrame.drop](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.drop.html#pandas-dataframe-drop)
+18. (https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html)
+19. [pandas.DataFrame.groupby](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html#pandas-dataframe-groupby)
+20. [pandas.DataFrame.dtypes](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dtypes.html#pandas-dataframe-dtypes)
+21. [scipy.stats](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_rel.html#ttest-rel)
+22. [Statology - The Four Assumptions Made in a T-Test](https://www.statology.org/t-test-assumptions/): This article explains the four key assumptions of a t-test, including independence, normality, homogeneity of variances, and random sampling.
+23. [Statistics for Research Students - Independent T-Test Assumptions](https://usq.pressbooks.pub/statisticsforresearchstudents/chapter/independent-t-test-assumptions/): This resource provides a detailed explanation of the assumptions underlying the independent t-test and how to interpret the results.
+24. [Statistics How To] (https://www.statisticshowto.com/probability-and-statistics/t-test/): Definition and Examples of T-Test, What is a T-Test, The T Score, T Values and P Values, Calculating the T Test, What is a paired T-Test.
+25. [Statistics By Jim - T Test Overview](https://statisticsbyjim.com/hypothesis-testing/t-test/) : How to Use & Examples: This article offers an overview of different types of t-tests, their assumptions, and examples of how to use them.
+26. ["T Test (Student’s T-Test): Definition and Examples." Statistics How To,](https://www.statisticshowto.com/probability-and-statistics/t-test/.)
+27. [Real Statistics Using Excel - Violations of T-Test Assumptions](https://real-statistics.com/students-t-distribution/problems-data-t-tests/): This page discusses what to do when the assumptions of a t-test are violated and provides references for further reading.
+28. [Datanovia - Independent T-Test Assumptions](https://www.datanovia.com/en/lessons/t-test-assumptions/independent-t-test-assumptions/): This tutorial explains the assumptions of the independent t-test and provides examples of how to check these assumptions using R.
