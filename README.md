@@ -447,26 +447,31 @@ For example, you can quickly select specific rows or columns, apply functions to
 
 2. Integration with Other Libraries
 pandas integrates seamlessly with other Python libraries commonly used in data analysis, such as NumPy, SciPy, Matplotlib, and Seaborn.
+
 This integration makes it easy to perform complex statistical analyses, create visualizations, and conduct machine learning tasks.
 "Integration with Other Libraries." pandas documentation, https://pandas.pydata.org/docs/user_guide/index.html.
 
 3. Handling Missing Data
 DataFrames provide robust methods for handling missing data. You can easily identify, fill, or drop missing values, ensuring that your analysis is accurate and reliable.
+
 "Handling Missing Data." pandas documentation, https://pandas.pydata.org/docs/user_guide/missing_data.html.
 
 4. Data Cleaning and Preparation
 pandas offers a wide range of functions for cleaning and preparing data. You can remove duplicates, convert data types, and handle categorical data with ease.
+
 This is crucial for ensuring that your data is in the right format for analysis.
 "Data Cleaning and Preparation." pandas documentation, https://pandas.pydata.org/docs/user_guide/index.html.
 
 5. Descriptive Statistics and Summarization
 DataFrames make it easy to generate descriptive statistics and summaries of your data. You can quickly calculate measures such as mean, median, standard deviation, and more.
+
 This helps you understand the distribution and characteristics of your data before performing more advanced analyses.
 "Descriptive Statistics and Summarization." pandas documentation, https://pandas.pydata.org/docs/user_guide/index.html.
 
 
 6. Data Visualization
 pandas works well with visualization libraries like Matplotlib and Seaborn. You can create a wide range of plots and charts to visualize your data and gain insights.
+
 Visualizations are essential for communicating your findings and making data-driven decisions 
 "Data Visualization." pandas documentation, https://pandas.pydata.org/docs/user_guide/index.html.
 
@@ -554,8 +559,52 @@ Visualizations are essential for communicating your findings and making data-dri
 
  By ensuring that these assumptions are met, we can confidently perform t-tests on the PlantGrowth dataset to determine if there are significant differences in plant weights between the treatment groups.  It is important to note however, that if one or more of these assumptions are violated, then the results of the two sample t-test may be unreliable or even misleading. (https://www.statology.org/t-test-assumptions/).
 
- 4. **Perform t-tests and ANOVA**: 
- - A t-test was performed to determine if there is a significant difference between the two treatment groups (trt1 and trt2). 
+ 4. **Perform t-test**: 
+ - A t-test was performed to determine if there is a significant difference between the two treatment groups (trt1 and trt2). The following values were extracted from running the code:
+ 
+ __t-statistic value -3.0100985421243616.__  
+ The t-statistic measures the size of the difference relative to the variation in the sample data. It represents the standardized difference between the means of the two groups (trt1 and trt2). Here’s what this value means:
+ - A negative t-statistic indicates that the mean of the first group (trt1) is less than the mean of the second group (trt2).
+ - The magnitude of the t-statistic (-3.01 in this case) indicates how many standard deviations the means are apart. A value of -3.01 suggests that the means are about 3 standard deviations apart, which is quite substantial.
+ 
+ __p-value: 0.0075184261182198574__
+ The p-value helps determine the significance of these results. Here’s what it means:
+ - The p-value represents the probability of obtaining test results at least as extreme as the observed results, under the null hypothesis (which assumes that there is no difference between the group means).
+ - A p-value of 0.0075 is less than the common significance threshold of 0.05, indicating strong evidence against the null hypothesis.
+ 
+ __Conclusion:__  Since the p-value is less than 0.05, we reject the null hypothesis. This means that there is a statistically significant difference between the means of the two treatment groups (trt1 and trt2).
+
+ __Summary__
+ The t-statistic of -3.01 suggests a significant difference in the means of the trt1 and trt2 groups, with the mean of trt1 being lower than that of trt2. 
+
+ The p-value of 0.0075 indicates that this difference is statistically significant, meaning it is very unlikely to have occurred by chance.
+
+ This analysis shows that the treatment group trt2 has a significantly different effect on plant growth compared to the treatment group trt1, under the conditions of this experiment.
+
+ __Plots Used__
+ A number of plots were generated to visually display the difference between the two treatment groups (trt1 and trt2).  In addition to the t-statistic and p-values, it is easily visible to significant difference between both groups.
+ 
+ Plots were used as they have numerous benefits, especially in data analysis, interpretation, and communication. The following are the reasons plots were used:
+
+ 1. Enhanced Understanding
+  https://www.tandfonline.com/doi/abs/10.1080/01621459.1984.10478080)
+  Plots helped in visualizing the complex data being analysed, which made it easier to understand patterns, trends, and relationships that might be missed in tabular data. They provided a clear, visual summary of the data which is more intuitive.
+
+ 2. Efficient Communication
+  https://www.edwardtufte.com/tufte/books_vdqi
+ Visualizations convey information quickly and effectively to a broad audience, including those who may not have a strong background in statistics or data analysis. They can highlight key findings, making presentations more engaging and informative.
+
+ 3. Comparison
+ https://www.goodreads.com/book/show/526835.Exploratory_Data_Analysis
+ Plots make it easy to compare different datasets or groups. For instance, bar plots and box plots can succinctly show differences in means or distributions, facilitating comparative analysis.
+
+ 4. Improved Memory Retention
+ https://academic.oup.com/book/29962
+ People tend to remember visual information better than text or numbers alone. Effective visualizations can make a lasting impression and improve the retention of information.
+
+
+ 5. **Perform ANOVA test**: 
+
  - ANOVA was performed to determine if there is a significant difference between the three treatment groups (ctrl, trt1, and trt2). 
  
  4. **Explain Your Work**: 
@@ -599,3 +648,7 @@ Visualizations are essential for communicating your findings and making data-dri
 26. ["T Test (Student’s T-Test): Definition and Examples." Statistics How To,](https://www.statisticshowto.com/probability-and-statistics/t-test/.)
 27. [Real Statistics Using Excel - Violations of T-Test Assumptions](https://real-statistics.com/students-t-distribution/problems-data-t-tests/): This page discusses what to do when the assumptions of a t-test are violated and provides references for further reading.
 28. [Datanovia - Independent T-Test Assumptions](https://www.datanovia.com/en/lessons/t-test-assumptions/independent-t-test-assumptions/): This tutorial explains the assumptions of the independent t-test and provides examples of how to check these assumptions using R.
+29. [Cleveland, W.S., & McGill, R. (1984). Graphical Perception: Theory, Experimentation, and Application to the Development of Graphical Methods. Journal of the American Statistical Association, 79(387), 531-554] (https://www.tandfonline.com/doi/abs/10.1080/01621459.1984.10478080)
+30. [Tufte, E.R. (2001). The Visual Display of Quantitative Information. Graphics Press.] (https://www.edwardtufte.com/tufte/books_vdqi)
+31.  [Few, S. (2012). Show Me the Numbers: Designing Tables and Graphs to Enlighten. Analytics Press.] https://www.goodreads.com/book/show/526835.Exploratory_Data_Analysis
+32. [Paivio, A. (1990). Mental Representations: A Dual Coding Approach. Oxford University Press](https://academic.oup.com/book/29962)
