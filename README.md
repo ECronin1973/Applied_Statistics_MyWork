@@ -436,11 +436,29 @@ This project analyzes the PlantGrowth dataset from Vicent Arel-Bundocks Rdataset
 
 ## Steps
 1. **Download and Save the Dataset**: 
-- The dataset was downloaded from [Vicent Arel-Bundock's Rdatasets page](https://vincentarelbundock.github.io/Rdatasets/datasets.html) and saved to the repository.
+- The dataset was downloaded from [Vicent Arel-Bundocks Rdatasets page](https://vincentarelbundock.github.io/Rdatasets/datasets.html) and saved to the repository.
 
  2. **Describe the Dataset**: 
- - The dataset was loaded into a pandas DataFrame. 
- - A summary of the dataset, including the number of observations, the variables, and their types, was provided. 
+ - The dataset was loaded into a pandas DataFrame. To get an initial look at the dataset, the first few rows were displayed using the head() method. This gives us a quick overview of the data.  Next, we provide a summary of the dataset using the describe() method. This method gives us important statistical information about the numerical columns in the dataset, such as the count, mean, standard deviation, minimum, and maximum values.
+ 
+ A summary of the dataset
+ Observations: The dataset contains 30 observations ie. there are 30 individual data points or entries in the dataset. Each observation represents a single instance of data collected for analysis. In this case, each observation corresponds to the weight of a plant and the treatment group it belongs to.
+
+ Variables: There are three variables in the dataset weight:
+ # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.columns.html
+
+ Unnamed: 0: This appears to be an index column t appears to be automatically generated when the dataset was created and can be ignored for analysis.
+ # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.drop.html
+
+ weight: This is a numerical variable representing the weight of the plants.  It is measured in some unit (likely grams or kilograms, though the dataset does not specify)
+ # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html
+
+ group: This is a categorical variable representing the treatment group to which each plant belongs. The groups are ctrl (control), trt1 (treatment 1), and trt2 (treatment 2).
+ # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html
+
+ Data Types: The weight variable is of type float64, the Unnamed: 0 variable is of type int64, and the group variable is of type object.
+ # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dtypes.html
+
  
  3. **Perform t-tests and ANOVA**: 
  - A t-test was performed to determine if there is a significant difference between the two treatment groups (trt1 and trt2). 
