@@ -443,19 +443,19 @@ This project analyzes the PlantGrowth dataset from Vicent Arel-Bundocks Rdataset
  Observations: The dataset contains 30 observations ie. there are 30 individual data points or entries in the dataset. Each observation represents a single instance of data collected for analysis. In this case, each observation corresponds to the weight of a plant and the treatment group it belongs to.
 
  Variables: There are three variables in the dataset weight:
- # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.columns.html
+ https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.columns.html
 
  Unnamed: 0: This appears to be an index column t appears to be automatically generated when the dataset was created and can be ignored for analysis.
- # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.drop.html
+ https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.drop.html
 
  weight: This is a numerical variable representing the weight of the plants.  It is measured in some unit (likely grams or kilograms, though the dataset does not specify)
- # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html
+ https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html
 
  group: This is a categorical variable representing the treatment group to which each plant belongs. The groups are ctrl (control), trt1 (treatment 1), and trt2 (treatment 2).
- # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html
+ https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html
 
  Data Types: The weight variable is of type float64, the Unnamed: 0 variable is of type int64, and the group variable is of type object.
- # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dtypes.html
+ https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dtypes.html
 
  
  3. **Perform t-tests and ANOVA**: 
