@@ -613,28 +613,43 @@ Visualizations are essential for communicating your findings and making data-dri
  The ANOVA test results indicate that there is a significant difference in plant weights between at least two of the treatment groups (ctrl, trt1, and trt2). This suggests that the treatment applied to the plants has a measurable effect on their weights.   The differences can be visually observed in the scatter plot. 
  
  
- 4. **Explain Your Work**
+## Explain Your Work
 
  __Consideration of Effect Sizes__
+
  https://www.datacamp.com/tutorial/anova-test
+
  I firstly looked at effect size as it is a crucial metric in statistical analysis that measures the magnitude of the difference between groups. Unlike p-values, which only tell us whether a difference exists, effect size quantifies the size of that difference, providing more context on the practical significance of the findings. Effect size helps in understanding how large or small the observed effect is, beyond just knowing that it is statistically significant. Effect size complements p-values by providing additional information, helping in understanding the strength and importance of the findings.
 
  __Types of Effect Size__
+
  There are two different effect types identified.  The first is relevant to the t-test, the latter is relevant to ANOVA test.
 
- **Cohen's d**
+ **Cohen's d Effect**
+
  https://www.statology.org/interpret-cohens-d/
+
  Cohen's d is a measure of effect size used to indicate the standardized difference between two means. It is calculated as the difference between two means divided by the pooled standard deviation. Cohen's d values can be interpreted as follows:
+
  Small effect: d = 0.2
+
  Medium effect: d = 0.5
+
  Large effect: d = 0.8
 
- **Eta Squared (η²)**
+ **Eta Squared (η²) Effect**
+
  https://www.statology.org/eta-squared/
+
  Eta squared is used in the context of ANOVA to measure the proportion of total variance that is attributed to an effect. It ranges from 0 to 1, with higher values indicating a larger effect size. Eta squared can be interpreted as follows:
+
  Small effect: η² = 0.01
+
  Medium effect: η² = 0.06
+
  Large effect: η² = 0.14
+ 
+ **Applying Effect Size to t-test and ANOVA test results**
  
  In the context of the PlantGrowth dataset, calculating the effect size can provide additional insights into the differences between treatment groups. When comparing the two treatment groups (trt1 and trt2) using a t-test, Cohen's d is calculated to measure the effect size. In this project, the mean weight of trt1 is 4.661 and the mean weight of trt2 is 5.526, and the pooled standard deviation is 0.5, Cohen's d can be calculated as 0.865. A Cohen's d of 0.865 indicates a large effect size, suggesting a substantial difference between the two treatment groups.
 
@@ -642,27 +657,29 @@ Visualizations are essential for communicating your findings and making data-dri
 
  The effect size will be referenced in the conclusion as it provides a more comprehensive interpretation of the results, highlighting not only whether the differences are statistically significant but also how meaningful they are in practical terms.
  
- __t-test Performed__
- A t-test was performed to determine if there is a significant difference between the two treatment groups (trt1 and trt2). The following values were extracted from running the code:
+  ## t-test Performed
 
- t-statistic value -3.0100985421243616:
+  A t-test was performed to determine if there is a significant difference between the two treatment groups (trt1 and trt2). The following values were extracted from running the code:
 
- The t-statistic measures the size of the difference relative to the variation in the sample data. It represents the standardized difference between the means of the two groups (trt1 and trt2). Here’s what this value means:
+  t-statistic value -3.0100985421243616:
 
- A negative t-statistic indicates that the mean of the first group (trt1) is less than the mean of the second group (trt2).
+  The t-statistic measures the size of the difference relative to the variation in the sample data. It represents the standardized difference between the means of the two groups (trt1 and trt2). Here’s what this value means:
 
- The magnitude of the t-statistic (-3.01 in this case) indicates how many standard deviations the means are apart. A value of -3.01 suggests that the means are about 3 standard deviations apart, which is quite substantial.
+  A negative t-statistic indicates that the mean of the first group (trt1) is less than the mean of the second group (trt2).
 
- p-value: 0.0075184261182198574:
+  The magnitude of the t-statistic (-3.01 in this case) indicates how many standard deviations the means are apart. A value of -3.01 suggests that the means are about 3 standard deviations apart, which is quite substantial.
 
- The p-value helps determine the significance of these results. Here’s what it means:
+  p-value: 0.0075184261182198574:
 
- The p-value represents the probability of obtaining test results at least as extreme as the observed results, under the null hypothesis (which assumes that there is no difference between the group means).
+  The p-value helps determine the significance of these results. Here’s what it means:
 
- A p-value of 0.0075 is less than the common significance threshold of 0.05, indicating strong evidence against the null hypothesis.
+  The p-value represents the probability of obtaining test results at least as extreme as the observed results, under the null hypothesis (which assumes that there is no difference between the group means).
 
- __ANOVA test Performed__ 
- ANOVA was performed to determine if there is a significant difference between the three treatment groups (ctrl, trt1, and trt2). The result of the test was:
+  A p-value of 0.0075 is less than the common significance threshold of 0.05, indicating strong evidence against the null hypothesis.
+
+ ## ANOVA test Performed
+
+ ANOVA test was performed to determine if there is a significant difference between the three treatment groups (ctrl, trt1, and trt2). The result of the test was:
 
  ANOVA F-statistic: 4.846087862380136:
 
