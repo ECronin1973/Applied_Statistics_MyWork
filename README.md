@@ -101,7 +101,7 @@ The following online resources were used to complete Task 1 in `tasks.ipynb` and
 15. [Fisher's Tea Experiment](https://lisds.github.io/textbook/wild-pandas/fishers_tea.html)
 16. *Python for Data Analysis*, Wes McKinney, O'Reilly, Third Edition
 
-_______________________________________________________________________________________________________________________________________________________________________________________
+# END
 
 # Task 2: Assessing Normality of `numpy.random.normal()`
 
@@ -113,7 +113,7 @@ In this task, we will assess whether `numpy.random.normal()` properly generates 
 1.Generate a Sample
 Use the `numpy.random.normal()` function to generate a sample of 100,000 values with a mean of 10.0 and a standard deviation of 3.0.
 
-```python
+python
 import numpy as np
 
 mean = 10.0
@@ -195,7 +195,6 @@ Based on the results of the above tests we can conclude that the sample is likel
 
 In order to complete this task, I performed a google search on testing for Normality in Python.  The website Statology gave me a good approach in addition to the great instruction I received when completing the online ATU lectures. I identified a useful youtube video titled 'Normality test - Simply explained'.  This video taught me that there are two ways to test for normal distribution 1. Analytical and 2. Graphically. There are three tests identified for Analytical testing 1. Shapiro-Wilk Test, 2. Kolmogorov-Smirnov Test and 3. Anderson-Darling Test. the objective of each of the tests is to determine if the p-value is smaller than 0.05.  If it is smaller,  Normal Distribution is not assumed.  If greater than 0.05 we assume normal distribution.  The disadvantage of analytical testing is the calculated p-value depends on the sample size (the larger the sample, the smaller the potential p-value). With a very large sample, it could be the case that the p-value is smaller than 0.05 and thus reject the null hypotesis, that it is a normal distribution.  To get around this problem, graphical tests of normal distribution are being used.  For graphical tests we either look at the histogram or QQ-Plot. If using the histogram we plot the normal distribution in the histogram of the data to see whether the curve of the normal distribution roughly corresponds to that of the normal distribution curve. The QQ-Plot is better as the Theoretical Quantiles the data should have if they are perfectly normally distributed and the quantiles of the measured values are compared. If the data is perfectly normally distributed, all points would lie on the line. The more the data deviates form the line, the less it is normall distributed. In addition, data that plots the 95% interval, if all your data lies within this interval, it is a very strong indication that  the data is normally distributed.  The 95% interval was further explored in Wikipedia (97.5th percentile point) where it states in probability and statistics, the 97.5th percentile point of the standard normal distribution is a number commonly used for statistical calculations. The approximate value of this number is 1.96, meaning that 95% of the area under a normal curve lies within approximately 1.96 standard deviations of the mean.    
 
-
 ## Libraries Used
 numpy: For numerical operations and generating random samples.
 scipy.stats: For statistical tests and probability distributions.
@@ -217,13 +216,12 @@ The following online resources were used to complete Task 2 in `tasks.ipynb` and
 11. [Normality test - Simply Explained](https://www.youtube.com/watch?v=AVketBmpUTE)
 12. [97.5 th Percentile Point](https://en.wikipedia.org/wiki/97.5th_percentile_point)
 
+# END
 
-_______________________________________________________________________________________________________________________________________________________________________________________
-
-# Task Three: t-Test Calculation
+# Task 3: t-Test Calculation
 
 ## Overview
-# Task 3: Analysis of Resting Heart Rates Before and After Exercise Program
+### Analysis of Resting Heart Rates Before and After Exercise Program
 
 ## Dataset
 
@@ -257,7 +255,7 @@ where:
 4. Use `scipy.stats` to verify the t-statistic.
 
 ## Importing Relevant Libraries
-```python
+python
 import numpy as np
 from scipy import stats
 import matplotlib.pyplot as plt
@@ -380,7 +378,7 @@ The data should be measured on an interval or ratio scale. In this case, heart r
 5. No Significant Outliers
 The differences between the paired samples should not have significant outliers, as outliers can affect the results of the t-test.
 
-Summary of Assumptions
+### Summary of Assumptions
 Paired Samples: Each before value is paired with an after value for the same patient.
 
 Normality: The differences between the paired samples should be normally distributed.
@@ -394,7 +392,7 @@ No Significant Outliers: The differences should not have significant outliers.
 These assumptions ensured the validity and reliability of these t-test results. If any of these assumptions were violated, the results of the t-test would not be accurate.
 
 ## Libraries Used
-Here are the libraries used in Task 3:
+The folowing libraries were used in Task 3:
 NumPy: Essential for numerical computing. It supports arrays, matrices, and functions for high-level mathematical operations.
 SciPy: Provides functions for statistical tests, including the paired t-test.
 Matplotlib: A 2D plotting library for creating graphs and visualizations.
@@ -414,7 +412,7 @@ The following online resources were used to complete Task 3 in `tasks.ipynb` and
 9. [Real Statistics Using Excel - Violations of T-Test Assumptions](https://real-statistics.com/students-t-distribution/problems-data-t-tests/): This page discusses what to do when the assumptions of a t-test are violated and provides references for further reading.
 10. [Datanovia - Independent T-Test Assumptions](https://www.datanovia.com/en/lessons/t-test-assumptions/independent-t-test-assumptions/): This tutorial explains the assumptions of the independent t-test and provides examples of how to check these assumptions using R.
 
-_______________________________________________________________________________________________________________________________________________________________________________________
+# END
 
 
 # Task Four
@@ -441,7 +439,7 @@ This project analyzes the PlantGrowth dataset from Vicent Arel-Bundocks Rdataset
  2. **Describe the Dataset**: 
  - The dataset was loaded into a pandas DataFrame. To get an initial look at the dataset, the first few rows were displayed using the head() method. This gives us a quick overview of the data.  Next, we provide a summary of the dataset using the describe() method. This method gives us important statistical information about the numerical columns in the dataset, such as the count, mean, standard deviation, minimum, and maximum values.
  
- A summary of the dataset
+ __A summary of the dataset__
  Observations: The dataset contains 30 observations ie. there are 30 individual data points or entries in the dataset. Each observation represents a single instance of data collected for analysis. In this case, each observation corresponds to the weight of a plant and the treatment group it belongs to.
 
  Variables: There are three variables in the dataset weight:
