@@ -430,186 +430,252 @@ The following online resources were used to complete Task 3 in `tasks.ipynb` and
 ### PlantGrowth Analysis 
  
 ### Overview
+
 This project analyzes the PlantGrowth dataset from Vicent Arel-Bundocks Rdatasets page. The dataset contains two main variables: a treatment group and the weight of plants within those groups. 
 
-## Steps
- ### 1. Download and Save the Dataset: 
+## Step 1. Download and Save the Dataset: 
+
  - The dataset was downloaded from [Vicent Arel-Bundocks Rdatasets page](https://vincentarelbundock.github.io/Rdatasets/datasets.html) and saved to the repository.
 
- ### 2. Describe the Dataset: 
- - The dataset was loaded into pandas DataFrame as it is a common practice in data analysis for several reasons:
-https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html
+ ## 2. Describe the Dataset: 
 
-__Ease of Data Manipulation__
-DataFrames provide a powerful and flexible way to manipulate and analyze data. They allow you to easily filter, sort, and transform data using intuitive syntax.
-For example, you can quickly select specific rows or columns, apply functions to the data, and perform aggregations.
-"Ease of Data Manipulation." pandas documentation, https://pandas.pydata.org/docs/#pandas-documentation
+ The dataset was loaded into pandas DataFrame as it is a common practice in data analysis for several reasons:
 
-__Integration with Other Libraries__
-pandas integrates seamlessly with other Python libraries commonly used in data analysis, such as NumPy, SciPy, Matplotlib, and Seaborn.
-This integration makes it easy to perform complex statistical analyses, create visualizations, and conduct machine learning tasks.
-"Integration with Other Libraries." pandas documentation, https://pandas.pydata.org/docs/user_guide/index.html.
-
-__Handling Missing Data__
-DataFrames provide robust methods for handling missing data. You can easily identify, fill, or drop missing values, ensuring that your analysis is accurate and reliable.
-"Handling Missing Data." pandas documentation, https://pandas.pydata.org/docs/user_guide/missing_data.html.
-
-__Data Cleaning and Preparation__
-pandas offers a wide range of functions for cleaning and preparing data. You can remove duplicates, convert data types, and handle categorical data with ease.
-This is crucial for ensuring that your data is in the right format for analysis.
-"Data Cleaning and Preparation." pandas documentation, https://pandas.pydata.org/docs/user_guide/index.html.
-
-__Descriptive Statistics and Summarization__
-DataFrames make it easy to generate descriptive statistics and summaries of your data. You can quickly calculate measures such as mean, median, standard deviation, and more.  This helps you understand the distribution and characteristics of your data before performing more advanced analyses.
-"Descriptive Statistics and Summarization." pandas documentation, https://pandas.pydata.org/docs/user_guide/index.html.
-
-
-__Data Visualization__
-pandas works well with visualization libraries like Matplotlib and Seaborn. You can create a wide range of plots and charts to visualize your data and gain insights.
-Visualizations are essential for communicating your findings and making data-driven decisions 
-"Data Visualization." pandas documentation, https://pandas.pydata.org/docs/user_guide/index.html.
-
- __Exploration of Dataset__
-  To get an initial look at the dataset, the first few rows were displayed using the [head() method](https://www.w3schools.com/python/pandas/ref_df_head.asp). This gives us a quick overview of the data.  Next, we provide a summary of the dataset using the [describe() method](https://www.w3schools.com/python/pandas/ref_df_describe.asp). This method gives us important statistical information about the numerical columns in the dataset, such as the count, mean, standard deviation, minimum, and maximum values.  To get information on the dataset such as the number of observation, the [info() is used](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.info.html#pandas.DataFrame.info.)
- 
- __A summary of the dataset__
- Observations: The dataset contains 30 observations i.e., there are 30 individual data points or entries in the dataset. Each observation represents a single instance of data collected for analysis. In this case, each observation corresponds to the weight of a plant and the treatment group it belongs to.
-
- Variables: There are three variables in the dataset weight:
- https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.columns.html
-
- __Unnamed: 0__: This appears to be an index column t appears to be automatically generated when the dataset was created and can be ignored for analysis.
- https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.drop.html
-
- __weight__: This is a numerical variable representing the weight of the plants.  It is measured in some unit (likely grams or kilograms, though the dataset does not specify)
  https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html
 
- __group__: This is a categorical variable representing the treatment group to which each plant belongs. The groups are ctrl (control), trt1 (treatment 1), and trt2 (treatment 2).
+ __Ease of Data Manipulation__
+
+ DataFrames provide a powerful and flexible way to manipulate and analyze data. They allow you to easily filter, sort, and transform data using intuitive syntax.
+ For example, you can quickly select specific rows or columns, apply functions to the data, and perform aggregations.
+ 
+ "Ease of Data Manipulation." pandas documentation, https://pandas.pydata.org/docs/#pandas-documentation
+
+ __Integration with Other Libraries__
+
+ pandas integrates seamlessly with other Python libraries commonly used in data analysis, such as NumPy, SciPy, Matplotlib, and Seaborn.
+ This integration makes it easy to perform complex statistical analyses, create visualizations, and conduct machine learning tasks.
+ 
+ "Integration with Other Libraries." pandas documentation, https://pandas.pydata.org/docs/user_guide/index.html.
+ 
+ __Handling Missing Data__
+
+ DataFrames provide robust methods for handling missing data. You can easily identify, fill, or drop missing values, ensuring that your analysis is accurate and reliable.
+ 
+ "Handling Missing Data." pandas documentation, https://pandas.pydata.org/docs/user_guide/missing_data.html.
+ 
+ __Data Cleaning and Preparation__
+
+ pandas offers a wide range of functions for cleaning and preparing data. You can remove duplicates, convert data types, and handle categorical data with ease.
+ This is crucial for ensuring that your data is in the right format for analysis.
+ 
+ "Data Cleaning and Preparation." pandas documentation, https://pandas.pydata.org/docs/user_guide/index.html.
+ 
+ __Descriptive Statistics and Summarization__
+
+ DataFrames make it easy to generate descriptive statistics and summaries of your data. You can quickly calculate measures such as mean, median, standard deviation, and  
+ 
+ "Descriptive Statistics and Summarization." pandas documentation, https://pandas.pydata.org/docs/user_guide/index.html.
+ 
+ 
+ __Data Visualization__
+
+ pandas works well with visualization libraries like Matplotlib and Seaborn. You can create a wide range of plots and charts to visualize your data and gain insights.
+ Visualizations are essential for communicating your findings and making data-driven decisions 
+ 
+ "Data Visualization." pandas documentation, https://pandas.pydata.org/docs/user_guide/index.html.
+
+ ### Exploration of Dataset
+
+  - To get an initial look at the dataset, the first few rows were displayed using the [head() method](https://www.w3schools.com/python/pandas/ref_df_head.asp). This gives us a quick overview of the data.  
+  - Next, we provide a summary of the dataset using the [describe() method](https://www.w3schools.com/python/pandas/ref_df_describe.asp). This method gives us important statistical information about the numerical columns in the dataset, such as the count, mean, standard deviation, minimum, and maximum values. 
+  - To get information on the dataset such as the number of observation, the [info() is used](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.info.html#pandas.DataFrame.info.)
+ 
+ ### A summary of the dataset
+
+ __Observations:__ The dataset contains 30 observations i.e., there are 30 individual data points or entries in the dataset. Each observation represents a single instance of data collected for analysis. In this case, each observation corresponds to the weight of a plant and the treatment group it belongs to.
+
+ __Variables:__ There are three variables in the dataset weight:
+
+ https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.columns.html
+
+ __Unnamed: 0__: 
+ 
+ This appears to be an index column t appears to be automatically generated when the dataset was created and can be ignored for analysis.
+
+ https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.drop.html
+
+ __weight__: 
+ 
+ This is a numerical variable representing the weight of the plants.  It is measured in some unit (likely grams or kilograms, though the dataset does not specify)
+
+ https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html
+
+ __group__: 
+ 
+ This is a categorical variable representing the treatment group to which each plant belongs. The groups are ctrl (control), trt1 (treatment 1), and trt2 (treatment 2).
+
  https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html
 
- Data Types: The weight variable is of type float64, the Unnamed: 0 variable is of type int64, and the group variable is of type object.
+
+ Data Types: 
+ 
+ The weight variable is of type float64, the Unnamed: 0 variable is of type int64, and the group variable is of type object.
+ 
  https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dtypes.html
 
- ## 3. Describe what a t-test is, how it works and what the assumptions are
+ ## What is a T-Test ?
 
- ### What is a T-Test ?
  https://www.scribbr.com/statistics/t-test/
+
  a t-test is a statistical test used to compare the means of two groups to determine if they are significantly different from each other. This is a fundamental method in hypothesis testing to assess the differences between groups
 
- ### How does a T-Test Work?
+ ##  How does a T-Test Work?
+
  https://www.statisticshowto.com/probability-and-statistics/t-test/
+
  A t-test is a statistical test used to compare the means of two groups to determine if they are significantly different from each other. This is a fundamental method in hypothesis testing to assess the differences between groups
 
- a. __Formulating Hypotheses__
+### Formulating Hypotheses
+
  https://www.scribbr.com/statistics/t-test/
+
  Formulating hypotheses is a crucial step in the t-test process, establishing a foundation for statistical analysis.
 
- **Null Hypothesis (\(H_0\))**: Assumes there is no difference between the group means.
- **Alternative Hypothesis (\(H_a\))**: Assumes there is a significant difference between the group means.
+ - **Null Hypothesis (\(H_0\))**: Assumes there is no difference between the group means.
+ - **Alternative Hypothesis (\(H_a\))**: Assumes there is a significant difference between the group means.
  
- b.__Choosing the Type of t-test__
+ ### Choosing the Type of t-test
+
  https://statisticsbyjim.com/hypothesis-testing/t-test/
   
  - Independent t-test: Compares the means of two independent groups.
  - Paired t-test: Compares means from the same group at different times (e.g., before and after a treatment)
  - One-sample t-test: Compares the mean of a single group against a known value or population mean 
 
- c. __Calculating the t-statistic:__ This involves the following steps;
+ ### Calculating the t-statistic: This involves the following steps
+
  https://www.statisticshowto.com/probability-and-statistics/t-test/
 
  - Compute the mean and standard deviation of the groups
  - Use these values to calculate the t-statistic, which reflects the size of the difference relative to the variability in the data
 
- d. __Determining the p-value:__
+ ### Determining the p-value:
+
  https://statisticsbyjim.com/hypothesis-testing/t-test/
 
- The p-value indicates the probability of obtaining the observed difference (or more extreme) under the null hypothesis. A low p-value (typically < 0.05) suggests that the observed difference is statistically significant
+ - The p-value indicates the probability of obtaining the observed difference (or more extreme) under the null hypothesis. A low p-value (typically < 0.05) suggests that the observed difference is statistically significant
 
- ### What are the assumptions of a t-test?
+ ## What are the assumptions of a t-test?
 
- a. __Normality:__ 
-  https://statisticsbyjim.com/hypothesis-testing/t-test/
- The data should be approximately normally distributed. This is especially important for small sample sizes
+ __Normality:__ 
 
- In the context of the PlantGrowth dataset, we need to check if the weights of the plants within each treatment group (ctrl, trt1, trt2) are normally distributed. This can be done using visual methods like histograms or Q-Q plots, or statistical tests like the Shapiro-Wilk test.
+ https://statisticsbyjim.com/hypothesis-testing/t-test/
+
+ - The data should be approximately normally distributed. This is especially important for small sample sizes
+ - In the context of the PlantGrowth dataset, we need to check if the weights of the plants within each treatment group (ctrl, trt1, trt2) are normally distributed. This can be done using visual methods like histograms or Q-Q plots, or statistical tests like the Shapiro-Wilk test.
  
-  b. __Homogeneity of Variances:__ 
- https://www.statisticshowto.com/probability-and-statistics/hypothesis-testing/anova/homogeneity-tests/
- The variances of the two groups should be equal. This assumption can be tested using tests such as Levene's test
+ __Homogeneity of Variances:__ 
 
- For the PlantGrowth dataset, we need to ensure that the variances of the plant weights across the different treatment groups are equal. If the variances are not equal, the results of the t-test may not be valid.
+ https://www.statisticshowto.com/probability-and-statistics/hypothesis-testing/anova/homogeneity-tests/
+
+ - The variances of the two groups should be equal. This assumption can be tested using tests such as Levene's test
+ - For the PlantGrowth dataset, we need to ensure that the variances of the plant weights across the different treatment groups are equal. If the variances are not equal, the results of the t-test may not be valid.
 
  c. __Independence:__ 
- https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/independence-statistics/
- The observations within each group should be independent of each other
 
- In the PlantGrowth dataset, this means that the weight of one plant should not influence the weight of another plant within the same treatment group. This assumption is crucial to ensure that the results of the t-test are valid.
+ https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/independence-statistics/
+
+ - The observations within each group should be independent of each other
+ - In the PlantGrowth dataset, this means that the weight of one plant should not influence the weight of another plant within the same treatment group. This assumption is crucial to ensure that the results of the t-test are valid.
 
  d. __Random sampling:__ 
+
  https://www.statology.org/t-test-assumptions/
- Both samples should be obtained using a random sampling method.
 
- For the PlantGrowth dataset, this means that the plants should have been randomly assigned to the different treatment groups. Random sampling helps to ensure that the samples are representative of the population and that the results of the t-test are generalizable.
+ - Both samples should be obtained using a random sampling method.
+ - For the PlantGrowth dataset, this means that the plants should have been randomly assigned to the different treatment groups. Random sampling helps to ensure that the samples are representative of the population and that the results of the t-test are generalizable.
+ -  By ensuring that these assumptions are met, we can confidently perform t-tests on the PlantGrowth dataset to determine if there are significant differences in plant weights between the treatment groups.  It is important to note however, that if one or more of these assumptions are violated, then the results of the two sample t-test may be unreliable or even misleading. (https://www.statology.org/t-test-assumptions/).
 
- By ensuring that these assumptions are met, we can confidently perform t-tests on the PlantGrowth dataset to determine if there are significant differences in plant weights between the treatment groups.  It is important to note however, that if one or more of these assumptions are violated, then the results of the two sample t-test may be unreliable or even misleading. (https://www.statology.org/t-test-assumptions/).
+ ## t-test performed
 
- ### 4. Perform t-test: 
- - A t-test was performed to determine if there is a significant difference between the two treatment groups (trt1 and trt2). The following values were extracted from running the code: 
+ A t-test was performed to determine if there is a significant difference between the two treatment groups (trt1 and trt2). The following values were extracted from running the code: 
  
- __t-statistic value -3.0100985421243616.__  
- The t-statistic measures the size of the difference relative to the variation in the sample data. It represents the standardized difference between the means of the two groups (trt1 and trt2). Here’s what this value means:
+ __t-statistic value -3.0100985421243616.__ 
+
+ - The t-statistic measures the size of the difference relative to the variation in the sample data. It represents the standardized difference between the means of the two groups (trt1 and trt2). Here’s what this value means:
  - A negative t-statistic indicates that the mean of the first group (trt1) is less than the mean of the second group (trt2).
  - The magnitude of the t-statistic (-3.01 in this case) indicates how many standard deviations the means are apart. A value of -3.01 suggests that the means are about 3 standard deviations apart, which is quite substantial.
  
  __p-value: 0.0075184261182198574__
- The p-value helps determine the significance of these results. Here’s what it means:
+
+ - The p-value helps determine the significance of these results. Here’s what it means:
  - The p-value represents the probability of obtaining test results at least as extreme as the observed results, under the null hypothesis (which assumes that there is no difference between the group means).
  - A p-value of 0.0075 is less than the common significance threshold of 0.05, indicating strong evidence against the null hypothesis.
  
- __Conclusion to t-test:__  Since the p-value is less than 0.05, we reject the null hypothesis. This means that there is a statistically significant difference between the means of the two treatment groups (trt1 and trt2).
-
- __Summary to t-test findings__
+ ### Conclusion to t-test: 
+ 
+ - Since the p-value is less than 0.05, we reject the null hypothesis. This means that there is a statistically significant difference between the means of the two treatment groups (trt1 and trt2).
  - The t-statistic of -3.01 suggests a significant difference in the means of the trt1 and trt2 groups, with the mean of trt1 being lower than that of trt2. 
  -  The p-value of 0.0075 indicates that this difference is statistically significant, meaning it is very unlikely to have occurred by chance.
  -  This analysis shows that the treatment group trt2 has a significantly different effect on plant growth compared to the treatment group trt1, under the conditions of this experiment.
 
- __Plots Used in t-test__
+ ### Plots Used in t-test
+
  A number of plots were generated to visually display the difference between the two treatment groups (trt1 and trt2).  The code was written to filter two groups only, so it excluded the 'Ctrl' group.  In addition to the t-statistic and p-values, it is easily visible to significant difference between both groups.
  
  Plots were used as they have numerous benefits, especially in data analysis, interpretation, and communication. The following are the reasons plots were used:
 
   **Enhanced Understanding**
-  https://www.tandfonline.com/doi/abs/10.1080/01621459.1984.10478080)
+
+  https://www.tandfonline.com/doi/abs/10.1080/01621459.1984.10478080
+
   Plots helped in visualizing the complex data being analysed, which made it easier to understand patterns, trends, and relationships that might be missed in tabular data. They provided a clear, visual summary of the data which is more intuitive.
 
   **Efficient Communication**
+
   https://www.edwardtufte.com/tufte/books_vdqi
+
   Visualizations convey information quickly and effectively to a broad audience, including those who may not have a strong background in statistics or data analysis. They can highlight key findings, making presentations more engaging and informative.
 
   **Comparison**
+
   https://www.goodreads.com/book/show/526835.Exploratory_Data_Analysis
+
   Plots make it easy to compare different datasets or groups. For instance, bar plots and box plots can succinctly show differences in means or distributions, facilitating comparative analysis.
 
   **Improved Memory Retention**
+
   https://academic.oup.com/book/29962
+
   People tend to remember visual information better than text or numbers alone. Effective visualizations can make a lasting impression and improve the retention of information.
 
- ### 5. Perform ANOVA test 
+ ## 5. ANOVA Test Performed
 
- - ANOVA was performed to determine if there is a significant difference between the three treatment groups (ctrl, trt1, and trt2).  The result of the test was ANOVA F-statistic: 4.846087862380136, p-value: 0.0159099583256229.
+ ANOVA test was performed to determine if there is a significant difference between the three treatment groups (ctrl, trt1, and trt2).  The result of the test was ANOVA F-statistic: 4.846087862380136, p-value: 0.0159099583256229.
 
- __ANOVA F-statistic:__
+ ### ANOVA F-statistic:
+
  https://www.statology.org/anova-f-value-p-value/
+
  The F-statistic is a ratio of the variance between the group means to the variance within the groups. A higher F-statistic indicates a greater degree of difference between the group means relative to the variability within the groups.
  In this case, the F-statistic is 4.846, which suggests that there is a noticeable difference between the means of the three treatment groups (ctrl, trt1, and trt2).
 
- __ANOVA p-value:__
+ ### ANOVA p-value:
+
  https://www.scribbr.com/statistics/p-value/
+
  - The p-value indicates the probability of observing the data, or something more extreme, if the null hypothesis is true. The null hypothesis in ANOVA is that there are no differences between the group means.
  - A p-value of 0.0159 is less than the common significance level of 0.05. This means that there is less than a 1.59% chance that the observed differences between the group means occurred by random chance.
  -  Since the p-value is less than 0.05, we reject the null hypothesis and conclude that there is a statistically significant difference between the means of the three treatment groups
 
- __Conclusion to ANOVA test__
+ ### Plots Used in ANOVA test
+ 
+ https:www.geeksforgeeks.org/how-to-make-a-scatter-plot-in-python-using-seaborn/
+
+ A scatter plots was generated to visually display the difference between the three treatment groups (ctrl, trt1 and trt2).  In addition to the f-statistic and p-values, it is easily visible to significant difference between each group.
+
+ ### Conclusion to ANOVA test
+ 
  The ANOVA test results indicate that there is a significant difference in plant weights between at least two of the treatment groups (ctrl, trt1, and trt2). This suggests that the treatment applied to the plants has a measurable effect on their weights.   The differences can be visually observed in the scatter plot. 
  
  
@@ -651,7 +717,7 @@ Visualizations are essential for communicating your findings and making data-dri
 
  ### Types of Effect Size
 
- Two effect's were relevant to this project.  Cohen's d Effect is relevant to the t-test, **Eta Squared (η²) Effect is relevant to ANOVA test.
+ Two effect's were relevant to this project.  Cohen's d Effect is relevant to the t-test, Eta Squared (η²) Effect is relevant to ANOVA test.
 
  ### Cohen's d Effect
 
@@ -739,7 +805,7 @@ Visualizations are essential for communicating your findings and making data-dri
 
  __Visualizations__
 
- It cannot be under estimated how useful the plots  in this project (such as scatter plots, box plots, and violin plots) were in understanding and communicating the differences between groups. These plots provided a clear, visual summary of the data and support the statistical findings.  The helped identify where code had to be modified when completing the t-test.
+ It cannot be under estimated how useful the plots in this project (such as scatter plots, box plots, swarm plots and violin plots) were in understanding and communicating the differences between groups. These plots provided a clear, visual summary of the data and support the statistical findings.  The helped identify where code had to be modified when completing the t-test.
 
  __Practical Implications__
 
