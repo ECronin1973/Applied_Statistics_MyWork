@@ -560,7 +560,7 @@ Visualizations are essential for communicating your findings and making data-dri
  By ensuring that these assumptions are met, we can confidently perform t-tests on the PlantGrowth dataset to determine if there are significant differences in plant weights between the treatment groups.  It is important to note however, that if one or more of these assumptions are violated, then the results of the two sample t-test may be unreliable or even misleading. (https://www.statology.org/t-test-assumptions/).
 
  4. **Perform t-test**: 
- - A t-test was performed to determine if there is a significant difference between the two treatment groups (trt1 and trt2). The following values were extracted from running the code:
+ - A t-test was performed to determine if there is a significant difference between the two treatment groups (trt1 and trt2). The following values were extracted from running the code: 
  
  __t-statistic value -3.0100985421243616.__  
  The t-statistic measures the size of the difference relative to the variation in the sample data. It represents the standardized difference between the means of the two groups (trt1 and trt2). Here’s what this value means:
@@ -582,26 +582,25 @@ Visualizations are essential for communicating your findings and making data-dri
  This analysis shows that the treatment group trt2 has a significantly different effect on plant growth compared to the treatment group trt1, under the conditions of this experiment.
 
  __Plots Used__
- A number of plots were generated to visually display the difference between the two treatment groups (trt1 and trt2).  In addition to the t-statistic and p-values, it is easily visible to significant difference between both groups.
+ A number of plots were generated to visually display the difference between the two treatment groups (trt1 and trt2).  The code was written to filter two groups only, so it excluded the 'Ctrl' group.  In addition to the t-statistic and p-values, it is easily visible to significant difference between both groups.
  
  Plots were used as they have numerous benefits, especially in data analysis, interpretation, and communication. The following are the reasons plots were used:
 
- 1. Enhanced Understanding
+  Enhanced Understanding
   https://www.tandfonline.com/doi/abs/10.1080/01621459.1984.10478080)
   Plots helped in visualizing the complex data being analysed, which made it easier to understand patterns, trends, and relationships that might be missed in tabular data. They provided a clear, visual summary of the data which is more intuitive.
 
- 2. Efficient Communication
+  Efficient Communication
   https://www.edwardtufte.com/tufte/books_vdqi
- Visualizations convey information quickly and effectively to a broad audience, including those who may not have a strong background in statistics or data analysis. They can highlight key findings, making presentations more engaging and informative.
+  Visualizations convey information quickly and effectively to a broad audience, including those who may not have a strong background in statistics or data analysis. They can highlight key findings, making presentations more engaging and informative.
 
- 3. Comparison
- https://www.goodreads.com/book/show/526835.Exploratory_Data_Analysis
- Plots make it easy to compare different datasets or groups. For instance, bar plots and box plots can succinctly show differences in means or distributions, facilitating comparative analysis.
+  Comparison
+  https://www.goodreads.com/book/show/526835.Exploratory_Data_Analysis
+  Plots make it easy to compare different datasets or groups. For instance, bar plots and box plots can succinctly show differences in means or distributions, facilitating comparative analysis.
 
- 4. Improved Memory Retention
- https://academic.oup.com/book/29962
- People tend to remember visual information better than text or numbers alone. Effective visualizations can make a lasting impression and improve the retention of information.
-
+  Improved Memory Retention
+  https://academic.oup.com/book/29962
+  People tend to remember visual information better than text or numbers alone. Effective visualizations can make a lasting impression and improve the retention of information.
 
  5. **Perform ANOVA test**: 
 
