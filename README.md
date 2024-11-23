@@ -615,7 +615,9 @@ Visualizations are essential for communicating your findings and making data-dri
  
  ## Explain Your Work
 
- ### Reducing the risk of Type I Errors
+ This section covers topics such as Type I Error reduction, Effect Sizes, t-test explained, ANOVA test explained, along with relevant references.
+
+ ## Reducing the risk of Type I Errors
 
  The first consideration was to control Type 1 Error Rates in t-tests and ANOVA tests.  The following outlines which test is more appropriate. 
 
@@ -641,11 +643,11 @@ Visualizations are essential for communicating your findings and making data-dri
  - These post-hoc tests are designed to control the Type I error rate while making multiple comparisons, further reducing the risk of false positives.
  - In the PlantGrowth dataset, if we were to compare the weights of plants across three treatment groups (ctrl, trt1, and trt2) using multiple t-tests, we would increase the risk of Type I errors. Instead, by using ANOVA, we perform a single test to determine if there are any significant differences among the groups, thereby controlling the overall error rate
 
-### Consideration of Effect Sizes
+## Consideration of Effect Sizes
 
  https://www.datacamp.com/tutorial/anova-test
 
-Effect Sizes were examined as it is a crucial metric in statistical analysis that measures the magnitude of the difference between groups. Unlike p-values, which only tell us whether a difference exists, effect size quantifies the size of that difference, providing more context on the practical significance of the findings. Effect size helps in understanding how large or small the observed effect is, beyond just knowing that it is statistically significant. Effect size complements p-values by providing additional information, helping in understanding the strength and importance of the findings.
+ Effect Sizes were examined as it is a crucial metric in statistical analysis that measures the magnitude of the difference between groups. Unlike p-values, which only tell us whether a difference exists, effect size quantifies the size of that difference, providing more context on the practical significance of the findings. Effect size helps in understanding how large or small the observed effect is, beyond just knowing that it is statistically significant. Effect size complements p-values by providing additional information, helping in understanding the strength and importance of the findings.
 
  ### Types of Effect Size
 
@@ -677,7 +679,7 @@ Effect Sizes were examined as it is a crucial metric in statistical analysis tha
 
  The effect size will be referenced in the conclusion as it provides a more comprehensive interpretation of the results, highlighting not only whether the differences are statistically significant but also how meaningful they are in practical terms.
  
-  ## t-test Performed
+  ## t-test Explained
 
   A t-test was performed to determine if there is a significant difference between the two treatment groups (trt1 and trt2). The following values were extracted from running the code:
 
@@ -693,7 +695,7 @@ Effect Sizes were examined as it is a crucial metric in statistical analysis tha
  - The p-value represents the probability of obtaining test results at least as extreme as the observed results, under the null hypothesis (which assumes that there is no difference between the group means).
  - A p-value of 0.0075 is less than the common significance threshold of 0.05, indicating strong evidence against the null hypothesis.
 
- ## ANOVA test Performed
+ ## ANOVA test Explained
 
  ANOVA test was performed to determine if there is a significant difference between the three treatment groups (ctrl, trt1, and trt2). The result of the test was:
 
