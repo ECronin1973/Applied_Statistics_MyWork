@@ -193,7 +193,10 @@ Based on the results of the above tests we can conclude that the sample is likel
 
 ### Further Reading Performed
 
-In order to complete this task, I performed a google search on testing for Normality in Python.  The website Statology gave me a good approach in addition to the great instruction I received when completing the online ATU lectures. I identified a useful youtube video titled 'Normality test - Simply explained'.  This video taught me that there are two ways to test for normal distribution 1. Analytical and 2. Graphically. There are three tests identified for Analytical testing 1. Shapiro-Wilk Test, 2. Kolmogorov-Smirnov Test and 3. Anderson-Darling Test. the objective of each of the tests is to determine if the p-value is smaller than 0.05.  If it is smaller,  Normal Distribution is not assumed.  If greater than 0.05 we assume normal distribution.  The disadvantage of analytical testing is the calculated p-value depends on the sample size (the larger the sample, the smaller the potential p-value). With a very large sample, it could be the case that the p-value is smaller than 0.05 and thus reject the null hypotesis, that it is a normal distribution.  To get around this problem, graphical tests of normal distribution are being used.  For graphical tests we either look at the histogram or QQ-Plot. If using the histogram we plot the normal distribution in the histogram of the data to see whether the curve of the normal distribution roughly corresponds to that of the normal distribution curve. The QQ-Plot is better as the Theoretical Quantiles the data should have if they are perfectly normally distributed and the quantiles of the measured values are compared. If the data is perfectly normally distributed, all points would lie on the line. The more the data deviates form the line, the less it is normall distributed. In addition, data that plots the 95% interval, if all your data lies within this interval, it is a very strong indication that  the data is normally distributed.  The 95% interval was further explored in Wikipedia (97.5th percentile point) where it states in probability and statistics, the 97.5th percentile point of the standard normal distribution is a number commonly used for statistical calculations. The approximate value of this number is 1.96, meaning that 95% of the area under a normal curve lies within approximately 1.96 standard deviations of the mean.    
+In order to complete this task I did the following, 
+- I performed a google search on testing for Normality in Python.  The website Statology gave me a good approach in addition to the great instruction I received when completing the online ATU lectures. 
+- I identified a useful youtube video titled 'Normality test - Simply explained'.  This video taught me that there are two ways to test for normal distribution 1. Analytical and 2. Graphically. There are three tests identified for Analytical testing 1. Shapiro-Wilk Test, 2. Kolmogorov-Smirnov Test and 3. Anderson-Darling Test. the objective of each of the tests is to determine if the p-value is smaller than 0.05.  If it is smaller,  Normal Distribution is not assumed.  If greater than 0.05 we assume normal distribution.  The disadvantage of analytical testing is the calculated p-value depends on the sample size (the larger the sample, the smaller the potential p-value). With a very large sample, it could be the case that the p-value is smaller than 0.05 and thus reject the null hypotesis, that it is a normal distribution.  To get around this problem, graphical tests of normal distribution are being used.  For graphical tests we either look at the histogram or QQ-Plot. If using the histogram we plot the normal distribution in the histogram of the data to see whether the curve of the normal distribution roughly corresponds to that of the normal distribution curve. The QQ-Plot is better as the Theoretical Quantiles the data should have if they are perfectly normally distributed and the quantiles of the measured values are compared. If the data is perfectly normally distributed, all points would lie on the line. The more the data deviates form the line, the less it is normall distributed. In addition, data that plots the 95% interval, if all your data lies within this interval, it is a very strong indication that  the data is normally distributed.  
+- The 95% interval was further explored in Wikipedia (97.5th percentile point) where it states in probability and statistics, the 97.5th percentile point of the standard normal distribution is a number commonly used for statistical calculations. The approximate value of this number is 1.96, meaning that 95% of the area under a normal curve lies within approximately 1.96 standard deviations of the mean.    
 
 ## Libraries Used
 numpy: For numerical operations and generating random samples.
@@ -415,15 +418,12 @@ The following online resources were used to complete Task 3 in `tasks.ipynb` and
 # END
 
 
-# Task Four
+# Task Four - To Be Completed
 
-# Task Five
-
-
+# Task Five - To Be Completed
 
 
 
-_______________________________________________________________________________________________________________________________________________________________________________________
 
 # Project 2024/2025 Applied Statistics
 
@@ -433,76 +433,70 @@ ________________________________________________________________________________
 This project analyzes the PlantGrowth dataset from Vicent Arel-Bundocks Rdatasets page. The dataset contains two main variables: a treatment group and the weight of plants within those groups. 
 
 ## Steps
-1. **Download and Save the Dataset**: 
-- The dataset was downloaded from [Vicent Arel-Bundocks Rdatasets page](https://vincentarelbundock.github.io/Rdatasets/datasets.html) and saved to the repository.
+ ### 1. Download and Save the Dataset: 
+ - The dataset was downloaded from [Vicent Arel-Bundocks Rdatasets page](https://vincentarelbundock.github.io/Rdatasets/datasets.html) and saved to the repository.
 
- 2. **Describe the Dataset**: 
+ ### 2. Describe the Dataset: 
  - The dataset was loaded into pandas DataFrame as it is a common practice in data analysis for several reasons:
 https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html
 
-1. Ease of Data Manipulation
+__Ease of Data Manipulation__
 DataFrames provide a powerful and flexible way to manipulate and analyze data. They allow you to easily filter, sort, and transform data using intuitive syntax.
 For example, you can quickly select specific rows or columns, apply functions to the data, and perform aggregations.
 "Ease of Data Manipulation." pandas documentation, https://pandas.pydata.org/docs/#pandas-documentation
 
-2. Integration with Other Libraries
+__Integration with Other Libraries__
 pandas integrates seamlessly with other Python libraries commonly used in data analysis, such as NumPy, SciPy, Matplotlib, and Seaborn.
-
 This integration makes it easy to perform complex statistical analyses, create visualizations, and conduct machine learning tasks.
 "Integration with Other Libraries." pandas documentation, https://pandas.pydata.org/docs/user_guide/index.html.
 
-3. Handling Missing Data
+__Handling Missing Data__
 DataFrames provide robust methods for handling missing data. You can easily identify, fill, or drop missing values, ensuring that your analysis is accurate and reliable.
-
 "Handling Missing Data." pandas documentation, https://pandas.pydata.org/docs/user_guide/missing_data.html.
 
-4. Data Cleaning and Preparation
+__Data Cleaning and Preparation__
 pandas offers a wide range of functions for cleaning and preparing data. You can remove duplicates, convert data types, and handle categorical data with ease.
-
 This is crucial for ensuring that your data is in the right format for analysis.
 "Data Cleaning and Preparation." pandas documentation, https://pandas.pydata.org/docs/user_guide/index.html.
 
-5. Descriptive Statistics and Summarization
-DataFrames make it easy to generate descriptive statistics and summaries of your data. You can quickly calculate measures such as mean, median, standard deviation, and more.
-
-This helps you understand the distribution and characteristics of your data before performing more advanced analyses.
+__Descriptive Statistics and Summarization__
+DataFrames make it easy to generate descriptive statistics and summaries of your data. You can quickly calculate measures such as mean, median, standard deviation, and more.  This helps you understand the distribution and characteristics of your data before performing more advanced analyses.
 "Descriptive Statistics and Summarization." pandas documentation, https://pandas.pydata.org/docs/user_guide/index.html.
 
 
-6. Data Visualization
+__Data Visualization__
 pandas works well with visualization libraries like Matplotlib and Seaborn. You can create a wide range of plots and charts to visualize your data and gain insights.
-
 Visualizations are essential for communicating your findings and making data-driven decisions 
 "Data Visualization." pandas documentation, https://pandas.pydata.org/docs/user_guide/index.html.
 
  __Exploration of Dataset__
-  To get an initial look at the dataset, the first few rows were displayed using the head() method (https://www.w3schools.com/python/pandas/ref_df_head.asp). This gives us a quick overview of the data.  Next, we provide a summary of the dataset using the describe() method (https://www.w3schools.com/python/pandas/ref_df_describe.asp). This method gives us important statistical information about the numerical columns in the dataset, such as the count, mean, standard deviation, minimum, and maximum values.  To get information on the dataset such as the number of observation, the info() is used https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.info.html#pandas.DataFrame.info.
+  To get an initial look at the dataset, the first few rows were displayed using the [head() method](https://www.w3schools.com/python/pandas/ref_df_head.asp). This gives us a quick overview of the data.  Next, we provide a summary of the dataset using the [describe() method](https://www.w3schools.com/python/pandas/ref_df_describe.asp). This method gives us important statistical information about the numerical columns in the dataset, such as the count, mean, standard deviation, minimum, and maximum values.  To get information on the dataset such as the number of observation, the [info() is used](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.info.html#pandas.DataFrame.info.)
  
  __A summary of the dataset__
- Observations: The dataset contains 30 observations ie. there are 30 individual data points or entries in the dataset. Each observation represents a single instance of data collected for analysis. In this case, each observation corresponds to the weight of a plant and the treatment group it belongs to.
+ Observations: The dataset contains 30 observations i.e., there are 30 individual data points or entries in the dataset. Each observation represents a single instance of data collected for analysis. In this case, each observation corresponds to the weight of a plant and the treatment group it belongs to.
 
  Variables: There are three variables in the dataset weight:
  https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.columns.html
 
- Unnamed: 0: This appears to be an index column t appears to be automatically generated when the dataset was created and can be ignored for analysis.
+ __Unnamed: 0__: This appears to be an index column t appears to be automatically generated when the dataset was created and can be ignored for analysis.
  https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.drop.html
 
- weight: This is a numerical variable representing the weight of the plants.  It is measured in some unit (likely grams or kilograms, though the dataset does not specify)
+ __weight__: This is a numerical variable representing the weight of the plants.  It is measured in some unit (likely grams or kilograms, though the dataset does not specify)
  https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html
 
- group: This is a categorical variable representing the treatment group to which each plant belongs. The groups are ctrl (control), trt1 (treatment 1), and trt2 (treatment 2).
+ __group__: This is a categorical variable representing the treatment group to which each plant belongs. The groups are ctrl (control), trt1 (treatment 1), and trt2 (treatment 2).
  https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html
 
  Data Types: The weight variable is of type float64, the Unnamed: 0 variable is of type int64, and the group variable is of type object.
  https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dtypes.html
 
- 3. **Describe what a t-test is, how it works and what the assumptions are**
+ ## 3. Describe what a t-test is, how it works and what the assumptions are
 
- ### What is a T-Test
+ ### What is a T-Test ?
  https://www.scribbr.com/statistics/t-test/
  a t-test is a statistical test used to compare the means of two groups to determine if they are significantly different from each other. This is a fundamental method in hypothesis testing to assess the differences between groups
 
- ### How a T-Test Works
+ ### How does a T-Test Work?
  https://www.statisticshowto.com/probability-and-statistics/t-test/
  A t-test is a statistical test used to compare the means of two groups to determine if they are significantly different from each other. This is a fundamental method in hypothesis testing to assess the differences between groups
 
@@ -531,27 +525,27 @@ Visualizations are essential for communicating your findings and making data-dri
 
  The p-value indicates the probability of obtaining the observed difference (or more extreme) under the null hypothesis. A low p-value (typically < 0.05) suggests that the observed difference is statistically significant
 
- ### Assumptions of a t-test
+ ### What are the assumptions of a t-test?
 
- __Normality:__ 
+ a. __Normality:__ 
   https://statisticsbyjim.com/hypothesis-testing/t-test/
  The data should be approximately normally distributed. This is especially important for small sample sizes
 
  In the context of the PlantGrowth dataset, we need to check if the weights of the plants within each treatment group (ctrl, trt1, trt2) are normally distributed. This can be done using visual methods like histograms or Q-Q plots, or statistical tests like the Shapiro-Wilk test.
  
-  __Homogeneity of Variances:__ 
+  b. __Homogeneity of Variances:__ 
  https://www.statisticshowto.com/probability-and-statistics/hypothesis-testing/anova/homogeneity-tests/
  The variances of the two groups should be equal. This assumption can be tested using tests such as Levene's test
 
  For the PlantGrowth dataset, we need to ensure that the variances of the plant weights across the different treatment groups are equal. If the variances are not equal, the results of the t-test may not be valid.
 
- __Independence:__ 
+ c. __Independence:__ 
  https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/independence-statistics/
  The observations within each group should be independent of each other
 
  In the PlantGrowth dataset, this means that the weight of one plant should not influence the weight of another plant within the same treatment group. This assumption is crucial to ensure that the results of the t-test are valid.
 
- __Random sampling:__ 
+ d. __Random sampling:__ 
  https://www.statology.org/t-test-assumptions/
  Both samples should be obtained using a random sampling method.
 
@@ -559,7 +553,7 @@ Visualizations are essential for communicating your findings and making data-dri
 
  By ensuring that these assumptions are met, we can confidently perform t-tests on the PlantGrowth dataset to determine if there are significant differences in plant weights between the treatment groups.  It is important to note however, that if one or more of these assumptions are violated, then the results of the two sample t-test may be unreliable or even misleading. (https://www.statology.org/t-test-assumptions/).
 
- 4. **Perform t-test**: 
+ ### 4. Perform t-test: 
  - A t-test was performed to determine if there is a significant difference between the two treatment groups (trt1 and trt2). The following values were extracted from running the code: 
  
  __t-statistic value -3.0100985421243616.__  
@@ -572,50 +566,161 @@ Visualizations are essential for communicating your findings and making data-dri
  - The p-value represents the probability of obtaining test results at least as extreme as the observed results, under the null hypothesis (which assumes that there is no difference between the group means).
  - A p-value of 0.0075 is less than the common significance threshold of 0.05, indicating strong evidence against the null hypothesis.
  
- __Conclusion:__  Since the p-value is less than 0.05, we reject the null hypothesis. This means that there is a statistically significant difference between the means of the two treatment groups (trt1 and trt2).
+ __Conclusion to t-test:__  Since the p-value is less than 0.05, we reject the null hypothesis. This means that there is a statistically significant difference between the means of the two treatment groups (trt1 and trt2).
 
- __Summary__
- The t-statistic of -3.01 suggests a significant difference in the means of the trt1 and trt2 groups, with the mean of trt1 being lower than that of trt2. 
+ __Summary to t-test findings__
+ - The t-statistic of -3.01 suggests a significant difference in the means of the trt1 and trt2 groups, with the mean of trt1 being lower than that of trt2. 
+ -  The p-value of 0.0075 indicates that this difference is statistically significant, meaning it is very unlikely to have occurred by chance.
+ -  This analysis shows that the treatment group trt2 has a significantly different effect on plant growth compared to the treatment group trt1, under the conditions of this experiment.
 
- The p-value of 0.0075 indicates that this difference is statistically significant, meaning it is very unlikely to have occurred by chance.
-
- This analysis shows that the treatment group trt2 has a significantly different effect on plant growth compared to the treatment group trt1, under the conditions of this experiment.
-
- __Plots Used__
+ __Plots Used in t-test__
  A number of plots were generated to visually display the difference between the two treatment groups (trt1 and trt2).  The code was written to filter two groups only, so it excluded the 'Ctrl' group.  In addition to the t-statistic and p-values, it is easily visible to significant difference between both groups.
  
  Plots were used as they have numerous benefits, especially in data analysis, interpretation, and communication. The following are the reasons plots were used:
 
-  Enhanced Understanding
+  **Enhanced Understanding**
   https://www.tandfonline.com/doi/abs/10.1080/01621459.1984.10478080)
   Plots helped in visualizing the complex data being analysed, which made it easier to understand patterns, trends, and relationships that might be missed in tabular data. They provided a clear, visual summary of the data which is more intuitive.
 
-  Efficient Communication
+  **Efficient Communication**
   https://www.edwardtufte.com/tufte/books_vdqi
   Visualizations convey information quickly and effectively to a broad audience, including those who may not have a strong background in statistics or data analysis. They can highlight key findings, making presentations more engaging and informative.
 
-  Comparison
+  **Comparison**
   https://www.goodreads.com/book/show/526835.Exploratory_Data_Analysis
   Plots make it easy to compare different datasets or groups. For instance, bar plots and box plots can succinctly show differences in means or distributions, facilitating comparative analysis.
 
-  Improved Memory Retention
+  **Improved Memory Retention**
   https://academic.oup.com/book/29962
   People tend to remember visual information better than text or numbers alone. Effective visualizations can make a lasting impression and improve the retention of information.
 
- 5. **Perform ANOVA test**: 
+ ### 5. Perform ANOVA test 
 
- - ANOVA was performed to determine if there is a significant difference between the three treatment groups (ctrl, trt1, and trt2). 
+ - ANOVA was performed to determine if there is a significant difference between the three treatment groups (ctrl, trt1, and trt2).  The result of the test was ANOVA F-statistic: 4.846087862380136, p-value: 0.0159099583256229.
+
+ __ANOVA F-statistic:__
+ https://www.statology.org/anova-f-value-p-value/
+ The F-statistic is a ratio of the variance between the group means to the variance within the groups. A higher F-statistic indicates a greater degree of difference between the group means relative to the variability within the groups.
+ In this case, the F-statistic is 4.846, which suggests that there is a noticeable difference between the means of the three treatment groups (ctrl, trt1, and trt2).
+
+ __ANOVA p-value:__
+ https://www.scribbr.com/statistics/p-value/
+ - The p-value indicates the probability of observing the data, or something more extreme, if the null hypothesis is true. The null hypothesis in ANOVA is that there are no differences between the group means.
+ - A p-value of 0.0159 is less than the common significance level of 0.05. This means that there is less than a 1.59% chance that the observed differences between the group means occurred by random chance.
+ -  Since the p-value is less than 0.05, we reject the null hypothesis and conclude that there is a statistically significant difference between the means of the three treatment groups
+
+ __Conclusion to ANOVA test__
+ The ANOVA test results indicate that there is a significant difference in plant weights between at least two of the treatment groups (ctrl, trt1, and trt2). This suggests that the treatment applied to the plants has a measurable effect on their weights.   The differences can be visually observed in the scatter plot. 
  
- 4. **Explain Your Work**: 
- - A t-test is a statistical test used to compare the means of two groups. It assumes that the data is normally distributed and that the variances of the two groups are equal. 
- - ANOVA (Analysis of Variance) is used to compare the means of three or more groups. It is more appropriate than multiple t-tests when analyzing more than two groups because it reduces the risk of Type I errors. 
+ 
+ 4. **Explain Your Work**
+
+ __Consideration of Effect Sizes__
+ https://www.datacamp.com/tutorial/anova-test
+ I firstly looked at effect size as it is a crucial metric in statistical analysis that measures the magnitude of the difference between groups. Unlike p-values, which only tell us whether a difference exists, effect size quantifies the size of that difference, providing more context on the practical significance of the findings. Effect size helps in understanding how large or small the observed effect is, beyond just knowing that it is statistically significant. Effect size complements p-values by providing additional information, helping in understanding the strength and importance of the findings.
+
+ __Types of Effect Size__
+ There are two different effect types identified.  The first is relevant to the t-test, the latter is relevant to ANOVA test.
+
+ **Cohen's d**
+ https://www.statology.org/interpret-cohens-d/
+ Cohen's d is a measure of effect size used to indicate the standardized difference between two means. It is calculated as the difference between two means divided by the pooled standard deviation. Cohen's d values can be interpreted as follows:
+ Small effect: d = 0.2
+ Medium effect: d = 0.5
+ Large effect: d = 0.8
+
+ **Eta Squared (η²)**
+ https://www.statology.org/eta-squared/
+ Eta squared is used in the context of ANOVA to measure the proportion of total variance that is attributed to an effect. It ranges from 0 to 1, with higher values indicating a larger effect size. Eta squared can be interpreted as follows:
+ Small effect: η² = 0.01
+ Medium effect: η² = 0.06
+ Large effect: η² = 0.14
+ 
+ In the context of the PlantGrowth dataset, calculating the effect size can provide additional insights into the differences between treatment groups. When comparing the two treatment groups (trt1 and trt2) using a t-test, Cohen's d is calculated to measure the effect size. In this project, the mean weight of trt1 is 4.661 and the mean weight of trt2 is 5.526, and the pooled standard deviation is 0.5, Cohen's d can be calculated as 0.865. A Cohen's d of 0.865 indicates a large effect size, suggesting a substantial difference between the two treatment groups.
+
+ In the ANOVA test, eta squared (η²) can be calculated to measure the effect size. This helps determine the proportion of total variance in plant weights that is attributed to the treatment groups (ctrl, trt1, and trt2). In this test, the sum of squares between groups (SSB) is 15.82 and the total sum of squares (SST) is 62.03, eta squared can be calculated as 0.255. An eta squared of 0.255 indicates a large effect size, suggesting that a significant portion of the variance in plant weights is due to the treatment groups.
+
+ The effect size will be referenced in the conclusion as it provides a more comprehensive interpretation of the results, highlighting not only whether the differences are statistically significant but also how meaningful they are in practical terms.
+ 
+ __t-test Performed__
+ A t-test was performed to determine if there is a significant difference between the two treatment groups (trt1 and trt2). The following values were extracted from running the code:
+
+ t-statistic value -3.0100985421243616:
+
+ The t-statistic measures the size of the difference relative to the variation in the sample data. It represents the standardized difference between the means of the two groups (trt1 and trt2). Here’s what this value means:
+
+ A negative t-statistic indicates that the mean of the first group (trt1) is less than the mean of the second group (trt2).
+
+ The magnitude of the t-statistic (-3.01 in this case) indicates how many standard deviations the means are apart. A value of -3.01 suggests that the means are about 3 standard deviations apart, which is quite substantial.
+
+ p-value: 0.0075184261182198574:
+
+ The p-value helps determine the significance of these results. Here’s what it means:
+
+ The p-value represents the probability of obtaining test results at least as extreme as the observed results, under the null hypothesis (which assumes that there is no difference between the group means).
+
+ A p-value of 0.0075 is less than the common significance threshold of 0.05, indicating strong evidence against the null hypothesis.
+
+ __ANOVA test Performed__ 
+ ANOVA was performed to determine if there is a significant difference between the three treatment groups (ctrl, trt1, and trt2). The result of the test was:
+
+ ANOVA F-statistic: 4.846087862380136:
+
+ The F-statistic is a ratio of the variance between the group means to the variance within the groups. A higher F-statistic indicates a greater degree of difference between the group means relative to the variability within the groups.
+
+ In this case, the F-statistic is 4.846, which suggests that there is a noticeable difference between the means of the three treatment groups (ctrl, trt1, and trt2).
+
+ ANOVA p-value: 0.0159099583256229:
+
+ The p-value indicates the probability of observing the data, or something more extreme, if the null hypothesis is true. The null hypothesis in ANOVA is that there are no differences between the group means.
+
+ A p-value of 0.0159 is less than the common significance level of 0.05. This means that there is less than a 1.59% chance that the observed differences between the group means occurred by random chance.
+
+ Since the p-value is less than 0.05, we reject the null hypothesis and conclude that there is a statistically significant difference between the means of the three treatment groups.
+
+ Both tests were performed with the reduction of Type I errors in mind.
+
+ ### Reducing the risk of Type I Errors
+
+ __Single Test for Multiple Comparisons__
+ https://www.datacamp.com/tutorial/anova-test
+ - When comparing more than two groups, performing multiple t-tests increases the risk of Type I errors because each test carries its own probability of error. For example, if you perform three t-tests, each with a significance level of 0.05, the cumulative probability of making at least one Type I error is higher than 0.05.
+ - ANOVA, on the other hand, conducts a single test to compare the means of all groups simultaneously. This single test maintains the overall significance level (e.g., 0.05), thereby controlling the risk of Type I errors.
+
+ __Control of Familywise Error Rate__
+  https://www.datacamp.com/tutorial/anova-test
+  - The familywise error rate is the probability of making one or more Type I errors across a set of comparisons. ANOVA controls this rate by using a single F-test to assess the overall differences among group means.
+  -  By doing so, ANOVA ensures that the likelihood of incorrectly rejecting the null hypothesis (i.e., concluding that there is a difference when there isn't) remains at the desired significance level
+
+ __Post-Hoc Tests__
+ https://www.datacamp.com/tutorial/anova-test
+ - If the ANOVA indicates significant differences among group means, post-hoc tests (such as Tukey's HSD) can be performed to identify which specific groups differ from each other.
+ - These post-hoc tests are designed to control the Type I error rate while making multiple comparisons, further reducing the risk of false positives.
+
+ In the PlantGrowth dataset, if we were to compare the weights of plants across three treatment groups (ctrl, trt1, and trt2) using multiple t-tests, we would increase the risk of Type I errors. Instead, by using ANOVA, we perform a single test to determine if there are any significant differences among the groups, thereby controlling the overall error rate
  
  ## Results 
-  - The t-test between trt1 and trt2 showed a p-value of X, indicating that there is/is not a significant difference between the two groups. 
- - The ANOVA between ctrl, trt1, and trt2 showed a p-value of Y, indicating that there is/is not a significant difference between the three groups. 
+  - The t-test between trt1 and trt2 showed the p-value is less than 0.05, so we reject the null hypothesis. This means that there is a statistically significant difference between the means of the two treatment groups (trt1 and trt2). 
+ - The ANOVA between ctrl, trt1, and trt2 showed that there is a significant difference in plant weights between at least two of the treatment groups (ctrl, trt1, and trt2). This suggests that the treatment applied to the plants has a measurable effect on their weights. The differences can be visually observed in the scatter plot.
  
  ## Conclusion 
- Based on the analysis, we can conclude that...
+ __Type I errors:__ Based on the analysis, we can conclude that the ANOVA test is a better test as it reduces Type I errors.  The t-test however only looked at two groups where as the ANOVA test looked at three.  Further tests would need to be carried out to examine what the outcome of a t-test would be for the Ctrl v trt1 groups and ctrl v trt2 groups, and then compare this to the initial test carried out.
+
+ __Statistical Significance:__ The ANOVA test showed a statistically significant difference between the three treatment groups (ctrl, trt1, and trt2) with a p-value of 0.0159. This indicates that at least one of the group means is significantly different from the others.  The t-test however only examied two groups.
+
+ __effect size:__ Cohen's d or Eta Squared (η²) effect both showed a high effect on treatments on plant growth.
+
+ __Post-Hoc Analysis__
+ There is a need for post-hoc tests (such as Tukey's HSD) to identify which specific groups differ from each other. This is necessary to pinpoint where the significant differences lie.
+
+ __Assumptions Check__
+ When conducting these tests, it is important to check the assumptions of both the t-test and ANOVA, such as normality, homogeneity of variances, and independence of observations. Ensuring these assumptions are met is crucial for the validity of the test results.
+
+ __Visualizations__
+ It cannot be under estimated how useful the plots  in this project (such as scatter plots, box plots, and violin plots) were in understanding and communicating the differences between groups. These plots provided a clear, visual summary of the data and support the statistical findings.  The helped identify where code had to be modified when completing the t-test.
+
+ __Practical Implications__
+ If we successfully complete post-hoc analysis and identify where plant growth could actually be increased such as for example, if trt2 significantly increases plant growth compared to trt1, this could inform future agricultural practices or experimental designs.
 
  ## References
 1. [ATU Lectures - Applied Statistics, Dr Ian McLoughlin](https://vlegalwaymayo.atu.ie/course/view.php?id=10454)
@@ -651,3 +756,6 @@ Visualizations are essential for communicating your findings and making data-dri
 30. [Tufte, E.R. (2001). The Visual Display of Quantitative Information. Graphics Press.] (https://www.edwardtufte.com/tufte/books_vdqi)
 31.  [Few, S. (2012). Show Me the Numbers: Designing Tables and Graphs to Enlighten. Analytics Press.] https://www.goodreads.com/book/show/526835.Exploratory_Data_Analysis
 32. [Paivio, A. (1990). Mental Representations: A Dual Coding Approach. Oxford University Press](https://academic.oup.com/book/29962)
+33. [How to Interpret the F-Value and P-Value in ANOVA]( https://www.statology.org/anova-f-value-p-value/)
+34. [Understanding P-values | Definition and Examples](https://www.scribbr.com/statistics/p-value/)
+35. [ANOVA Test: An In-Depth Guide with Examples](https://www.datacamp.com/tutorial/anova-test)
