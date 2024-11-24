@@ -437,6 +437,24 @@ This project analyzes the PlantGrowth dataset from Vicent Arel-Bundocks Rdataset
 
  - The dataset was downloaded from [Vicent Arel-Bundocks Rdatasets page](https://vincentarelbundock.github.io/Rdatasets/datasets.html) and saved to the repository.
 
+ ```<python>
+ # Import libraries to complete this project
+import pandas as pd
+from scipy.stats import ttest_ind
+import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy.stats import f_oneway
+
+# Download the dataset
+url = 'https://vincentarelbundock.github.io/Rdatasets/csv/datasets/PlantGrowth.csv'
+# https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html
+df = pd.read_csv(url)
+
+# Save the dataset to the repository 
+# https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_csv.html
+df.to_csv('PlantGrowth.csv', index=False)
+```
+
  ## 2. Describe the Dataset: 
 
  The dataset was loaded into pandas DataFrame as it is a common practice in data analysis for several reasons:
@@ -489,6 +507,25 @@ This project analyzes the PlantGrowth dataset from Vicent Arel-Bundocks Rdataset
   - To get an initial look at the dataset, the first few rows were displayed using the [head() method](https://www.w3schools.com/python/pandas/ref_df_head.asp). This gives us a quick overview of the data.  
   - Next, we provide a summary of the dataset using the [describe() method](https://www.w3schools.com/python/pandas/ref_df_describe.asp). This method gives us important statistical information about the numerical columns in the dataset, such as the count, mean, standard deviation, minimum, and maximum values. 
   - To get information on the dataset such as the number of observation, the [info() is used](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.info.html#pandas.DataFrame.info.)
+
+ ```<python>
+ # Describe the dataset
+ # # To get an initial look at the dataset, we can display the first few rows using the head() method. This gives us a quick overview of the data.
+ # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html
+ print(df.head())
+
+ # Print the summary statistics of the dataset
+ # We provide a summary of the dataset using the describe() method. 
+ # This method gives us important statistical information about the numerical columns 
+ # in the dataset, such as the count, mean, standard deviation, minimum, and maximum values.
+ # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.describe.html
+ print(df.describe())
+
+ # Information about the dataset 
+ # The info() method provides a concise summary of the dataset
+ # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.info.html
+ print(df.info())
+```
  
  ### A summary of the dataset
 
@@ -599,7 +636,30 @@ This project analyzes the PlantGrowth dataset from Vicent Arel-Bundocks Rdataset
  ## t-test performed
 
  A t-test was performed to determine if there is a significant difference between the two treatment groups (trt1 and trt2). The following values were extracted from running the code: 
- 
+
+ ```<python>
+ # Filter the dataset to include only trt1 and trt2 groups
+ df_filtered = df[df['group'].isin(['trt1', 'trt2'])]
+
+ # Extract the treatment groups
+ trt1 = df_filtered[df_filtered['group'] == 'trt1']['weight']
+ trt2 = df_filtered[df_filtered['group'] == 'trt2']['weight']
+
+ # Calculate means and standard deviations
+ mean_trt1 = trt1.mean()
+ mean_trt2 = trt2.mean()
+ std_trt1 = trt1.std()
+ std_trt2 = trt2.std()
+
+ print(f"Mean of trt1: {mean_trt1}, Standard Deviation of trt1: {std_trt1}")
+ print(f"Mean of trt2: {mean_trt2}, Standard Deviation of trt2: {std_trt2}")
+
+ # Perform the t-test
+ t_statistic, p_value = ttest_ind(trt1, trt2)
+
+ print(f"t-statistic: {t_statistic}, p-value: {p_value}")
+ ```
+
  __t-statistic value -3.0100985421243616.__ 
 
  - The t-statistic measures the size of the difference relative to the variation in the sample data. It represents the standardized difference between the means of the two groups (trt1 and trt2). Here’s what this value means:
@@ -621,7 +681,54 @@ This project analyzes the PlantGrowth dataset from Vicent Arel-Bundocks Rdataset
 
  ### Plots Used in t-test
 
- A number of plots were generated to visually display the difference between the two treatment groups (trt1 and trt2).  The code was written to filter two groups only, so it excluded the 'Ctrl' group.  In addition to the t-statistic and p-values, it is easily visible to significant difference between both groups.
+ A number of plots were generated to visually display the difference between the two treatment groups (trt1 and trt2).  The code was written to filter two groups only, so it excluded the 'Ctrl' group.  In addition to the t-statistic and p-values, it is easily visible to significant difference between both groups.  Plots were generated using the following code:
+
+  ```<python>
+  # Set the style of the visualization
+ sns.set_theme(style="whitegrid")
+
+ # Filter the dataframe for two treatment groups only
+ df_filtered = df[df['group'].isin(['trt1', 'trt2'])]
+
+ # Create the box plot
+ plt.figure(figsize=(10, 6)) 
+ sns.boxplot(x='group', y='weight', data=df_filtered) 
+ plt.title('Plant Weights by Treatment Group (trt1 vs trt2)') 
+ plt.xlabel('Treatment Group') 
+ plt.ylabel('Weight') 
+
+ # Save the Box Plot as an image file 
+ plt.savefig('Plant_Weights_by_Treatment_Group.png') 
+
+ # Show the plot
+ plt.show()
+
+ # Create the swarm plot 
+ plt.figure(figsize=(10, 6)) 
+ sns.swarmplot(x='group', y='weight', data=df_filtered, hue='group', palette="muted", size=8, legend=True) 
+ plt.title('Plant Weights by Treatment Group (trt1 vs trt2)') 
+ plt.xlabel('Treatment Group') 
+ plt.ylabel('Weight') 
+
+ # Save the Swarm Plot as an image file 
+ plt.savefig('Plant_Weights_SwarmPlot_trt1_vs_trt2.png') 
+
+ # Show the plot plt.show()
+ plt.show()
+
+ # Create the violin plot 
+ plt.figure(figsize=(10, 6)) 
+ sns.violinplot(x='group', y='weight', data=df_filtered, hue='group', palette="muted", legend=True) 
+ plt.title('Plant Weights by Treatment Group (trt1 vs trt2)') 
+ plt.xlabel('Treatment Group') 
+ plt.ylabel('Weight') 
+
+ # Save the Violin Plot as an image file 
+ plt.savefig('Plant_Weights_ViolinPlot_trt1_vs_trt2.png') 
+
+ # Show the plot plt.show()
+ plt.show()
+```
  
  Plots were used as they have numerous benefits, especially in data analysis, interpretation, and communication. The following are the reasons plots were used:
 
@@ -664,7 +771,19 @@ This project analyzes the PlantGrowth dataset from Vicent Arel-Bundocks Rdataset
 
  ## 5. ANOVA Test Performed
 
- ANOVA test was performed to determine if there is a significant difference between the three treatment groups (ctrl, trt1, and trt2).  The result of the test was ANOVA F-statistic: 4.846087862380136, p-value: 0.0159099583256229.
+ ANOVA test was performed to determine if there is a significant difference between the three treatment groups (ctrl, trt1, and trt2).  The result of the test was ANOVA F-statistic: 4.846087862380136, p-value: 0.0159099583256229.  Code used is as follows:
+
+ ```<python>
+ # Extract the treatment groups
+ ctrl = df[df['group'] == 'ctrl']['weight']
+ trt1 = df[df['group'] == 'trt1']['weight']
+ trt2 = df[df['group'] == 'trt2']['weight']
+
+ # Perform ANOVA
+ anova_stat, anova_p_value = f_oneway(ctrl, trt1, trt2)
+
+ print(f"ANOVA F-statistic: {anova_stat}, p-value: {anova_p_value}")
+ ```
 
  ### ANOVA F-statistic:
 
@@ -685,7 +804,25 @@ This project analyzes the PlantGrowth dataset from Vicent Arel-Bundocks Rdataset
  
  https:www.geeksforgeeks.org/how-to-make-a-scatter-plot-in-python-using-seaborn/
 
- A scatter plots was generated to visually display the difference between the three treatment groups (ctrl, trt1 and trt2).  In addition to the f-statistic and p-values, it is easily visible to significant difference between each group.
+ A scatter plots was generated to visually display the difference between the three treatment groups (ctrl, trt1 and trt2).  In addition to the f-statistic and p-values, it is easily visible to significant difference between each group.  The following code was used to generate the scatter plot:
+
+ ```<python>
+ # Set the style of the visualization
+ sns.set_theme(style="whitegrid")
+
+ # Create the scatter plot
+ plt.figure(figsize=(10, 6))
+ sns.scatterplot(x='group', y='weight', data=df, hue='group', palette="muted", s=100, legend=True)
+ plt.title('Plant Weights by Treatment Group')
+ plt.xlabel('Treatment Group')
+ plt.ylabel('Weight')
+
+ # Save the Scatter Plot as an image file 
+ plt.savefig('Plant_Weights_ScatterPlot.png') 
+
+ # Show the plot plt.show()
+ plt.show()
+ ```
 
  <img src="Plant_Weights_ScatterPlot.png" alt="Scatter Plot" style="float: left; height: 240px;">
 
@@ -866,3 +1003,4 @@ This project analyzes the PlantGrowth dataset from Vicent Arel-Bundocks Rdataset
 33. [How to Interpret the F-Value and P-Value in ANOVA]( https://www.statology.org/anova-f-value-p-value/)
 34. [Understanding P-values | Definition and Examples](https://www.scribbr.com/statistics/p-value/)
 35. [ANOVA Test: An In-Depth Guide with Examples](https://www.datacamp.com/tutorial/anova-test)
+36. [Google search - how can I quote code in your README file using proper Markdown syntax for code blocks]
