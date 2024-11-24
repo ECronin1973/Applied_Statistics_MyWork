@@ -625,7 +625,18 @@ This project analyzes the PlantGrowth dataset from Vicent Arel-Bundocks Rdataset
  
  Plots were used as they have numerous benefits, especially in data analysis, interpretation, and communication. The following are the reasons plots were used:
 
- <img src="Plant_Weights_by_Treatment_Group.png" alt="Box Plot" style="float: left; height: 240px;">  <img src="Plant_Weights_SwarmPlot_trt1_vs_trt2.png" alt="SwarmPlot" style="float: Middle; height: 240px;"> <img src="Plant_Weights_ViolinPlot_trt1_vs_trt2.png" alt="Swarm Plot" style="float: Right; height: 240px;">
+ <img src="Plant_Weights_by_Treatment_Group.png" alt="Box Plot" style="float: left; height: 240px;"> 
+
+ **Image of Box Plot** 
+ 
+ <img src="Plant_Weights_SwarmPlot_trt1_vs_trt2.png" alt="SwarmPlot" style="float: left; height: 240px;"> 
+
+  **Image of Swarm Plot** 
+ 
+ <img src="Plant_Weights_ViolinPlot_trt1_vs_trt2.png" alt="Swarm Plot" style="float: left; height: 240px;">
+
+  **Image of Violin Plot** 
+
 
  **Enhanced Understanding**
 
@@ -675,6 +686,10 @@ This project analyzes the PlantGrowth dataset from Vicent Arel-Bundocks Rdataset
  https:www.geeksforgeeks.org/how-to-make-a-scatter-plot-in-python-using-seaborn/
 
  A scatter plots was generated to visually display the difference between the three treatment groups (ctrl, trt1 and trt2).  In addition to the f-statistic and p-values, it is easily visible to significant difference between each group.
+
+ <img src="Plant_Weights_ScatterPlot.png" alt="Scatter Plot" style="float: left; height: 240px;">
+
+  **Image of Scatter Plot** 
 
  ### Conclusion to ANOVA test
  
