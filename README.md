@@ -297,13 +297,13 @@ Calculate the probability that the participant makes at most one error. From com
 
 Discuss whether accepting two errors would be reasonable and calculate the corresponding probability. From completing this task, Depending on the context, I may be willing to accept four cups, as the person has a near 25% chance of being right or a 1:4 ratio.  In other contexts, I would not be willing to accept the two errors.  Personally, I would always strive for a one error acceptance scenario.   A detailed explanation of acceptance of two errors is provided below.
 
-### Instructions (TWO ERRORS):
+### Instructions (Two Errors):
 
 Provide a detailed explanation of your reasoning in a Markdown cell. From completing this task, the Number of Overlaps and its related bar chart show that the chance of a person getting two errors is 225 / 924. This equates to approximately 0.2435 or 24%.
 
 In the context of our experiment, we aim to determine whether a participant can accurately identify which cups had milk poured first, merely by tasting the tea. If the participant is purely guessing, the results of this experiment can be modeled using combinatorial probability.
 
-__Understanding the Probability Calculation:__
+### Understanding the Probability Calculation
 
 **Total Combinations:**
 
@@ -321,17 +321,17 @@ $$
 
 This means there are 924 different ways to choose 6 cups out of 12.
 
-**Calculating Overlaps:**
+### Calculating Overlaps
 
 The overlap calculation involves determining how many of the chosen 6 cups correctly identify the cups where milk was poured first.
 
 For each possible combination of 6 cups, we evaluate how many of those cups are correctly identified (overlap).
 
-**Probability of Correctly Identifying All Cups:**
+### Probability of Correctly Identifying All Cups
 
 This extremely low probability indicates that getting all 6 correct by guessing is highly unlikely.
 
-**Allowing for Two Errors:**
+### Allowing Two Errors
 
 We extend our analysis to consider if the participant makes at most two errors, meaning they correctly identify 4 or 5 out of 6 cups.
 
@@ -353,13 +353,13 @@ $$
 \frac{1}{924} \approx 0.00108 \text{ or } 0.108\%
 $$
 
-**Rationale for Accepting Two Errors:**
+### Rationale for Accepting Two Errors
 
 Given the distribution of the overlaps, allowing two errors (4 out of 6 correct) significantly increases the likelihood of a participant's success from a mere 0.108% (for all correct) to 24.35%.
 
 This still implies that getting 4 correct by guessing is relatively rare but within a more plausible range compared to getting all 6 correct.
 
-**Implications:**
+### Implications
 
 If we observe an individual consistently identifying 4 out of 6 cups correctly (allowing for two errors), it would be reasonable to suspect that they might have some ability beyond mere guessing.
 
@@ -498,6 +498,7 @@ print(f"Shapiro-Wilk Test: Stat={stat}, p-value={p_value}")
 If the p-value is greater than 0.05, it suggests that the sample likely comes from a normal distribution. Conversely, a p-value less than 0.05 suggests non-normality. Shapiro-Wilk Test: Stat=0.9998655902986548, p-value=0.8588521744759859 
 
 ### QQ-Plot Test ###
+
 Create a Q-Q (Quantile-Quantile) plot to test whether the dataset follows a normal distribution.  The Q-Q plot image was saved s qq_plot.png and is displayed below.
 
 ```<python>
@@ -521,6 +522,7 @@ plt.show()
 
 
 ### Kolmogorov-Smirnov Test
+
 The kstest function will return a test statistic and a p-value. If the p-value is greater than 0.05, it suggests that the sample likely comes from a normal distribution. Conversely, a p-value less than 0.05 suggests non-normality.  Output to Kolmogorov-Smirnov Test: Stat=0.0032511838823213735, p-value=0.24055406131498747
 
 
@@ -540,6 +542,7 @@ print(f"Kolmogorov-Smirnov Test: Stat={stat}, p-value={p_value}")
 ```
 
 ### Integration Test
+
 The 97.5th percentile test is performed to determine if 95% of the area under the normal distribution lies within 1.96 standard deviations away from the mean.  A plot is displayed below to display the results of the following code 
 
 ```<python>
@@ -583,6 +586,7 @@ plt.show()
 
 
 ## Summary of Analysis
+
 According to the website [STATOLOGY](https://www.statology.org/normality-test-python/) there are four common ways to test for Normality in Python.
 
 1. (Visual Method) Create a histogram.
