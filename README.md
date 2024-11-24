@@ -340,17 +340,6 @@ For each possible combination of 6 cups, we evaluate how many of those cups are 
 
 **Probability of Correctly Identifying All Cups:**
 
-The chance of correctly identifying all 6 cups purely by guessing is:
-
-
-
-\[ 
-\frac{1}{924} \approx 0.00108 \text{ or } 0.108\% 
-\]
-
-
-
-
 
 This extremely low probability indicates that getting all 6 correct by guessing is highly unlikely.
 
@@ -370,12 +359,12 @@ From our combination calculations, the number of ways to achieve different overl
 | 5               | 36             |
 | 6               | 1              |
 
-The chance of getting exactly two errors (correctly identifying 4 out of 6) is calculated as:
+The chance of correctly identifying all 6 cups purely by guessing is:
 
 
 
 \[ 
-\frac{225}{924} \approx 0.2435 \text{ or } 24.35\% 
+\frac{1}{924} \approx 0.00108 \text{ or } 0.108\% 
 \]
 
 
