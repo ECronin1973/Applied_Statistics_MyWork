@@ -638,8 +638,8 @@ The 95% interval was further explored in Wikipedia (97.5th percentile point) whe
 
 ## Libraries Used
 
-- **NumPy**: Essential for numerical computing with support for arrays, matrices, and high-level mathematical operations.
-  - [NumPy Documentation](https://numpy.org/doc/stable/reference/index.html#reference)
+**NumPy**: Essential for numerical computing with support for arrays, matrices, and high-level mathematical operations.
+[NumPy Documentation](https://numpy.org/doc/stable/reference/index.html#reference)
 
   ```python
   import numpy as np
@@ -688,6 +688,7 @@ The following online resources were used to complete Task 2 in `tasks.ipynb` and
 # Task 3: t-Test Calculation
 
 ## Overview
+
 ### Analysis of Resting Heart Rates Before and After Exercise Program
 
 ## Dataset
@@ -721,45 +722,87 @@ where:
 
 4. Use `scipy.stats` to verify the t-statistic.
 
-## Importing Relevant Libraries
-python
-import numpy as np
-from scipy import stats
+## Relevant Libraries Imported For Completing Task 3
+
+```python
+# Numerical structures and operations.  This tool is essential for numerical computing. 
+# It supports arrays, matrices, and functions for high-level mathematical operations
+# https://numpy.org/doc/stable/reference/index.html#reference
+import numpy as np 
+
+# The stats function comes under the statistical tests grouping in the scipy.stats module.
+# This tool is essential for testing the normality of a dataset. It's particularly useful in determining whether a sample comes from a normally distributed population.
+# The stats function performs a range of statistical tests, including the Shapiro-Wilk test for normality, the Kolmogorov-Smirnov test for normality, and many others.
+# https://docs.scipy.org/doc/scipy/reference/stats.html
+from scipy.stats import stats
+
+# Plotting.  This is a 2D plotting library that is a great tool for plotting graohs and visualisation of data.
+# https://matplotlib.org/stable/contents.html
 import matplotlib.pyplot as plt
+```
 
-Steps to Complete the Task
+## Steps to Complete the Task
 
-### Data
+- Gather Before and After Data
+- Calculate the Differences
+- Compute the Mean and Standard Deviation of the Differences
+- Calculate the t-statistic
+- Use scipy.stats to Verify the t-statistic
+
+```<python>
+import numpy as np 
+from scipy import stats
+
+# Data
+# https://numpy.org/doc/stable/reference/generated/numpy.array.html
 before = np.array([63, 68, 70, 64, 74, 67, 70, 57, 66, 65])
 after = np.array([64, 64, 68, 64, 73, 70, 72, 54, 61, 63])
 
-### Step 1: Calculate the Differences
+# Step 1. Calculate the differences
+# https://numpy.org/doc/stable/reference/generated/numpy.subtract.html
+# This code calculates the difference between the heart rates before and after the exercise program for each patient. The result is stored in the differences array.
 differences = before - after
 
-### Step 2: Compute the Mean and Standard Deviation of the Differences
+# Step 2. Compute the mean and standard deviation of the differences
+# https://numpy.org/doc/stable/reference/generated/numpy.mean.html
+# https://numpy.org/doc/stable/reference/generated/numpy.std.html
+# mean_diff: This calculates the mean (average) of the differences.
+# std_diff: This calculates the standard deviation of the differences. The ddof=1 parameter is used to calculate the sample standard deviation.
+# n: This stores the number of observations (patients).
 mean_diff = np.mean(differences)
 std_diff = np.std(differences, ddof=1)  # ddof=1 for sample standard deviation
 n = len(differences)
 
-### Step 3: Calculate the t-statistic
+# Step 3. Calculate the t-statistic
+# https://numpy.org/doc/stable/reference/generated/numpy.sqrt.html
+# This code calculates the t-statistic using the formula: t = mean_diff / (std_diff / sqrt(n))
 t_statistic = mean_diff / (std_diff / np.sqrt(n))
 print(f"Calculated t-statistic: {t_statistic}")
 
-### Step 4: Use scipy.stats to Verify the t-statistic
+# Step 4. Use scipy.stats to verify the t-statistic
+# https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_rel.html
 t_statistic_scipy, p_value = stats.ttest_rel(before, after)
 print(f"scipy.stats t-statistic: {t_statistic_scipy}, p-value: {p_value}")
+```
 
-### Results
+## Results
+
 - Calculated t-statistic: 1.3372274824806283
 - scipy.statst-statistic: 1.337227482480628
 - p-value: 0.21396011317404623
 
-### Initial Analysis of Values
+## Initial Analysis of Values
+
 t-statistic: A t-statistic of 1.337 suggests that the mean difference between the before and after heart rates is 1.337 standard deviations away from zero.
 p-value: A p-value of approximately 0.214 indicates that there is a 21.4% chance that the differences observed are due to random variation rather than a true effect of the exercise program. This p-value is greater than the common significance level of 0.05, indicating that the observed differences are not statistically significant.
 
-### Analysis Utilizing Various Charts
-__Generate Bar Chart__
+## Analysis Utilizing Various Charts
+
+### Generate Bar Chart
+
+A bar char was generated using the following code and is displayed below
+
+```<python>
 x = np.arange(len(before))
 width = 0.35  # the width of the bars
 
@@ -774,59 +817,137 @@ ax.set_xticks(x)
 ax.set_xticklabels(range(len(before)))
 ax.legend()
 
-plt.show()
+# Save the plot as an image in the 'images' directory 
+plt.savefig('images/heart_rates_comparison.png', bbox_inches='tight', pad_inches=0)
 
-__Generate Line Plot__
+plt.show()
+```
+
+<img src="images/heart_rates_comparison.png" alt="heart_rates_comparison.png" style="float: left"> 
+
+*Heart Rates Comparison Image Source: images/heart_rates_comparison.png*
+
+### Generate Line Plot
+
+A line plot was generated using the following code and is displayed below
+
+```<python>
+# Line Plot will display the before and after heart rates for each patient
+
+# Create a Figure and Plot Data:
 plt.figure()
 plt.plot(range(len(before)), before, marker='o', linestyle='-', color='blue', label='Before')
 plt.plot(range(len(after)), after, marker='o', linestyle='-', color='green', label='After')
+
+# Set Titles and Labels:
 plt.xlabel('Patient ID')
 plt.ylabel('Heart Rate')
 plt.title('Heart Rates Before and After Exercise Program')
 plt.legend()
-plt.show()
 
-__Generate Scatter Plot__
-plt.figure()
-plt.scatter(range(len(before)), before, color='blue', label='Before')
-plt.scatter(range(len(after)), after, color='green', label='After')
-plt.xlabel('Patient ID')
-plt.ylabel('Heart Rate')
-plt.title('Heart Rates Before and After Exercise Program')
-plt.legend()
-plt.show()
+# Save the Plot as an Image File in the images Directory:
+plt.savefig('images/heart_rates_comparison_line_plot.png', bbox_inches='tight', pad_inches=0)
 
-__Generate Histogram__
+# Show the Plot
+plt.show()
+```
+
+<img src="images\heart_rates_comparison_line_plot.png" alt="heart_rates_comparison_line_plot.png" style="float: left"> 
+
+*Heart Rates Comparison Line Plot Image Source: images\heart_rates_comparison_line_plot.png*
+
+### Generate Scatter Plot
+
+A scatter plot was generated using the following code and is displayed below
+
+```<python>
+# Create a figure 
+plt.figure() 
+
+# Create scatter plots 
+plt.scatter(range(len(before)), before, color='blue', label='Before') 
+plt.scatter(range(len(after)), after, color='green', label='After') 
+
+# Set titles and labels 
+plt.xlabel('Patient ID') 
+plt.ylabel('Heart Rate') 
+plt.title('Heart Rates Before and After Exercise Program') 
+plt.legend() 
+
+# Save the plot as an image in the 'images' directory 
+plt.savefig('images/heart_rates_comparison_scatter_plot.png', bbox_inches='tight', pad_inches=0) 
+
+# Show the plot 
+plt.show()
+```
+
+<img src="images\heart_rates_comparison_scatter_plot.png" alt="heart_rates_comparison_scatter_plot.png" style="float: left"> 
+
+*Heart Rates Comparison Scatter Plot Image Source: images\heart_rates_comparison_scatter_plot.png*
+
+### Generate Histogram
+
+A Histogram was generated using the following code and is displayed below
+
+```<python>
+# Create a figure
 plt.figure(figsize=(10, 6))
 
+# Plot histograms
 plt.hist(before, bins=10, color='blue', alpha=0.5, label='Before', edgecolor='black')
 plt.hist(after, bins=10, color='green', alpha=0.5, label='After', edgecolor='black')
 
+# Set titles and labels
 plt.title('Histogram of Heart Rates Before and After Exercise Program')
 plt.xlabel('Heart Rate')
 plt.ylabel('Frequency')
 plt.legend()
 
+# Save the plot as an image in the 'images' directory
+plt.savefig('images/heart_rates_histogram.png', bbox_inches='tight', pad_inches=0)
+
+# Show the plot (optional)
 plt.show()
 
-__Generate Box Plot__
+```
+
+<img src="images\heart_rates_histogram.png" alt="heart_rates_histogram" style="float: left"> 
+
+*Heart Rates Comparison Histogram Image Source: images\heart_rates_histogram.png*
+
+### Generate Box Plot
+
+A Box Plot was generated using the following code and is displayed below
+
+```<python>
+# Box Plot is useful as it shows the distribution of heart rates before and after the exercise program, as well as any outliers.
 plt.figure(figsize=(10, 6))
 plt.boxplot([before, after], labels=['Before', 'After'], patch_artist=True,
             boxprops=dict(facecolor='lightblue', color='blue'),
             medianprops=dict(color='red'))
 
+# Add titles and labels
 plt.title('Box Plot of Heart Rates Before and After Exercise Program')
 plt.xlabel('Condition')
 plt.ylabel('Heart Rate')
 
+# Save the Plot as an Image File in the images Directory
+plt.savefig('images/heart_rates_box_plot.png', bbox_inches='tight', pad_inches=0)
+
+# Show the plot
 plt.show()
+```
 
-### Conclusion
+<img src="images\heart_rates_box_plot.png" alt="heart rates box plot" style="float: left"> 
 
-The charts displayed values of heart rates before and after an exercise program.  The visual results matched the results of t-statistic which was verified using scipy.stats.
-Both the manually calculated t-statistic and the one from scipy.stats are the same, and the p-value suggests that the changes in heart rates are not statistically significant. 
+*Heart Rates Comparison Box Plot Image Source: images\heart_rates_box_plot.png*
 
-### Assumptions
+
+## Conclusion
+
+The results of t-statistic scipy.stats are the same.  Taking both results and the images of the plots indicate that the observed differences are not statistically significant.
+
+## Assumptions
 
 The t-test makes five key assumptions:
 
@@ -846,6 +967,7 @@ The data should be measured on an interval or ratio scale. In this case, heart r
 The differences between the paired samples should not have significant outliers, as outliers can affect the results of the t-test.
 
 ### Summary of Assumptions
+
 Paired Samples: Each before value is paired with an after value for the same patient.
 
 Normality: The differences between the paired samples should be normally distributed.
@@ -859,6 +981,7 @@ No Significant Outliers: The differences should not have significant outliers.
 These assumptions ensured the validity and reliability of these t-test results. If any of these assumptions were violated, the results of the t-test would not be accurate.
 
 ## Libraries Used
+
 The folowing libraries were used in Task 3:
 NumPy: Essential for numerical computing. It supports arrays, matrices, and functions for high-level mathematical operations.
 SciPy: Provides functions for statistical tests, including the paired t-test.
@@ -866,6 +989,7 @@ Matplotlib: A 2D plotting library for creating graphs and visualizations.
 These libraries are crucial for performing the calculations and visualizations required in this task.
 
 ## References
+
 The following online resources were used to complete Task 3 in `tasks.ipynb` and compile content in the Task 3 section of the `README.md` document:
 
 1. [ATU Lectures - Applied Statistics, Dr Ian McLoughlin](https://vlegalwaymayo.atu.ie/course/view.php?id=10454)
