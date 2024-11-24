@@ -734,15 +734,15 @@ The following online resources were used to complete Task 3 in `tasks.ipynb` and
  
  Plots were used as they have numerous benefits, especially in data analysis, interpretation, and communication. The following are the reasons plots were used:
 
- <img src="Plant_Weights_by_Treatment_Group.png" alt="Box Plot" style="float: left"> 
+ <img src="images\Plant_Weights_by_Treatment_Group.png" alt="Box Plot" style="float: left"> 
 
  *Box Plot Image (Source:Plant_Weights_by_Treatment_Group.png)*
  
- <img src="Plant_Weights_SwarmPlot_trt1_vs_trt2.png" alt="SwarmPlot" style="float: left"> 
+ <img src="images\Plant_Weights_SwarmPlot_trt1_vs_trt2.png" alt="SwarmPlot" style="float: left"> 
 
   *Swarm Plot Image (Source:Plant_Weights_SwarmPlot_trt1_vs_trt2.png)*
  
- <img src="Plant_Weights_ViolinPlot_trt1_vs_trt2.png" alt="Swarm Plot" style="float: left">
+ <img src="images\Plant_Weights_ViolinPlot_trt1_vs_trt2.png" alt="Swarm Plot" style="float: left">
 
   *Violin Plot Image (Source:Plant_Weights_ViolinPlot_trt1_vs_trt2.png)*
 
@@ -826,7 +826,7 @@ The following online resources were used to complete Task 3 in `tasks.ipynb` and
  plt.show()
  ```
 
- <img src="Plant_Weights_ScatterPlot.png" alt="Scatter Plot" style="float: left;">
+ <img src="images\Plant_Weights_ScatterPlot.png" alt="Scatter Plot" style="float: left;">
 
   *Scatter Plot Image (Source:Plant_Weights_ScatterPlot.png)*
 
