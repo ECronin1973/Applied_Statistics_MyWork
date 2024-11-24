@@ -51,16 +51,18 @@ A person claims to have the ability to discern whether milk or tea was poured in
 - Total Cups: 12
 - Milk First: 6 cups
 - Tea First: 6 cups
-- The participant will taste each cup and determine the order in which milk or tea was poured.
+
+The participant will taste each cup and determine the order in which milk or tea was poured.
 
 ## Probability Calculation 
 
 Calculate the probability that the participant correctly identifies all six ‘milk first’ cups by chance.
 
-### Instructions (PROBABIITY CALCULATION):
-Use Python to simulate the experiment.
-Assume the participant is guessing; they do not have any special powers.
-Justify your workings with comments in code cells and explanations in Markdown cells.
+### Instructions (Probability Calculation):
+
+- Use Python to simulate the experiment.
+- Assume the participant is guessing; they do not have any special powers.
+- Justify your workings with comments in code cells and explanations in Markdown cells.
 
 **The following code is used to define the relevant variables in the experiment**
 
@@ -143,9 +145,7 @@ ways
 
 ## Ordering the results
 
-https://docs.python.org/3/library/itertools.html#itertools.combinations
-
-The resuts were then ordered and the following was outputted from running the code below.  Results were also exported to combinations.csv file:
+We used Python’s itertools library to generate combinations and exported the results to a combinations.csv file.  The following was the output
 
 Cup labels: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 Number of combinations: 924
@@ -178,7 +178,7 @@ with open('combinations.csv', 'w', newline='') as csvfile:
 print(f"Number of combinations: {len(combs)}")
 ```
 
-## Select six cups
+## Selecting six cups
 
 We selected six cups at random to put milk in first using the following code:
 
@@ -212,7 +212,7 @@ set(labels_milk)
 
 ## Calculate Overlap
 
-We calculate the overlap between each element of combs and labels_milk.  We export the output into overlaps.csv using the code:
+We calculated the overlap between each element of combs and labels_milk and exported the output into overlaps.csv using the code:
 
 ```<python>
 # Calculate the overlap between each element of combs and labels_milk.
@@ -249,10 +249,9 @@ with open('overlaps.csv', 'w', newline='') as csvfile:
 
  ## Number of Overlaps
 
- We next count the number of times each overlap occurs which gave an output of
+ We next count the number of times each overlap occurs, which gave an output of
 
- (array([0, 1, 2, 3, 4, 5, 6]),
- array([  1,  36, 225, 400, 225,  36,   1], dtype=int64))
+ (array([0, 1, 2, 3, 4, 5, 6]), array([ 1, 36, 225, 400, 225, 36, 1], dtype=int64))
 
  The following code was used:
  
@@ -268,7 +267,7 @@ counts
 
 ## Display results with a Bar Chart
 
-We display overlap results within the following bar chart using the code:
+We displayed overlap results within the following bar chart using the code:
 
  ```<python>
 # Create a figure.
@@ -288,29 +287,104 @@ plt.show()
 <img src="images\Overlaps_bar_chart.png" alt="Overlaps" style="float: left"> 
 
 ## Allowing Errors
-Consider if we are willing to accept one error in the participant’s selection.  From completion of this task, I would be willing to accept a 5 cups out of six correct as it has a 3.8 percent probability of being right.  This would mean that the person had a near 96.2% chance of getting it wrong.  
+
+Consider if we are willing to accept one error in the participant’s selection. From completion of this task, I would be willing to accept 5 cups out of 6 as correct, as it has a 3.8 percent probability of being right. This would mean that the person had a near 96.2% chance of getting it wrong.  
 
 ### Instructions (ONE ERROR):
-Calculate the probability that the participant makes at most one error.  From completing this task, the __Number of Overlaps__ and its related bar chart shows that the chance of a person getting six correct cups is 1 in 924, The chance of getting five correct cups is 36 in 924, The chance of getting four correct cups is 225 in 924.  The chance of getting half the number of cups right is 400 in 924 which interestingly enough in this case is nearly half the time.  The chance of getting all out of six wrong is 1 in 924. It may the case that the person can tell the difference every time, but not know which group a cup belongs to. 
 
+Calculate the probability that the participant makes at most one error. From completing this task, the Number of Overlaps and its related bar chart show that the chance of a person getting six correct cups is 1 in 924. The chance of getting five correct cups is 36 in 924. The chance of getting four correct cups is 225 in 924. The chance of getting half the number of cups right is 400 in 924, which interestingly enough is nearly half the time. The chance of getting all six wrong is 1 in 924. It may be the case that the person can tell the difference every time but does not know which group a cup belongs to.
 
 ## Accepting Two Errors
-Discuss whether accepting two errors would be reasonable and calculate the corresponding probability.  From completing this task I would not however be willing to accept four cups as the person has a near 25% chance of being right or a 1:4.  
+
+Discuss whether accepting two errors would be reasonable and calculate the corresponding probability. From completing this task, Depending on the context, I may be willing to accept four cups, as the person has a near 25% chance of being right or a 1:4 ratio.  In other contexts, I would not be willing to accept the two errors.  Personally, I would always strive for a one error acceptance scenario.   A detailed explanation of acceptance of two errors is provided below.
 
 ### Instructions (TWO ERRORS):
-Provide a detailed explanation of your reasoning in a Markdown cell.  From completing this task the __Number of Overlaps__ and its related bar chart shows that the chance of a person getting two errors is 225 / 924, this equates to 0.2435064935064935 or 24%.
 
-## Summary
+Provide a detailed explanation of your reasoning in a Markdown cell. From completing this task, the Number of Overlaps and its related bar chart show that the chance of a person getting two errors is 225 / 924. This equates to approximately 0.2435 or 24%.
+
+In the context of our experiment, we aim to determine whether a participant can accurately identify which cups had milk poured first, merely by tasting the tea. If the participant is purely guessing, the results of this experiment can be modeled using combinatorial probability.
+
+__Understanding the Probability Calculation:__
+
+**Total Combinations:**
+
+There are 12 cups, 6 with milk poured first and 6 with tea poured first.
+
+The number of ways to select 6 cups out of 12 (regardless of order) is calculated using the combination formula 
+\( \binom{n}{k} \).
+
+The total number of possible combinations is calculated as:
+
+\[ 
+\binom{12}{6} = \frac{12!}{6! \times 6!} = 924 
+\]
+
+This means there are 924 different ways to choose 6 cups out of 12.
+
+**Calculating Overlaps:**
+
+The overlap calculation involves determining how many of the chosen 6 cups correctly identify the cups where milk was poured first.
+
+For each possible combination of 6 cups, we evaluate how many of those cups are correctly identified (overlap).
+
+**Probability of Correctly Identifying All Cups:**
+
+The chance of correctly identifying all 6 cups purely by guessing is: 
+
+\[ \frac{1}{924} \approx 0.00108 \text{ or } 0.108\% \]
+
+This extremely low probability indicates that getting all 6 correct by guessing is highly unlikely.
+
+**Allowing for Two Errors:**
+
+We extend our analysis to consider if the participant makes at most two errors, meaning they correctly identify 4 or 5 out of 6 cups.
+
+From our combination calculations, the number of ways to achieve different overlap counts is as follows:
+
+| Correct Guesses | Number of Ways |
+|-----------------|----------------|
+| 0               | 1              |
+| 1               | 36             |
+| 2               | 225            |
+| 3               | 400            |
+| 4               | 225            |
+| 5               | 36             |
+| 6               | 1              |
+
+The chance of getting exactly two errors (correctly identifying 4 out of 6) is calculated as:
+
+\[ 
+\frac{225}{924} \approx 0.2435 \text{ or } 24.35\% 
+\]
+
+**Rationale for Accepting Two Errors:**
+
+Given the distribution of the overlaps, allowing two errors (4 out of 6 correct) significantly increases the likelihood of a participant's success from a mere 0.108% (for all correct) to 24.35%.
+
+This still implies that getting 4 correct by guessing is relatively rare but within a more plausible range compared to getting all 6 correct.
+
+**Implications:**
+
+If we observe an individual consistently identifying 4 out of 6 cups correctly (allowing for two errors), it would be reasonable to suspect that they might have some ability beyond mere guessing.
+
+This margin of error provides a more realistic benchmark for assessing the participant's discerning ability while accounting for the inherent challenge of the task.
+
+In conclusion, this detailed analysis demonstrates the significantly higher probability of the participant getting two errors in their guesses. Allowing for two errors maybe a more lenient and practical measure of assessing the participant's claimed ability to discern the order of milk pouring in the tea cups. In some contexts, this approach balances the strictness of requiring perfect accuracy with the practicalities of human error and the inherent challenge of the task.  In other contexts like ensuring children's safety, however it would not be prudent to do so.  Sticking to the stringent "5 out of 6" rule ensures this test maintains high power and reliability, reducing the likelihood of erroneously accepting someone's claimed ability. In high-stakes settings, this higher power and lower error risk are essential. Balancing rigor and reliability ensures meaningful and trustworthy outcomes in data analytics.
+
+## Summary Task 1
+
 I have just completed this task, investing considerable time in reviewing the instructor's lectures and setting up my environment with the necessary libraries. After not using Anaconda for over 12 months, I had to delete and reinstall it along with VS-Code and add the Copilot AI extension. I also watched YouTube videos (listed in references) to learn how to use the Copilot AI tool. Additionally, I revised how to create README files and use Markdown language.
 
 In the lecture videos, I discovered various methods of calculating the total number of combinations. To deepen my understanding, I referred to other sources such as www.w3schools.com. Python for Data Analytics provided me with a solid grasp of using Python, plotting, and visualization. To ensure all bases were covered, I included each method in my task as demonstrated by the instructor, adding relevant notes to each section for context.
 
-Further Reading Performed
+**Further Reading Performed**
+
 I explored research on this topic conducted by others. On the site https://lisds.github.io/textbook/wild-pandas/fishers_tea.html, it was noted that 'Muriel guessed correctly for each of the eight cups, and so correctly identified all four milk-first cups'. This test was not performed on an individual but outlined the necessary parameters for a test, comparing 'real-world' results versus the null hypothesis. I analyzed the code on that site and adapted it to display Fisher's table with 12 cups of tea. The four categories outlined in that experiment are also relevant in this test.
 
 I viewed the code in Github and found the printed results too long, instead I researched how extract the results into csv files.  I generated two files, 1. combinations.csv which was created to collect the combinations and to count them, and 2. The overlaps.csv which contained the combination, overlap, and length of overlap between each element of combs and labels_milk. I took this approach to make the tasks.ipynb file more readable. 
 
 ## References
+
 The following online resources were used to complete Task 1 in `tasks.ipynb` and compile content in the Task 1 section of the `README.md` document:
 
 1. [ATU Lectures - Applied Statistics, Dr Ian McLoughlin](https://vlegalwaymayo.atu.ie/course/view.php?id=10454)
