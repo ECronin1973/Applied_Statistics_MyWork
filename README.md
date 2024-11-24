@@ -311,26 +311,15 @@ There are 12 cups, 6 with milk poured first and 6 with tea poured first.
 
 The number of ways to select 6 cups out of 12 (regardless of order) is calculated using the combination formula 
 
-
-
-\[ \binom{n}{k} \]
-
-
-
+$$ \binom{n}{k} $$
 
 The total number of possible combinations is calculated as:
 
-
-
-\[ 
+$$
 \binom{12}{6} = \frac{12!}{6! \times 6!} = 924 
-\]
-
-
+$$
 
 This means there are 924 different ways to choose 6 cups out of 12.
-
-
 
 **Calculating Overlaps:**
 
@@ -339,7 +328,6 @@ The overlap calculation involves determining how many of the chosen 6 cups corre
 For each possible combination of 6 cups, we evaluate how many of those cups are correctly identified (overlap).
 
 **Probability of Correctly Identifying All Cups:**
-
 
 This extremely low probability indicates that getting all 6 correct by guessing is highly unlikely.
 
@@ -361,14 +349,9 @@ From our combination calculations, the number of ways to achieve different overl
 
 The chance of correctly identifying all 6 cups purely by guessing is:
 
-
-
-\[ 
-\frac{1}{924} \approx 0.00108 \text{ or } 0.108\% 
-\]
-
-
-
+$$
+\frac{1}{924} \approx 0.00108 \text{ or } 0.108\%
+$$
 
 **Rationale for Accepting Two Errors:**
 
