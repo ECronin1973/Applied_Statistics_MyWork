@@ -34,22 +34,28 @@ Email: g00425645@atu.ie
 A code of conduct governs the use of this repository and has been uploaded within the repository for ease of reference.
 
 # Tasks 2024/2025 Applied Statistics
-_______________________________________________________________________________________________________________________________________________________________________________________
-# Task 1: Lady Tasting Tea Experiment
+
+## Task 1: Lady Tasting Tea Experiment
 
 ### Overview
+
+<img src="images\Ronald.A.Fisher.png" alt="Ronald A. Fisher" style="float: right; height: 240px;">
+
 This project is inspired by the famous “Lady Tasting Tea” experiment, as described in Ronald A. Fisher’s book “The Design of Experiments”. We aim to replicate the experiment with a twist, involving twelve cups of tea, where six cups have milk poured in first and the other six have tea poured in first.
 
 ### Objective
+
 A person claims to have the ability to discern whether milk or tea was poured into the cup first just by tasting it. Our objective is to calculate the probability that this person can correctly identify all six cups that had milk poured in first, under the assumption that they are merely guessing without any special powers.
 
 ### Experiment Setup
-Total Cups: 12
-Milk First: 6 cups
-Tea First: 6 cups
-The participant will taste each cup and determine the order in which milk or tea was poured.
+
+- Total Cups: 12
+- Milk First: 6 cups
+- Tea First: 6 cups
+- The participant will taste each cup and determine the order in which milk or tea was poured.
 
 ## Probability Calculation 
+
 Calculate the probability that the participant correctly identifies all six ‘milk first’ cups by chance.
 
 ### Instructions (PROBABIITY CALCULATION):
@@ -57,19 +63,243 @@ Use Python to simulate the experiment.
 Assume the participant is guessing; they do not have any special powers.
 Justify your workings with comments in code cells and explanations in Markdown cells.
 
+**The following code is used to define the relevant variables in the experiment**
+
+```<python>
+# Number of cups of tea in total.
+no_cups = 12
+
+# Number of cups of tea with milk in first.
+no_cups_milk_first = 6
+
+# Number of cups of tea with tea in first.
+no_cups_tea_first = 6
+```
+
+We next adapt Fishers table which outlines four possible categories results would fit into.  It formed the basis of the original test and is a model to base this test on, where we are requiring an individual to correctly identify six cups out of 12.
+
+**Adapt Fishers Table**
+
+The following code was used to adapt Fishers Table.
+
+```<python>
+# Make an empty DataFrame to store the twelve cups
+tea_df = pd.DataFrame()
+
+# Insert a column that records whether the milk is poured before the tea, into that cup
+tea_df['milk_first'] = np.repeat(['yes', 'no'], [6, 6])
+
+# Add a column recording the guesses for the cups where milk was poured first
+tea_df['says_milk_first'] = np.repeat(['yes', 'no'], [6, 6])
+
+# Take a sample (without replacement) of 12 rows
+tea_df = tea_df.sample(12, replace=False)
+
+# Reset the row labels to throw away the labels showing the original order
+tea_df = tea_df.reset_index(drop=True)
+
+# Add an index column to display row numbers
+tea_df.index.name = 'Guess No.'
+
+# Create a figure and axis
+fig, ax = plt.subplots(figsize=(8, 4))
+
+# Hide the axes
+ax.xaxis.set_visible(False)
+ax.yaxis.set_visible(False)
+ax.set_frame_on(False)
+
+# Create the table
+table = ax.table(cellText=tea_df.values, colLabels=tea_df.columns, rowLabels=tea_df.index, cellLoc='center', loc='center')
+
+# Style the table
+table.auto_set_font_size(False)
+table.set_fontsize(12)
+table.scale(1.2, 1.2)
+
+# Save the table as an image
+plt.savefig('images/tea_df_table.png', bbox_inches='tight', pad_inches=0)
+
+# Show our reconstruction of Fisher's table based on 12 random guesses
+plt.show()
+```
+
+The following is an image of Fishers Table generated from the above code:
+
+<img src="images\tea_df_table.png" alt="Fishers Table" style="float: left"> 
+
+## Calculating the Number of ways of selecting six cups from twelve
+
+The math.comb() method returns the number of ways picking k unordered outcomes from n possibilities, without repetition, also known as combinations.  The output was 924.
+
+The following code was used to complete tis task: 
+
+```<python>
+# Number of ways of selecting six cups from twelve.
+ways = math.comb(no_cups, no_cups_milk_first)
+
+# Show.
+ways
+```
+
+## Ordering the results
+
+https://docs.python.org/3/library/itertools.html#itertools.combinations
+
+The resuts were then ordered and the following was outputted from running the code below.  Results were also exported to combinations.csv file:
+
+Cup labels: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+Number of combinations: 924
+
+```<python>
+import itertools
+import csv
+
+# Define the number of cups
+no_cups = 12
+
+# The cup labels
+labels = list(range(no_cups))
+print("Cup labels:", labels)
+
+# Ensure the variable is defined
+no_cups_milk_first = 6
+
+# Generate the combinations
+combs = list(itertools.combinations(labels, no_cups_milk_first))
+
+# Write the combinations to a CSV file
+with open('combinations.csv', 'w', newline='') as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerow(['Combination'])
+    for comb in combs:
+        writer.writerow([', '.join(map(str, comb))])
+
+# Display the number of combinations
+print(f"Number of combinations: {len(combs)}")
+```
+
+## Select six cups
+
+We selected six cups at random to put milk in first using the following code:
+
+```<python>
+import random
+
+# Select six cups at random to put milk in first.
+# https://docs.python.org/3/library/random.html#random.sample
+labels_milk = random.sample(labels, 6)
+
+# Sort, inplace.
+labels_milk.sort()
+
+# Show.
+labels_milk
+```
+
+## Define Variables
+
+We ensure variables are defined using the following code, which gave an output {0, 3, 5, 6, 8, 10}:
+
+```<python>
+# Ensure the variable is defined
+labels_milk = random.sample(labels, 6)
+labels_milk.sort()
+
+# Turn labels_milk into a set.
+# Uses: https://docs.python.org/3/tutorial/datastructures.html#sets
+set(labels_milk)
+```
+
+## Calculate Overlap
+
+We calculate the overlap between each element of combs and labels_milk.  We export the output into overlaps.csv using the code:
+
+```<python>
+# Calculate the overlap between each element of combs and labels_milk.
+# Uses: https://docs.python.org/3/library/stdtypes.html#set
+import itertools
+import csv
+
+no_overlaps = []
+
+# Open a CSV file to write the results
+with open('overlaps.csv', 'w', newline='') as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerow(['Combination', 'Overlap', 'Length of Overlap'])
+    
+    for comb in combs:
+        # Turn comb into a set
+        s1 = set(comb)
+        
+        # Turn labels_milk into a set
+        s2 = set(labels_milk)
+        
+        # Figure out where they overlap
+        overlap = s1.intersection(s2)
+        
+        # Append overlap to no_overlaps
+        no_overlaps.append(len(overlap))
+        
+        # Write the combination, overlap, and length of overlap to the CSV file.  View results in this file.
+        writer.writerow([comb, list(overlap), len(overlap)])
+
+ # Show the overlaps from the extracted file
+ print(no_overlaps)
+ ```
+
+ ## Number of Overlaps
+
+ We next count the number of times each overlap occurs which gave an output of
+
+ (array([0, 1, 2, 3, 4, 5, 6]),
+ array([  1,  36, 225, 400, 225,  36,   1], dtype=int64))
+
+ The following code was used:
+ 
+ ```<python>
+ import numpy
+
+# Count the number of times each overlap occurs.
+counts = np.unique(no_overlaps, return_counts=True)
+
+# Show.
+counts
+```
+
+## Display results with a Bar Chart
+
+We display overlap results within the following bar chart using the code:
+
+ ```<python>
+# Create a figure.
+fig, ax = plt.subplots(figsize=(6, 6))
+
+# Bar chart.
+bars = ax.bar(counts[0], counts[1])
+
+# Display values on top of bars
+for bar in bars:
+    height = bar.get_height()
+    ax.text(bar.get_x() + bar.get_width() / 2., height, f'{height}', ha='center', va='bottom')
+# Show the plot
+plt.show()
+```
+
+<img src="images\Overlaps_bar_chart.png" alt="Overlaps" style="float: left"> 
+
 ## Allowing Errors
-Consider if we are willing to accept one error in the participant’s selection.
+Consider if we are willing to accept one error in the participant’s selection.  From completion of this task, I would be willing to accept a 5 cups out of six correct as it has a 3.8 percent probability of being right.  This would mean that the person had a near 96.2% chance of getting it wrong.  
 
 ### Instructions (ONE ERROR):
-Calculate the probability that the participant makes at most one error.
-Justify your workings as before.
+Calculate the probability that the participant makes at most one error.  From completing this task, the __Number of Overlaps__ and its related bar chart shows that the chance of a person getting six correct cups is 1 in 924, The chance of getting five correct cups is 36 in 924, The chance of getting four correct cups is 225 in 924.  The chance of getting half the number of cups right is 400 in 924 which interestingly enough in this case is nearly half the time.  The chance of getting all out of six wrong is 1 in 924. It may the case that the person can tell the difference every time, but not know which group a cup belongs to. 
+
 
 ## Accepting Two Errors
-Discuss whether accepting two errors would be reasonable and calculate the corresponding probability.
+Discuss whether accepting two errors would be reasonable and calculate the corresponding probability.  From completing this task I would not however be willing to accept four cups as the person has a near 25% chance of being right or a 1:4.  
 
 ### Instructions (TWO ERRORS):
-Provide a detailed explanation of your reasoning in a Markdown cell.
-Calculate the probability as before
+Provide a detailed explanation of your reasoning in a Markdown cell.  From completing this task the __Number of Overlaps__ and its related bar chart shows that the chance of a person getting two errors is 225 / 924, this equates to 0.2435064935064935 or 24%.
 
 ## Summary
 I have just completed this task, investing considerable time in reviewing the instructor's lectures and setting up my environment with the necessary libraries. After not using Anaconda for over 12 months, I had to delete and reinstall it along with VS-Code and add the Copilot AI extension. I also watched YouTube videos (listed in references) to learn how to use the Copilot AI tool. Additionally, I revised how to create README files and use Markdown language.
