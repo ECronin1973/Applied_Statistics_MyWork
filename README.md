@@ -179,7 +179,7 @@ print(f"Number of combinations: {len(combs)}")
 
 ## Selecting six cups
 
-We selected six cups at random to put milk in first using the following code:
+We selected six cups at random to put milk in first which gave an output of [1, 2, 3, 5, 6, 11] using the following code:
 
 ```<python>
 import random
@@ -289,7 +289,7 @@ plt.show()
 
 Consider if we are willing to accept one error in the participant’s selection. From completion of this task, I would be willing to accept 5 cups out of 6 as correct, as it has a 3.8 percent probability of being right. This would mean that the person had a near 96.2% chance of getting it wrong.  
 
-### Instructions (ONE ERROR):
+### Instructions (One Error):
 
 Calculate the probability that the participant makes at most one error. From completing this task, the Number of Overlaps and its related bar chart show that the chance of a person getting six correct cups is 1 in 924. The chance of getting five correct cups is 36 in 924. The chance of getting four correct cups is 225 in 924. The chance of getting half the number of cups right is 400 in 924, which interestingly enough is nearly half the time. The chance of getting all six wrong is 1 in 924. It may be the case that the person can tell the difference every time but does not know which group a cup belongs to.
 
