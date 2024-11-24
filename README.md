@@ -425,41 +425,41 @@ The following online resources were used to complete Task 3 in `tasks.ipynb` and
 
 
 
-# Project 2024/2025 Applied Statistics
+ # Project 2024/2025 Applied Statistics
 
-### PlantGrowth Analysis 
+ ### PlantGrowth Analysis 
  
-### Overview
+ ### Overview
 
-This project analyzes the PlantGrowth dataset from Vicent Arel-Bundocks Rdatasets page. The dataset contains two main variables: a treatment group and the weight of plants within those groups. 
+ This project analyzes the PlantGrowth dataset from Vicent Arel-Bundocks Rdatasets page. The dataset contains two main variables: a treatment group and the weight of plants within those groups
 
-## Step 1. Download and Save the Dataset: 
+ ## Step 1. Download and Save the Dataset: 
 
- - The dataset was downloaded from [Vicent Arel-Bundocks Rdatasets page](https://vincentarelbundock.github.io/Rdatasets/datasets.html) and saved to the repository.
+ The dataset was downloaded from [Vicent Arel-Bundocks Rdatasets page](https://vincentarelbundock.github.io/Rdatasets/datasets.html) and saved to the repository.  The following code was used to complete this task:
 
  ```<python>
  # Import libraries to complete this project
-import pandas as pd
-from scipy.stats import ttest_ind
-import matplotlib.pyplot as plt
-import seaborn as sns
-from scipy.stats import f_oneway
+ import pandas as pd
+ from scipy.stats import ttest_ind
+ import matplotlib.pyplot as plt
+ import seaborn as sns
+ from scipy.stats import f_oneway
 
-# Download the dataset
-url = 'https://vincentarelbundock.github.io/Rdatasets/csv/datasets/PlantGrowth.csv'
-# https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html
-df = pd.read_csv(url)
+ # Download the dataset
+ url = 'https://vincentarelbundock.github.io/Rdatasets/csv/datasets/PlantGrowth.csv'
+ # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html
+ df = pd.read_csv(url)
 
-# Save the dataset to the repository 
-# https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_csv.html
-df.to_csv('PlantGrowth.csv', index=False)
-```
+ # Save the dataset to the repository 
+ # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_csv.html
+ df.to_csv('PlantGrowth.csv', index=False)
+ ```
 
  ## 2. Describe the Dataset: 
 
  The dataset was loaded into pandas DataFrame as it is a common practice in data analysis for several reasons:
 
- https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html
+ Source: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html
 
  __Ease of Data Manipulation__
 
@@ -508,6 +508,8 @@ df.to_csv('PlantGrowth.csv', index=False)
   - Next, we provide a summary of the dataset using the [describe() method](https://www.w3schools.com/python/pandas/ref_df_describe.asp). This method gives us important statistical information about the numerical columns in the dataset, such as the count, mean, standard deviation, minimum, and maximum values. 
   - To get information on the dataset such as the number of observation, the [info() is used](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.info.html#pandas.DataFrame.info.)
 
+  The following code was used to complete this task:
+
  ```<python>
  # Describe the dataset
  # # To get an initial look at the dataset, we can display the first few rows using the head() method. This gives us a quick overview of the data.
@@ -525,7 +527,7 @@ df.to_csv('PlantGrowth.csv', index=False)
  # The info() method provides a concise summary of the dataset
  # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.info.html
  print(df.info())
-```
+ ```
  
  ### A summary of the dataset
 
@@ -572,7 +574,7 @@ df.to_csv('PlantGrowth.csv', index=False)
 
  A t-test is a statistical test used to compare the means of two groups to determine if they are significantly different from each other. This is a fundamental method in hypothesis testing to assess the differences between groups
 
-### Formulating Hypotheses
+ ### Formulating Hypotheses
 
  https://www.scribbr.com/statistics/t-test/
 
@@ -635,7 +637,7 @@ df.to_csv('PlantGrowth.csv', index=False)
 
  ## t-test performed
 
- A t-test was performed to determine if there is a significant difference between the two treatment groups (trt1 and trt2). The following values were extracted from running the code: 
+ A t-test was performed to determine if there is a significant difference between the two treatment groups (trt1 and trt2). Values were extracted from running the following code: 
 
  ```<python>
  # Filter the dataset to include only trt1 and trt2 groups
@@ -728,19 +730,19 @@ df.to_csv('PlantGrowth.csv', index=False)
 
  # Show the plot plt.show()
  plt.show()
-```
+ ```
  
  Plots were used as they have numerous benefits, especially in data analysis, interpretation, and communication. The following are the reasons plots were used:
 
- <img src="Plant_Weights_by_Treatment_Group.png" alt="Box Plot" style="float: left; height: 240px;"> 
+ <img src="Plant_Weights_by_Treatment_Group.png" alt="Box Plot" style="float: left"> 
 
  *Box Plot Image (Source:Plant_Weights_by_Treatment_Group.png)*
  
- <img src="Plant_Weights_SwarmPlot_trt1_vs_trt2.png" alt="SwarmPlot" style="float: left; height: 240px;"> 
+ <img src="Plant_Weights_SwarmPlot_trt1_vs_trt2.png" alt="SwarmPlot" style="float: left"> 
 
   *Swarm Plot Image (Source:Plant_Weights_SwarmPlot_trt1_vs_trt2.png)*
  
- <img src="Plant_Weights_ViolinPlot_trt1_vs_trt2.png" alt="Swarm Plot" style="float: left; height: 240px;">
+ <img src="Plant_Weights_ViolinPlot_trt1_vs_trt2.png" alt="Swarm Plot" style="float: left">
 
   *Violin Plot Image (Source:Plant_Weights_ViolinPlot_trt1_vs_trt2.png)*
 
@@ -771,7 +773,7 @@ df.to_csv('PlantGrowth.csv', index=False)
 
  ## 5. ANOVA Test Performed
 
- ANOVA test was performed to determine if there is a significant difference between the three treatment groups (ctrl, trt1, and trt2).  The result of the test was ANOVA F-statistic: 4.846087862380136, p-value: 0.0159099583256229.  Code used is as follows:
+ ANOVA test was performed to determine if there is a significant difference between the three treatment groups (ctrl, trt1, and trt2).  The result of the test was ANOVA F-statistic: 4.846087862380136, p-value: 0.0159099583256229.  The following code was used to complete this task::
 
  ```<python>
  # Extract the treatment groups
@@ -804,7 +806,7 @@ df.to_csv('PlantGrowth.csv', index=False)
  
  https:www.geeksforgeeks.org/how-to-make-a-scatter-plot-in-python-using-seaborn/
 
- A scatter plots was generated to visually display the difference between the three treatment groups (ctrl, trt1 and trt2).  In addition to the f-statistic and p-values, it is easily visible to significant difference between each group.  The following code was used to generate the scatter plot:
+ A scatter plots was generated to visually display the difference between the three treatment groups (ctrl, trt1 and trt2).  In addition to the f-statistic and p-values, it is easily visible to significant difference between each group.  The following code was used to generate a scatter plot:
 
  ```<python>
  # Set the style of the visualization
@@ -824,7 +826,7 @@ df.to_csv('PlantGrowth.csv', index=False)
  plt.show()
  ```
 
- <img src="Plant_Weights_ScatterPlot.png" alt="Scatter Plot" style="float: left; height: 240px;">
+ <img src="Plant_Weights_ScatterPlot.png" alt="Scatter Plot" style="float: left;">
 
   *Scatter Plot Image (Source:Plant_Weights_ScatterPlot.png)*
 
@@ -863,7 +865,7 @@ df.to_csv('PlantGrowth.csv', index=False)
  - These post-hoc tests are designed to control the Type I error rate while making multiple comparisons, further reducing the risk of false positives.
  - In the PlantGrowth dataset, if we were to compare the weights of plants across three treatment groups (ctrl, trt1, and trt2) using multiple t-tests, we would increase the risk of Type I errors. Instead, by using ANOVA, we perform a single test to determine if there are any significant differences among the groups, thereby controlling the overall error rate
 
-## Consideration of Effect Sizes
+ ## Consideration of Effect Sizes
 
  https://www.datacamp.com/tutorial/anova-test
 
