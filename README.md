@@ -606,13 +606,48 @@ Based on the results of the above tests we can conclude that the sample is likel
 
 In order to complete this task I did the following, 
 - I performed a google search on testing for Normality in Python.  The website Statology gave me a good approach in addition to the great instruction I received when completing the online ATU lectures. 
-- I identified a useful youtube video titled 'Normality test - Simply explained'.  This video taught me that there are two ways to test for normal distribution 1. Analytical and 2. Graphically. There are three tests identified for Analytical testing 1. Shapiro-Wilk Test, 2. Kolmogorov-Smirnov Test and 3. Anderson-Darling Test. The objective of each of the tests is to determine if the p-value is smaller than 0.05.  If it is smaller,  Normal Distribution is not assumed.  If greater than 0.05 we assume normal distribution.  The disadvantage of analytical testing is the calculated p-value depends on the sample size (the larger the sample, the smaller the potential p-value). With a very large sample, it could be the case that the p-value is smaller than 0.05 and thus reject the null hypotesis, that it is a normal distribution.  To get around this problem, graphical tests of normal distribution are being used.  For graphical tests we either look at the histogram or QQ-Plot. If using the histogram we plot the normal distribution in the histogram of the data to see whether the curve of the normal distribution roughly corresponds to that of the normal distribution curve. The QQ-Plot is better as the Theoretical Quantiles the data should have if they are perfectly normally distributed and the quantiles of the measured values are compared. If the data is perfectly normally distributed, all points would lie on the line. The more the data deviates form the line, the less it is normall distributed. In addition, data that plots the 95% interval, if all your data lies within this interval, it is a very strong indication that  the data is normally distributed.  
+- I identified a useful youtube video titled 'Normality test - Simply explained'.  This video taught me the following
+a. There are two ways to test for normal distribution 1. Analytical and 2. Graphically. 
+b. There are three tests identified for Analytical testing 1. Shapiro-Wilk Test, 2. Kolmogorov-Smirnov Test and 3. Anderson-Darling Test. 
+c. The objective of each of the tests is to determine if the p-value is smaller than 0.05.  If it is smaller, Normal Distribution is not assumed. If greater than 0.05 we assume normal distribution.  
+d. The disadvantage of analytical testing is the calculated p-value depends on the sample size (the larger the sample, the smaller the potential p-value). 
+e. With a very large sample, it could be the case that the p-value is smaller than 0.05 and thus reject the null hypotesis, that it is a normal distribution.  
+f. To get around this problem, graphical tests of normal distribution are being used.  
+g. For graphical tests we either look at the histogram or QQ-Plot. 
+h. If using the histogram we plot the normal distribution in the histogram of the data to see whether the curve of the normal distribution roughly corresponds to that of the normal distribution curve. 
+i. The QQ-Plot is better as the Theoretical Quantiles the data should have if they are perfectly normally distributed and the quantiles of the measured values are compared. If the data is perfectly normally distributed, all points would lie on the line. The more the data deviates form the line, the less it is normall distributed. 
+j. In addition, data that plots the 95% interval, if all your data lies within this interval, it is a very strong indication that  the data is normally distributed.  
 - The 95% interval was further explored in Wikipedia (97.5th percentile point) where it states in probability and statistics, the 97.5th percentile point of the standard normal distribution is a number commonly used for statistical calculations. The approximate value of this number is 1.96, meaning that 95% of the area under a normal curve lies within approximately 1.96 standard deviations of the mean.    
 
 ## Libraries Used
-numpy: For numerical operations and generating random samples.
-scipy.stats: For statistical tests and probability distributions.
-matplotlib: For plotting and visualizing data
+
+- **NumPy**: Essential for numerical computing with support for arrays, matrices, and high-level mathematical operations.
+  - [NumPy Documentation](https://numpy.org/doc/stable/reference/index.html#reference)
+
+  ```python
+  import numpy as np
+  ```
+
+ **SciPy (shapiro)**: Used for testing the normality of a dataset with the Shapiro-Wilk test, providing a test statistic and p-value.
+ [SciPy Shapiro Documentation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.shapiro.html)
+
+  ```python
+  from scipy.stats import shapiro
+  ```
+ 
+ **Matplotlib**: A 2D plotting library for creating graphs and visualizing data.
+ [Matplotlib Documentation](https://matplotlib.org/stable/contents.html)
+
+ ```python
+  import matplotlib.pyplot as plt
+  ```
+
+**SciPy (norm)**: Used for working with the normal (Gaussian) distribution, including calculating probabilities and generating random samples.
+ [SciPy Norm Documentation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html)
+
+ ```python
+  from scipy.stats import norm
+  ```
 
 ## References
 The following online resources were used to complete Task 2 in `tasks.ipynb` and compile content in the Task 2 section of the `README.md` document:
