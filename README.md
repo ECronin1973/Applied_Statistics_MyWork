@@ -40,7 +40,6 @@ A code of conduct governs the use of this repository and has been uploaded withi
 ### Overview
 
 <img src="images\Ronald.A.Fisher.png" alt="Ronald A. Fisher" style="float: right; height: 240px;">
-
 This project is inspired by the famous “Lady Tasting Tea” experiment, as described in Ronald A. Fisher’s book “The Design of Experiments”. We aim to replicate the experiment with a twist, involving twelve cups of tea, where six cups have milk poured in first and the other six have tea poured in first.
 
 ### Objective
