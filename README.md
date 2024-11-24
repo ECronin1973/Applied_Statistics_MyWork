@@ -625,7 +625,9 @@ This project analyzes the PlantGrowth dataset from Vicent Arel-Bundocks Rdataset
  
  Plots were used as they have numerous benefits, especially in data analysis, interpretation, and communication. The following are the reasons plots were used:
 
-  **Enhanced Understanding**
+ <img src="Plant_Weights_by_Treatment_Group.png" alt="Box Plot" style="float: left; height: 240px;">  <img src="Plant_Weights_SwarmPlot_trt1_vs_trt2.png" alt="SwarmPlot" style="float: Middle; height: 240px;"> <img src="Plant_Weights_ViolinPlot_trt1_vs_trt2.png" alt="Swarm Plot" style="float: Right; height: 240px;">
+
+ **Enhanced Understanding**
 
   https://www.tandfonline.com/doi/abs/10.1080/01621459.1984.10478080
 
