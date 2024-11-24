@@ -627,15 +627,15 @@ This project analyzes the PlantGrowth dataset from Vicent Arel-Bundocks Rdataset
 
  <img src="Plant_Weights_by_Treatment_Group.png" alt="Box Plot" style="float: left; height: 240px;"> 
 
- **Image of Box Plot** 
+ *Box Plot Image (Source:Plant_Weights_by_Treatment_Group.png)*
  
  <img src="Plant_Weights_SwarmPlot_trt1_vs_trt2.png" alt="SwarmPlot" style="float: left; height: 240px;"> 
 
-  **Image of Swarm Plot** 
+  *Swarm Plot Image (Source:Plant_Weights_SwarmPlot_trt1_vs_trt2.png)*
  
  <img src="Plant_Weights_ViolinPlot_trt1_vs_trt2.png" alt="Swarm Plot" style="float: left; height: 240px;">
 
-  **Image of Violin Plot** 
+  *Violin Plot Image (Source:Plant_Weights_ViolinPlot_trt1_vs_trt2.png)*
 
 
  **Enhanced Understanding**
@@ -689,7 +689,7 @@ This project analyzes the PlantGrowth dataset from Vicent Arel-Bundocks Rdataset
 
  <img src="Plant_Weights_ScatterPlot.png" alt="Scatter Plot" style="float: left; height: 240px;">
 
-  **Image of Scatter Plot** 
+  *Scatter Plot Image (Source:Plant_Weights_ScatterPlot.png)*
 
  ### Conclusion to ANOVA test
  
