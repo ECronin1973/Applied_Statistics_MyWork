@@ -78,7 +78,7 @@ no_cups_tea_first = 6
 
 We next adapt Fishers table which outlines four possible categories results would fit into.  It formed the basis of the original test and is a model to base this test on, where we are requiring an individual to correctly identify six cups out of 12.
 
-**Adapt Fishers Table**
+## Adapting Fishers Table
 
 The following code was used to adapt Fishers Table.
 
@@ -409,9 +409,7 @@ In this task, we will assess whether `numpy.random.normal()` properly generates 
 
 ## Steps
 
-Import Relevant Libraries to complete task Two
-
-# Importing relevant Libraries for Completion of Task Two
+# Import relevant Libraries for Completion of Task Two
 ```<python>
 # Numerical structures and operations.  This tool is essential for numerical computing. 
 # It supports arrays, matrices, and functions for high-level mathematical operations
@@ -435,7 +433,8 @@ import matplotlib.pyplot as plt
 from scipy.stats import norm
 ```
 
-1.Generate a Sample
+### 1.Generate a Sample
+
 Use the `numpy.random.normal()` function to generate a sample of 100,000 values with a mean of 10.0 and a standard deviation of 3.0.
 
 ```<python>
@@ -455,7 +454,7 @@ sample = np.random.normal(mean, std_dev, sample_size)
 sample
 ```
 
-2. Initial Visualisation of Data
+### Initial Visualisation of Data
 
 Create a histogram of the sample values and overlay the probability density function (PDF) of a normal distribution with the same mean and standard deviation.  The output was exported to histogram_plot.png and is displayed below.
 
@@ -479,8 +478,9 @@ plt.show()
 *Visualisation of Data Source: images\histogram_plot.png*
 
 
-3.Test for Normality
-Three tests are performed to test for Normality, QQ-Plot, Shapiro-Wilk Test and Kolmogorov-Smirnov Test.  Each test will test if the results come from a normal distribution.
+### Test for Normality
+
+Three tests are performed to test for Normality, QQ-Plot, Shapiro-Wilk Test and Kolmogorov-Smirnov Test.  Each test will evaluate if the results come from a normal distribution.
 
 ### Shapiro-Wilk Test
 
@@ -606,22 +606,35 @@ If the p-value of the test is greater than α = .05, then the data is assumed to
 
 Based on the results of the above tests we can conclude that the sample is likely normally distributed.
 
-### Further Reading Performed
+## Further Reading Performed
 
-In order to complete this task I did the following, 
-- I performed a google search on testing for Normality in Python.  The website Statology gave me a good approach in addition to the great instruction I received when completing the online ATU lectures. 
-- I identified a useful youtube video titled 'Normality test - Simply explained'.  This video taught me the following
+In order to complete this task I did the following tasks:
+
+I performed a google search on testing for Normality in Python.  The website Statology gave me a good approach in addition to the great instruction I received when completing the online ATU lectures. 
+
+I identified a useful youtube video titled 'Normality test - Simply explained'.  This video taught me the following
+
 a. There are two ways to test for normal distribution 1. Analytical and 2. Graphically. 
+
 b. There are three tests identified for Analytical testing 1. Shapiro-Wilk Test, 2. Kolmogorov-Smirnov Test and 3. Anderson-Darling Test. 
+
 c. The objective of each of the tests is to determine if the p-value is smaller than 0.05.  If it is smaller, Normal Distribution is not assumed. If greater than 0.05 we assume normal distribution.  
+
 d. The disadvantage of analytical testing is the calculated p-value depends on the sample size (the larger the sample, the smaller the potential p-value). 
-e. With a very large sample, it could be the case that the p-value is smaller than 0.05 and thus reject the null hypotesis, that it is a normal distribution.  
+
+e. With a very large sample, it could be the case that the p-value is smaller than 0.05 and thus reject the null hypotesis, that it is a normal distribution. 
+
 f. To get around this problem, graphical tests of normal distribution are being used.  
+
 g. For graphical tests we either look at the histogram or QQ-Plot. 
+
 h. If using the histogram we plot the normal distribution in the histogram of the data to see whether the curve of the normal distribution roughly corresponds to that of the normal distribution curve. 
+
 i. The QQ-Plot is better as the Theoretical Quantiles the data should have if they are perfectly normally distributed and the quantiles of the measured values are compared. If the data is perfectly normally distributed, all points would lie on the line. The more the data deviates form the line, the less it is normall distributed. 
-j. In addition, data that plots the 95% interval, if all your data lies within this interval, it is a very strong indication that  the data is normally distributed.  
-- The 95% interval was further explored in Wikipedia (97.5th percentile point) where it states in probability and statistics, the 97.5th percentile point of the standard normal distribution is a number commonly used for statistical calculations. The approximate value of this number is 1.96, meaning that 95% of the area under a normal curve lies within approximately 1.96 standard deviations of the mean.    
+
+j. In addition, data that plots the 95% interval, if all your data lies within this interval, it is a very strong indication that  the data is normally distributed.
+
+The 95% interval was further explored in Wikipedia (97.5th percentile point) where it states in probability and statistics, the 97.5th percentile point of the standard normal distribution is a number commonly used for statistical calculations. The approximate value of this number is 1.96, meaning that 95% of the area under a normal curve lies within approximately 1.96 standard deviations of the mean.    
 
 ## Libraries Used
 
@@ -654,6 +667,7 @@ j. In addition, data that plots the 95% interval, if all your data lies within t
   ```
 
 ## References
+
 The following online resources were used to complete Task 2 in `tasks.ipynb` and compile content in the Task 2 section of the `README.md` document:
 
 1. [ATU Lectures - Applied Statistics, Dr Ian McLoughlin](https://vlegalwaymayo.atu.ie/course/view.php?id=10454)
