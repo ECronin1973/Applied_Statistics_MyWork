@@ -966,18 +966,6 @@ The data should be measured on an interval or ratio scale. In this case, heart r
 5. No Significant Outliers
 The differences between the paired samples should not have significant outliers, as outliers can affect the results of the t-test.
 
-### Summary of Assumptions
-
-Paired Samples: Each before value is paired with an after value for the same patient.
-
-Normality: The differences between the paired samples should be normally distributed.
-
-Independence: The pairs of observations should be independent of each other.
-
-Scale of Measurement: The data should be measured on an interval or ratio scale.
-
-No Significant Outliers: The differences should not have significant outliers.
-
 These assumptions ensured the validity and reliability of these t-test results. If any of these assumptions were violated, the results of the t-test would not be accurate.
 
 ## Libraries Used
