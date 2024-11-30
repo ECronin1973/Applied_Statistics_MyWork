@@ -33,6 +33,28 @@ Email: g00425645@atu.ie
 
 A code of conduct governs the use of this repository and has been uploaded within the repository for ease of reference.
 
+## Installation
+To install the necessary dependencies, you can use the following command:
+```<bash>
+pip install -r requirements.txt
+```
+
+## Usage
+To run the Jupyter notebooks, navigate to the directory containing the files and use the following command:
+```<bash>
+jupyter notebook
+```
+
+## Dependencies 
+The project relies on several Python libraries, which are listed in the requirements.txt file. These include:
+- pandas
+- numpy
+- matplotlib
+- seaborn
+- scipy
+- scikit-learn
+Make sure to install these dependencies to ensure the code runs smoothly
+
 # Tasks 2024/2025 Applied Statistics
 
 ## Task 1: Lady Tasting Tea Experiment
@@ -399,6 +421,8 @@ The following online resources were used to complete Task 1 in `tasks.ipynb` and
 14. [Further Information on The Design of Experiments](https://en.wikipedia.org/wiki/The_Design_of_Experiments)
 15. [Fisher's Tea Experiment](https://lisds.github.io/textbook/wild-pandas/fishers_tea.html)
 16. *Python for Data Analysis*, Wes McKinney, O'Reilly, Third Edition
+17. [GitHub - About READMEs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)
+18. [PEP 8 – Style Guide for Python Code](https://peps.python.org/pep-0008/)
 
 # END
 
@@ -682,6 +706,9 @@ The following online resources were used to complete Task 2 in `tasks.ipynb` and
 10. [SciPy Documentation - `scipy.stats.kstest`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kstest.html)
 11. [Normality test - Simply Explained](https://www.youtube.com/watch?v=AVketBmpUTE)
 12. [97.5 th Percentile Point](https://en.wikipedia.org/wiki/97.5th_percentile_point)
+13. [GitHub - About READMEs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)
+14. [PEP 8 – Style Guide for Python Code](https://peps.python.org/pep-0008/)
+
 
 # END
 
