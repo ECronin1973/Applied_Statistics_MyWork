@@ -5,9 +5,9 @@ Welcome to my repository for the Applied Statistics module assessment for the ac
 ### Overview
 This README file is structured into two main sections:
 
-Tasks 2024/2025 Applied Statistics: This section includes various tasks assigned throughout the module, showcasing my understanding and application of statistical concepts and techniques.
+Section 1: Applied Statistics Tasks 2024/2025 : This section includes various tasks assigned throughout the module, showcasing my understanding and application of statistical concepts and techniques.
 
-Project 2024/2025 Applied Statistics: This section presents my final project, which integrates the knowledge and skills acquired during the course to address a complex statistical problem.
+Section 2: Applied Statistics Project 2024/2025: This section presents my final project, which integrates the knowledge and skills acquired during the course to address a complex statistical problem.
 
 Feel free to explore the repository to see my approach and solutions to the tasks and project. Your feedback is always welcome!
 
