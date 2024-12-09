@@ -725,7 +725,7 @@ The following online resources were used to complete Task 2 in `tasks.ipynb` and
 
 ## Dataset
 
-This task will consider the following dataset containing resting heart rates for patients before and after embarking on a two-week exercise program.
+This task will consider the following dataset, which contains resting heart rates for patients before and after embarking on a two-week exercise program.
 
 | Patient ID | 0  | 1  | 2  | 3  | 4  | 5  | 6  | 7  | 8  | 9  |
 |------------|----|----|----|----|----|----|----|----|----|----|
@@ -763,12 +763,12 @@ where:
 import numpy as np 
 
 # The stats function comes under the statistical tests grouping in the scipy.stats module.
-# This tool is essential for testing the normality of a dataset. It's particularly useful in determining whether a sample comes from a normally distributed population.
-# The stats function performs a range of statistical tests, including the Shapiro-Wilk test for normality, the Kolmogorov-Smirnov test for normality, and many others.
+# This tool is essential for testing the normality of a dataset. It is beneficial in determining whether a sample comes from a normally distributed population.
+# The stats function performs various statistical tests, including the Shapiro-Wilk test for normality, the Kolmogorov-Smirnov test for normality, and many others.
 # https://docs.scipy.org/doc/scipy/reference/stats.html
 from scipy.stats import stats
 
-# Plotting.  This is a 2D plotting library that is a great tool for plotting graohs and visualisation of data.
+# Plotting is a 2D plotting library that is an excellent tool for plotting graphs and visualisation of data.
 # https://matplotlib.org/stable/contents.html
 import matplotlib.pyplot as plt
 ```
@@ -826,13 +826,13 @@ print(f"scipy.stats t-statistic: {t_statistic_scipy}, p-value: {p_value}")
 ## Initial Analysis of Values
 
 t-statistic: A t-statistic of 1.337 suggests that the mean difference between the before and after heart rates is 1.337 standard deviations away from zero.
-p-value: A p-value of approximately 0.214 indicates that there is a 21.4% chance that the differences observed are due to random variation rather than a true effect of the exercise program. This p-value is greater than the common significance level of 0.05, indicating that the observed differences are not statistically significant.
+p-value: A p-value of approximately 0.214 indicates a 21.4% chance that the differences observed are due to random variation rather than a true effect of the exercise program. This p-value is greater than the common significance level of 0.05, indicating that the observed differences are not statistically significant.
 
 ## Analysis Utilizing Various Charts
 
 ### Generate Bar Chart
 
-A bar char was generated using the following code and is displayed below
+A bar chart was generated using the following code and is displayed below.
 
 ```<python>
 x = np.arange(len(before))
@@ -861,7 +861,7 @@ plt.show()
 
 ### Generate Line Plot
 
-A line plot was generated using the following code and is displayed below
+A line plot was generated using the following code and is displayed below.
 
 ```<python>
 # Line Plot will display the before and after heart rates for each patient
@@ -890,7 +890,7 @@ plt.show()
 
 ### Generate Scatter Plot
 
-A scatter plot was generated using the following code and is displayed below
+A scatter plot was generated using the following code and is displayed below.
 
 ```<python>
 # Create a figure 
@@ -919,7 +919,7 @@ plt.show()
 
 ### Generate Histogram
 
-A Histogram was generated using the following code and is displayed below
+A Histogram was generated using the following code and is displayed below.
 
 ```<python>
 # Create a figure
@@ -977,32 +977,32 @@ plt.show()
 
 ## Conclusion
 
-The results of t-statistic scipy.stats are the same.  Taking both results and the images of the plots indicate that the observed differences are not statistically significant.
+The results of t-statistic scipy.stats are the same.  Taking both the plots' results and images indicates that the observed differences are not statistically significant.
 
 ## Assumptions
 
 The t-test makes five key assumptions:
 
 1. Paired Samples
-The t-test assumes that the data consists of paired samples. In this case, the heart rates before and after the exercise program are paired for each patient.
+The t-test assumes that the data consists of paired samples. In this case, each patient's heart rates before and after the exercise program are paired.
 
 2. Normality
-The differences between the paired samples (before and after values) should be approximately normally distributed. This assumption is crucial for the validity of the t-test results.
+The differences between the paired samples (before and after values) should be normally distributed This assumption is crucial for the validity of the t-test results.
 
 3. Independence
-The pairs of observations (before and after values for each patient) should be independent of each other. This means that the heart rate measurements for one patient should not influence the measurements for another patient.
+The pairs of observations (before- and after-values for each patient) should be independent of each other This means that one patient's heart rate measurements should not influence another's measurements.
 
 4. Scale of Measurement
-The data should be measured on an interval or ratio scale. In this case, heart rates are measured on a ratio scale, which is appropriate for the t-test.
+The data should be measured on an interval or ratio scale. In this case, heart rates are measured on a ratio scale appropriate for the t-test.
 
 5. No Significant Outliers
-The differences between the paired samples should not have significant outliers, as outliers can affect the results of the t-test.
+Significant outliers should not exist in the differences between the paired samples, as outliers can affect the t-test results.
 
-These assumptions ensured the validity and reliability of these t-test results. If any of these assumptions were violated, the results of the t-test would not be accurate.
+These assumptions ensured the validity and reliability of the t-test results. If any of these assumptions were violated, the results would not be accurate.
 
 ## Libraries Used
 
-The folowing libraries were used in Task 3:
+The following libraries were used in Task 3:
 NumPy: Essential for numerical computing. It supports arrays, matrices, and functions for high-level mathematical operations.
 SciPy: Provides functions for statistical tests, including the paired t-test.
 Matplotlib: A 2D plotting library for creating graphs and visualizations.
