@@ -441,23 +441,23 @@ In this task, we will assess whether `numpy.random.normal()` properly generates 
 import numpy as np 
 
 # The shapiro function comes under the statistical tests grouping in the scipy.stats module.
-# This tool is essential for testing the normality of a dataset. It's particularly useful in determining whether a sample comes from a normally distributed population.
+# This tool is essential for testing the normality of a dataset. It is beneficial in determining whether a sample comes from a normally distributed population.
 # The shapiro function performs the Shapiro-Wilk test for normality. It returns a test statistic and a p-value, which you can use to decide whether to reject the null hypothesis that the data is normally distributed.
 # https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.shapiro.html
 from scipy.stats import shapiro
 
-# Plotting.  This is a 2D plotting library that is a great tool for plotting graohs and visualisation of data.
+# Plotting.  This is a 2D plotting library that is an excellent tool for plotting graphs and visualisation of data.
 # https://matplotlib.org/stable/contents.html
 import matplotlib.pyplot as plt
 
 # The norm function falls under the probability distributions grouping in the scipy.stats module.
-# This tool is essential for working with the normal (Gaussian) distribution. It's widely used in statistics for modeling and analyzing data that follows a normal distribution.
+# This tool is essential for working with the normal (Gaussian) distribution. It i widely used in statistics for modelling and analyzing data that follows a normal distribution.
 # The norm function provides a range of methods to work with the normal distribution, including calculating probabilities, generating random samples, and fitting data to a normal distribution.
 # https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html
 from scipy.stats import norm
 ```
 
-### 1.Generate a Sample
+### 1. Generate a Sample
 
 Use the `numpy.random.normal()` function to generate a sample of 100,000 values with a mean of 10.0 and a standard deviation of 3.0.
 
@@ -519,7 +519,7 @@ print(f"Shapiro-Wilk Test: Stat={stat}, p-value={p_value}")
 
 ### Interpret the output from the Shapiro-Wilk test. 
 
-If the p-value is greater than 0.05, it suggests that the sample likely comes from a normal distribution. Conversely, a p-value less than 0.05 suggests non-normality. Shapiro-Wilk Test: Stat=0.9998655902986548, p-value=0.8588521744759859 
+If the p-value is more significant than 0.05, it suggests that the sample likely comes from a normal distribution. Conversely, a p-value less than 0.05 suggests non-normality. Shapiro-Wilk Test: Stat=0.9998655902986548, p-value=0.8588521744759859 
 
 ### QQ-Plot Test ###
 
@@ -547,7 +547,7 @@ plt.show()
 
 ### Kolmogorov-Smirnov Test
 
-The kstest function will return a test statistic and a p-value. If the p-value is greater than 0.05, it suggests that the sample likely comes from a normal distribution. Conversely, a p-value less than 0.05 suggests non-normality.  Output to Kolmogorov-Smirnov Test: Stat=0.0032511838823213735, p-value=0.24055406131498747
+The kstest function will return a test statistic and a p-value. If the p-value is more significant than 0.05, it suggests that the sample likely comes from a normal distribution. Conversely, a p-value less than 0.05 suggests non-normality.  Output to Kolmogorov-Smirnov Test: Stat=0.0032511838823213735, p-value=0.24055406131498747
 
 
 ```<python>
@@ -567,7 +567,7 @@ print(f"Kolmogorov-Smirnov Test: Stat={stat}, p-value={p_value}")
 
 ### Integration Test
 
-The 97.5th percentile test is performed to determine if 95% of the area under the normal distribution lies within 1.96 standard deviations away from the mean.  A plot is displayed below to display the results of the following code 
+The 97.5th percentile test determines if 95% of the area under the normal distribution lies within 1.96 standard deviations away from the mean.  A plot is displayed below to display the results of the following code 
 
 ```<python>
 import numpy as np
@@ -611,54 +611,59 @@ plt.show()
 
 ## Summary of Analysis
 
-According to the website [STATOLOGY](https://www.statology.org/normality-test-python/) there are four common ways to test for Normality in Python.
+According to the website [STATOLOGY](https://www.statology.org/normality-test-python/), there are four common ways to test for Normality in Python.
 
-1. (Visual Method) Create a histogram.
-If the histogram is roughly “bell-shaped”, then the data is assumed to be normally distributed.  In this case the shape of the histogram is 'bell shaped'.
+1. (Visual Method) Create a Histogram.
+
+If the histogram is roughly "bell-shaped," then the data is assumed to be normally distributed. In this case, the histogram is bell-shaped.
 
 2. (Visual Method) Create a Q-Q plot.
-If the points in the plot roughly fall along a straight diagonal line, then the data is assumed to be normally distributed. In this case the points do plot roughly along a straight diagonal line.
+
+If the points in the plot roughly fall along a straight diagonal line, then the data is assumed to be normally distributed. In this case, the points plot roughly along a straight diagonal line.
 
 3. (Formal Statistical Test) Perform a Shapiro-Wilk Test.
-If the p-value of the test is greater than α = .05, then the data is assumed to be normally distributed.  P value in this test is (p-value)=0.35617671455482214 so is greater than .05.
+
+If the test's p-value is greater than α = .05, then the data is assumed to be normally distributed. The p-value in this test is (p-value)=0.35617671455482214, so it is greater than .05.
 
 4. (Formal Statistical Test) Perform a Kolmogorov-Smirnov Test.
-If the p-value of the test is greater than α = .05, then the data is assumed to be normally distributed.  p value in this test is (p-value) 0.7485155595727593 so is greater than 0.05.
+
+If the test's p-value is greater than α = .05, then the data is assumed to be normally distributed. The p-value in this test is (p-value) 0.7485155595727593, so it is greater than 0.05.
 
 5. Integration Test.  
+
 95% of the area under the normal distribution was within 1.96 standard deviations away from the mean.
 
-Based on the results of the above tests we can conclude that the sample is likely normally distributed.
+Based on the results of the above tests, the sample is likely normally distributed.
 
 ## Further Reading Performed
 
-In order to complete this task I did the following tasks:
+In order to complete this task, I did the following tasks:
 
-I performed a google search on testing for Normality in Python.  The website Statology gave me a good approach in addition to the great instruction I received when completing the online ATU lectures. 
+I performed a Google search on testing for Normality in Python.  The website Statology gave me a good approach in conjunction with the great instruction I received when completing the online ATU lectures. 
 
-I identified a useful youtube video titled 'Normality test - Simply explained'.  This video taught me the following
+I identified a helpful youtube video titled 'Normality test - Simply explained'.  This video taught me the following.
 
-a. There are two ways to test for normal distribution 1. Analytical and 2. Graphically. 
+a. There are two ways to test for normal distribution: 1. Analytical and 2. Graphically. 
 
-b. There are three tests identified for Analytical testing 1. Shapiro-Wilk Test, 2. Kolmogorov-Smirnov Test and 3. Anderson-Darling Test. 
+b. Three tests are identified for Analytical testing: 1. Shapiro-Wilk Test, 2. Kolmogorov-Smirnov Test and 3. Anderson-Darling Test. 
 
-c. The objective of each of the tests is to determine if the p-value is smaller than 0.05.  If it is smaller, Normal Distribution is not assumed. If greater than 0.05 we assume normal distribution.  
+c. The objective of each test is to determine if the p-value is smaller than 0.05. If it is smaller, the Normal Distribution is not assumed. If it is greater than 0.05, we assume a normal distribution.    
 
-d. The disadvantage of analytical testing is the calculated p-value depends on the sample size (the larger the sample, the smaller the potential p-value). 
+d. The disadvantage of analytical testing is that the calculated p-value depends on the sample size (the more significant the sample, the smaller the potential p-value). 
 
-e. With a very large sample, it could be the case that the p-value is smaller than 0.05 and thus reject the null hypotesis, that it is a normal distribution. 
+e. With a very large sample, the p-value could be smaller than 0.05, rejecting the null hypothesis that it is a normal distribution. 
 
-f. To get around this problem, graphical tests of normal distribution are being used.  
+f. To get around this problem, graphical normal distribution tests are used.  
 
-g. For graphical tests we either look at the histogram or QQ-Plot. 
+g. For graphical tests, we either look at the histogram or QQ-Plot. 
 
-h. If using the histogram we plot the normal distribution in the histogram of the data to see whether the curve of the normal distribution roughly corresponds to that of the normal distribution curve. 
+h. If we use the histogram, we plot the normal distribution in the data histogram to see whether the curve of the normal distribution roughly corresponds to that of the normal distribution curve.
 
-i. The QQ-Plot is better as the Theoretical Quantiles the data should have if they are perfectly normally distributed and the quantiles of the measured values are compared. If the data is perfectly normally distributed, all points would lie on the line. The more the data deviates form the line, the less it is normall distributed. 
+i. The QQ-Plot is helpful for comparing a perfectly normally distributed dataset's theoretical quantiles with the measured values' quantiles. If the data is perfectly normally distributed, all points will lie on the line. The more the data deviates from the line, the less normally distributed it is.
 
-j. In addition, data that plots the 95% interval, if all your data lies within this interval, it is a very strong indication that  the data is normally distributed.
+j. In addition, data that plots the 95% interval — if all your data lies within this interval — is a very strong indication that the data is normally distributed.
 
-The 95% interval was further explored in Wikipedia (97.5th percentile point) where it states in probability and statistics, the 97.5th percentile point of the standard normal distribution is a number commonly used for statistical calculations. The approximate value of this number is 1.96, meaning that 95% of the area under a normal curve lies within approximately 1.96 standard deviations of the mean.    
+The 95% interval was further explored in Wikipedia (97.5th percentile point) which states in probability and statistics, the 97.5th percentile point of the standard normal distribution is a number commonly used for statistical calculations. The approximate value of this number is 1.96, meaning that 95% of the area under a normal curve lies within approximately 1.96 standard deviations of the mean.    
 
 ## Libraries Used
 
