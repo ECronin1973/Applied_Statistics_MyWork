@@ -1025,12 +1025,11 @@ The following online resources were used to complete Task 3 in `tasks.ipynb` and
 
 # END
 
-
 # Task Four ANOVA
 
 ## Overview
 
-In this test we will estimate the probability of committing a type II error in specific circumstances.
+In this test, we must estimate the probability of committing a type II error in specific circumstances.
 To begin, we must create a variable called `no_type_ii` and set it to `0`.
 
 We then use a loop to perform the following test 10,000 times.
@@ -1038,11 +1037,11 @@ We then use a loop to perform the following test 10,000 times.
 - 1. Use `numpy.random.normal` to generate three samples with 100 values each. Give each a standard deviation of `0.1`. Give the first sample a mean of `4.9`, the second a mean of `5.0`, and the third a mean of `5.1`. 
 - 2. Perform one-way anova on the three samples and add `1` to `no_type_ii` whenever a type II error occurs.
 
-Summarize and explain your results.
+Summarise and explain your results.
 
 ### Assumptions Made
 
-According to [Laerd Statistics](https://statistics.laerd.com/spss-tutorials/one-way-anova-using-spss-statistics.php), When you choose to analyse your data using a one-way ANOVA, part of the process involves checking to make sure that the data you want to analyse can actually be analysed using a one-way ANOVA. You need to do this because it is only appropriate to use a one-way ANOVA if your data "passes" six assumptions that are required for a one-way ANOVA to give you a valid result. The following outlines each assumption and states whether this test meets each assumption.
+According to [Laerd Statistics](https://statistics.laerd.com/spss-tutorials/one-way-anova-using-spss-statistics.php), when you choose to analyse your data using a one-way ANOVA, part of the process involves checking to make sure that the data you want to analyse can actually be analysed using a one-way ANOVA. You need to do this because it is only appropriate to use a one-way ANOVA if your data "passes" six assumptions that are required for a one-way ANOVA to give you a valid result. The following outlines each assumption and states whether this test meets each assumption.
 
 - Assumption # 1: Dependent Variable
 - Assumption # 2: Independent Variable
@@ -1095,7 +1094,7 @@ Summarizing the results helps in understanding the frequency and probability of 
 
 __Step Six: Perform One-Way ANOVA (Sandard Deviation 0.5)__
 
-Consideration Given To Higher Standard Deviation.  Test performed again with Standard Deviation of 0.5.  Results of both tests are then compared.
+Consideration Given To Higher Standard Deviation.  Test to be performed again with a Standard Deviation of 0.5.  Results of both anova tests are then compared.
 
 ### Relevant Documentation to completing this task
 
@@ -1134,9 +1133,9 @@ from scipy.stats import levene
 
 ## Levene's Test
 
-According to Laerd Statistics to confirm the assumption of homogeneity of variances in our data, we should use Levene's test. Levene's test checks whether the variances across different groups are equal, which is a crucial assumption for performing a one-way ANOVA. If Levene's test indicates that the variances are not equal, we may need to use an alternative test, such as the Welch ANOVA, which does not assume equal variances.
+According to Laerd Statistics, we should use Levene's test to confirm the assumption of homogeneity of variances in our data, . Levene's test checks whether the variances across different groups are equal, a crucial assumption for performing a one-way ANOVA. If Levene's test indicates that the variances are not equal, we may need to use an alternative test, such as the Welch ANOVA, which does not assume equal variances.
 
-The following code was used to perform leverne's test.
+The following code was used to perform levene's test.
 
 ```<python>
 # Generate sample data
@@ -1237,9 +1236,9 @@ print(f"Probability of committing a type II error: {no_type_ii / 10000}")
 
 ### Summarize Results (Standard Deviation 0.1)
 
-The results of the test with a standard deviation of 0.1 indicate that there were no type II errors observed in the 10,000 iterations. This means that in every test, the one-way ANOVA correctly identified significant differences between the means of the three samples. Consequently, the probability of committing a type II error, which is the likelihood of failing to reject the null hypothesis when it is false, is 0.0. This outcome suggests that the test conditions (sample size, means, and standard deviation) were such that the differences between the groups were always detected as significant.
+The test results with a standard deviation of 0.1 indicate no type II errors were observed in the 10,000 iterations. This means that in every test, the one-way ANOVA correctly identified significant differences between the means of the three samples. Consequently, the probability of committing a type II error and failing to reject the null hypothesis when it is false is 0.0. This outcome suggests that the test conditions (sample size, means, and standard deviation) were such that the differences between the groups were always detected as significant.
 
-In this case, the absence of type II errors indicates that the chosen parameters (means of 4.9, 5.0, and 5.1 with a standard deviation of 0.1) made it easy to detect differences between the groups, leading to a robust test performance.
+In this case, the absence of type II errors indicates that the chosen parameters (means of 4.9, 5.0, and 5.1 with a standard deviation of 0.1) made detecting differences between the groups easy, leading to a robust test performance.
 
 [Statistics LibreTexts](https://stats.libretexts.org/Courses/Rio_Hondo_College/Math_130%3A_Statistics/08%3A_Hypothesis_Testing_with_One_Sample/8.05%3A_Hypothesis_Test_on_a_Single_Standard_Deviation) states the role of standard deviation in hypothesis testing is crucial for understanding the variability in data and ensuring accurate results. In this test, the standard deviation of 0.1 was used to generate three samples with means of 4.9, 5.0, and 5.1. This small standard deviation made the differences between the sample means very clear, leading to no type II errors in the 10,000 iterations. The standard deviation has relevance in the following contexts;
 
@@ -1263,15 +1262,15 @@ The absence of type II errors indicates that the test was robust under the given
 
 Research below shows that when performing a test, it is wise to consider different standard deviations to ensure the robustness and accuracy of our analysis.  Step 6 looked at running the ANOVA test with a Standard Deviation of 0.5.
 
-[Laerd Statistics](https://statistics.laerd.com/spss-tutorials/one-way-anova-using-spss-statistics.php) state 'when analyzing your data using a one-way ANOVA, it is crucial to check for homogeneity of variances. This can be done using Levene's test. If your data fails this assumption, you may need to use a different statistical test, such as the Welch ANOVA, which does not assume equal variances'.
+[Laerd Statistics](https://statistics.laerd.com/spss-tutorials/one-way-anova-using-spss-statistics.php) states, 'When analyzing your data using a one-way ANOVA, it is crucial to check for homogeneity of variances. This can be done using Levene's test. If your data fails this assumption, you may need to use a different statistical test, such as the Welch ANOVA, which does not assume equal variances'.
 
-[Math is Fun](https://www.mathsisfun.com/data/standard-normal-distribution.html) state 'Standard deviation is a measure of the amount of variation or dispersion in a set of values. A low standard deviation indicates that the values tend to be close to the mean, while a high standard deviation indicates that the values are spread out over a wider range.
+[Math is Fun](https://www.mathsisfun.com/data/standard-normal-distribution.html) states 'Standard deviation measures the amount of variation or dispersion in a set of values. A low standard deviation indicates that the values tend to be close to the mean, while a high standard deviation indicates that the values are spread out over a wider range.
 
 [Statology](https://www.statology.org/how-to-compare-standard-deviations/) state 'Comparing standard deviations helps in understanding the variability in data. Different levels of variability can impact the results of statistical tests, making it important to consider appropriate standard deviations for accurate analysis.'
 
 [Bookdown](https://bookdown.org/kevin_davisross/probsim-book/normal-distributions.html) state 'Normal distributions and the role of standard deviation in statistical analysis are crucial for understanding data variability. Adjusting standard deviations can provide a more realistic measure of variability and help in making informed decisions.'
 
-Considering different standard deviations can lead to a better understanding of the variability in our data and ensure that our statistical tests are robust and accurate. This approach helps in identifying the conditions under which type II errors are more likely to occur and provides a balanced analysis.  On those basis, a one-way ANOVA test was performed with a standard deviation of 0.5.
+Considering different standard deviations can lead to a better understanding of the variability in our data and ensure that our statistical tests are robust and accurate. This approach helps identify the conditions under which type II errors are more likely to occur and provides a balanced analysis. On this basis, a one-way ANOVA test was performed with a standard deviation of 0.5.
 
 ### Summarise Results (Standard Deviation 0.5)
 
@@ -1324,7 +1323,9 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
 10. [Maths Is Fun](https://www.mathsisfun.com/data/standard-normal-distribution.html)
 11. [Statology](https://www.statology.org/how-to-compare-standard-deviations/)
 12. [Bookdown.org](https://bookdown.org/kevin_davisross/probsim-book/normal-distributions.html)
-13. 
+
+
+# END
 
 
  # Project 2024/2025 Applied Statistics
