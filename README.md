@@ -55,6 +55,9 @@ The project relies on several Python libraries, which are listed in the requirem
 - scikit-learn
 Make sure to install these dependencies to ensure the code runs smoothly.
 
+## AI Assistance
+This project includes code that was generated with the help of an AI tool.
+
 # Tasks 2024/2025 Applied Statistics
 
 ## Task 1: Lady Tasting Tea Experiment
@@ -383,7 +386,7 @@ However, the statistics still imply that getting 4 correct by guessing is relati
 
 ### Implications
 
-If we observe an individual consistently identifying 4 out of 6 cups correctly (allowing for two errors), it would be reasonable to suspect that they might have some ability beyond mere guessing.
+From reading [Wikipedia] (https://www.wikipedia.org/) If we observe an individual consistently identifying 4 out of 6 cups correctly (allowing for two errors), it would be reasonable to suspect that they might have some ability beyond mere guessing.
 
 This margin of error provides a more realistic benchmark for assessing the participant's discerning ability while accounting for the task's inherent challenge.
 
@@ -423,7 +426,7 @@ The following online resources were used to complete Task 1 in `tasks.ipynb` and
 16. *Python for Data Analysis*, Wes McKinney, O'Reilly, Third Edition
 17. [GitHub - About READMEs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)
 18. [PEP 8 – Style Guide for Python Code](https://peps.python.org/pep-0008/)
-
+19. [Stone, A. (2018). A HYBRID SAMPLING METHOD FOR THREE-WAY CONTINGENCY TABLES.]( https://core.ac.uk/download/343436931.pdf)
 # END
 
 # Task 2: Assessing Normality of `numpy.random.normal()`
@@ -826,7 +829,7 @@ print(f"scipy.stats t-statistic: {t_statistic_scipy}, p-value: {p_value}")
 ## Initial Analysis of Values
 
 t-statistic: A t-statistic of 1.337 suggests that the mean difference between the before and after heart rates is 1.337 standard deviations away from zero.
-p-value: A p-value of approximately 0.214 indicates a 21.4% chance that the differences observed are due to random variation rather than a true effect of the exercise program. This p-value is greater than the common significance level of 0.05, indicating that the observed differences are not statistically significant.
+p-value: A p-value of 0.214 means there's a 21.4% chance that the observed differences are due to random variation, not the exercise program. Since this p-value is higher than the common significance level of 0.05, the differences are not statistically significant.
 
 ## Analysis Utilizing Various Charts
 
@@ -983,6 +986,9 @@ The results of t-statistic scipy.stats are the same.  Taking both the plots' res
 
 The t-test makes five key assumptions:
 
+https://www.statology.org/t-test-assumptions/
+https://usq.pressbooks.pub/statisticsforresearchstudents/chapter/independent-t-test-assumptions/
+
 1. Paired Samples
 The t-test assumes that the data consists of paired samples. In this case, each patient's heart rates before and after the exercise program are paired.
 
@@ -1022,6 +1028,7 @@ The following online resources were used to complete Task 3 in `tasks.ipynb` and
 8. [Statistics By Jim - T Test Overview](https://statisticsbyjim.com/hypothesis-testing/t-test/) : How to Use & Examples: This article offers an overview of different types of t-tests, their assumptions, and examples of how to use them.
 9. [Real Statistics Using Excel - Violations of T-Test Assumptions](https://real-statistics.com/students-t-distribution/problems-data-t-tests/): This page discusses what to do when the assumptions of a t-test are violated and provides references for further reading.
 10. [Datanovia - Independent T-Test Assumptions](https://www.datanovia.com/en/lessons/t-test-assumptions/independent-t-test-assumptions/): This tutorial explains the assumptions of the independent t-test and provides examples of how to check these assumptions using R.
+11. [Independent T-test Assumptions, Interpretation and write up](https://usq.pressbooks.pub/statisticsforresearchstudents/chapter/independent-t-test-assumptions/)
 
 # END
 
@@ -1041,7 +1048,7 @@ Summarise and explain your results.
 
 ### Assumptions Made
 
-According to [Laerd Statistics](https://statistics.laerd.com/spss-tutorials/one-way-anova-using-spss-statistics.php), when you choose to analyse your data using a one-way ANOVA, part of the process involves checking to make sure that the data you want to analyse can actually be analysed using a one-way ANOVA. You need to do this because it is only appropriate to use a one-way ANOVA if your data "passes" six assumptions that are required for a one-way ANOVA to give you a valid result. The following outlines each assumption and states whether this test meets each assumption.
+According to [Laerd Statistics](https://statistics.laerd.com/spss-tutorials/one-way-anova-using-spss-statistics.php), "When you choose to analyse your data using a one-way ANOVA, part of the process involves checking to make sure that the data you want to analyse can actually be analysed using a one-way ANOVA. You need to do this because it is only appropriate to use a one-way ANOVA if your data "passes" six assumptions that are required for a one-way ANOVA to give you a valid result". The following outlines each assumption and states whether this test meets each assumption.
 
 - Assumption # 1: Dependent Variable
 - Assumption # 2: Independent Variable
