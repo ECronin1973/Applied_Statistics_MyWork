@@ -34,7 +34,7 @@ Email: g00425645@atu.ie
 A code of conduct governs the use of this repository and has been uploaded within the repository for ease of reference.
 
 ## Installation
-To install the necessary dependencies, you can use the following command:
+To install the necessary dependencies, use the following command:
 ```<bash>
 pip install -r requirements.txt
 ```
