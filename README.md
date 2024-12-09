@@ -1,18 +1,18 @@
 # Applied Statistics Assessment Submission
 
-Welcome to my repository for the Applied Statistics module assessment for the academic year 2024/2025. This repository contains my submissions for the module, including detailed tasks and a comprehensive project.
+Welcome to Edward Cronin's repository for the Applied Statistics Module 2024/2025. This repository contains the student's submissions for the module, including detailed tasks and a comprehensive project.
 
 ### Overview
 This README file is structured into two main sections:
 
-Section 1: Applied Statistics Tasks 2024/2025 : This section includes various tasks assigned throughout the module, showcasing my understanding and application of statistical concepts and techniques.
+Section 1: Applied Statistics Tasks 2024/2025: This section includes various tasks assigned throughout the module, showcasing the student's understanding and application of statistical concepts and techniques.
 
-Section 2: Applied Statistics Project 2024/2025: This section presents my final project, which integrates the knowledge and skills acquired during the course to address a complex statistical problem.
+Section 2: Applied Statistics Project 2024/2025: This section presents the student's final project, which integrates the knowledge and skills acquired during the course to address a complex statistical problem.
 
-Feel free to explore the repository to see my approach and solutions to the tasks and project. Your feedback is always welcome!
+Feel free to explore the repository to see the students' approaches and solutions to the tasks and project. Feedback is always welcome!
 
 ### Contents
-tasks.ipynb: This file contains five tasks completed as outlined in the Tasks Section of the [2024 Applied Statistics Module README document](https://github.com/ianmcloughlin/2425_applied_statistics/blob/main/README.md).
+tasks.ipynb: This file contains four tasks completed as outlined in the Tasks Section of the [2024 Applied Statistics Module README document](https://github.com/ianmcloughlin/2425_applied_statistics/blob/main/README.md).
 
 project.ipynb: This file contains the completed project work as outlined in the Project Section of the [2024 Applied Statistics Module README document](https://github.com/ianmcloughlin/2425_applied_statistics/blob/main/README.md).
 
@@ -25,9 +25,9 @@ Email: g00425645@atu.ie
 
 ## How to download this repository
 
-1. Logon to GitHub to locate my specific repository dedicated to this project located at [My repository for Applied Statistics on GitHub]( https://github.com/ECronin1973/Applied_Statistics_MyWork) .
+1. Logon to GitHub to locate the student's specific repository dedicated to this project located at [My repository for Applied Statistics on GitHub]( https://github.com/ECronin1973/Applied_Statistics_MyWork) .
 2. Click the download button.
-3. To run the code, ensure you have Python installed.
+3. To run the code, ensure that python is installed.
 
 ## Code of Conduct
 
@@ -53,7 +53,7 @@ The project relies on several Python libraries, which are listed in the requirem
 - seaborn
 - scipy
 - scikit-learn
-Make sure to install these dependencies to ensure the code runs smoothly
+Make sure to install these dependencies to ensure the code runs smoothly.
 
 # Tasks 2024/2025 Applied Statistics
 
@@ -61,11 +61,11 @@ Make sure to install these dependencies to ensure the code runs smoothly
 
 ### Overview
 
-This project is inspired by the famous “Lady Tasting Tea” experiment, as described in Ronald A. Fisher’s book “The Design of Experiments”. We aim to replicate the experiment with a twist, involving twelve cups of tea, where six cups have milk poured in first and the other six have tea poured in first.
+This project is inspired by the famous "Lady Tasting Tea" experiment, as described in Ronald A. Fisher's book The Design of Experiments. We aim to replicate the experiment with a twist, involving twelve cups of tea, six of which have milk poured in first and the other six have tea poured in first.
 
 ### Objective
 
-A person claims to have the ability to discern whether milk or tea was poured into the cup first just by tasting it. Our objective is to calculate the probability that this person can correctly identify all six cups that had milk poured in first, under the assumption that they are merely guessing without any special powers.
+A person claims to be able to discern whether milk or tea was poured into the cup first just by tasting it. Our objective is to calculate the probability that this person can correctly identify all six cups of milk poured in first, assuming they are merely guessing without any special powers.
 
 ### Experiment Setup
 
@@ -98,17 +98,17 @@ no_cups_milk_first = 6
 no_cups_tea_first = 6
 ```
 
-We next adapt Fishers table which outlines four possible categories results would fit into.  It formed the basis of the original test and is a model to base this test on, where we are requiring an individual to correctly identify six cups out of 12.
+We next adapt Fisher's table, which outlines four possible categories for results. It formed the basis of the original test and is a model for this test, where we are requiring an individual to correctly identify six cups out of 12.
 
 ## Adapting Fishers Table
 
-The following code was used to adapt Fishers Table.
+The following code was used to adapt the Fishers Table.
 
 ```<python>
-# Make an empty DataFrame to store the twelve cups
+# Make an empty data frame to store the twelve cups
 tea_df = pd.DataFrame()
 
-# Insert a column that records whether the milk is poured before the tea, into that cup
+# Insert a column that records whether the milk is poured before the tea into that cup
 tea_df['milk_first'] = np.repeat(['yes', 'no'], [6, 6])
 
 # Add a column recording the guesses for the cups where milk was poured first
@@ -142,19 +142,19 @@ table.scale(1.2, 1.2)
 # Save the table as an image
 plt.savefig('images/tea_df_table.png', bbox_inches='tight', pad_inches=0)
 
-# Show our reconstruction of Fisher's table based on 12 random guesses
+# Show our reconstruction of the Fisher's table based on 12 random guesses
 plt.show()
 ```
 
-The following is an image of Fishers Table generated from the above code:
+The following is an image of the Fishers Table generated from the above code:
 
 <img src="images\tea_df_table.png" alt="Fishers Table" style="float: left"> 
 
 ## Calculating the Number of ways of selecting six cups from twelve
 
-The math.comb() method returns the number of ways picking k unordered outcomes from n possibilities, without repetition, also known as combinations.  The output was 924.
+The math.comb() method returns the number of ways to pick k unordered outcomes from n possibilities without repetition, also known as combinations.  The output was 924.
 
-The following code was used to complete tis task: 
+The following code was used to complete this task: 
 
 ```<python>
 # Number of ways of selecting six cups from twelve.
@@ -166,7 +166,7 @@ ways
 
 ## Ordering the results
 
-We used Python’s itertools library to generate combinations and exported the results to a combinations.csv file.  The following was the output
+We used Python’s itertools library to generate combinations and exported the results to a combinations.csv file.  The following was the output.
 
 Cup labels: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 Number of combinations: 924
@@ -201,7 +201,7 @@ print(f"Number of combinations: {len(combs)}")
 
 ## Selecting six cups
 
-We selected six cups at random to put milk in first which gave an output of [1, 2, 3, 5, 6, 11] using the following code:
+We selected six cups at random to put milk in first, which gave an output of [1, 2, 3, 5, 6, 11] using the following code:
 
 ```<python>
 import random
@@ -261,7 +261,7 @@ with open('overlaps.csv', 'w', newline='') as csvfile:
         # Append overlap to no_overlaps
         no_overlaps.append(len(overlap))
         
-        # Write the combination, overlap, and length of overlap to the CSV file.  View results in this file.
+        # Write the combination, overlap, and overlap length to the CSV file.  View results in this file.
         writer.writerow([comb, list(overlap), len(overlap)])
 
  # Show the overlaps from the extracted file
@@ -309,29 +309,29 @@ plt.show()
 
 ## Allowing Errors
 
-Consider if we are willing to accept one error in the participant’s selection. From completion of this task, I would be willing to accept 5 cups out of 6 as correct, as it has a 3.8 percent probability of being right. This would mean that the person had a near 96.2% chance of getting it wrong.  
+Consider whether we are willing to accept one error in the participant's selection. After completing this task, I would be willing to accept 5 cups out of 6 as correct, as it has a 3.8 per cent probability of being right. This would mean that the person had a nearly 96.2% chance of getting it wrong.   
 
 ### Instructions (One Error):
 
-Calculate the probability that the participant makes at most one error. From completing this task, the Number of Overlaps and its related bar chart show that the chance of a person getting six correct cups is 1 in 924. The chance of getting five correct cups is 36 in 924. The chance of getting four correct cups is 225 in 924. The chance of getting half the number of cups right is 400 in 924, which interestingly enough is nearly half the time. The chance of getting all six wrong is 1 in 924. It may be the case that the person can tell the difference every time but does not know which group a cup belongs to.
+Calculate the probability that the participant makes at most one error. From completing this task, the Number of Overlaps and its related bar chart shows that a person's chance of getting six correct cups is 1 in 924. The chance of getting five correct cups is 36 in 924. The chance of getting four correct cups is 225 in 924. The chance of getting half the number of cups right is 400 in 924, which is nearly half the time. The chance of getting all six wrong is 1 in 924. It may be the case that the person can tell the difference every time but does not know which group a cup belongs to.
 
 ## Accepting Two Errors
 
-Discuss whether accepting two errors would be reasonable and calculate the corresponding probability. From completing this task, Depending on the context, I may be willing to accept four cups, as the person has a near 25% chance of being right or a 1:4 ratio.  In other contexts, I would not be willing to accept the two errors.  Personally, I would always strive for a one error acceptance scenario.   A detailed explanation of acceptance of two errors is provided below.
+Discuss whether accepting two errors would be reasonable and calculate the corresponding probability. From completing this task, Depending on the context, I may be willing to accept four cups, as the person has a near 25% chance of being right or a 1:4 ratio. In other contexts, I would not accept the two errors. I would always strive for a one-error acceptance scenario.   A detailed explanation of the acceptance of two errors is provided below.
 
 ### Instructions (Two Errors):
 
-Provide a detailed explanation of your reasoning in a Markdown cell. From completing this task, the Number of Overlaps and its related bar chart show that the chance of a person getting two errors is 225 / 924. This equates to approximately 0.2435 or 24%.
+From completing this task, the number of overlaps and its related bar chart shows that a person's chance of getting two errors is 225 / 924, which is approximately 0.2435 or 24%.
 
-In the context of our experiment, we aim to determine whether a participant can accurately identify which cups had milk poured first, merely by tasting the tea. If the participant is purely guessing, the results of this experiment can be modeled using combinatorial probability.
+In the context of our experiment, we aim to determine whether a participant can accurately identify which cups had milk poured first merely by tasting the tea. If the participant is purely guessing, the results of this experiment can be modelled using combinatorial probability.
 
 ### Understanding the Probability Calculation
 
 **Total Combinations:**
 
-There are 12 cups, 6 with milk poured first and 6 with tea poured first.
+There are 12 cups, 6 with milk poured first, and 6 with tea poured first.
 
-The number of ways to select 6 cups out of 12 (regardless of order) is calculated using the combination formula 
+The number of ways to select 6 cups out of 12 (regardless of order) is calculated using the combination formula.
 
 $$ \binom{n}{k} $$
 
@@ -341,7 +341,7 @@ $$
 \binom{12}{6} = \frac{12!}{6! \times 6!} = 924 
 $$
 
-This means there are 924 different ways to choose 6 cups out of 12.
+Viewing the calculation shows there are 924 different ways to choose 6 cups out of 12.
 
 ### Calculating Overlaps
 
@@ -377,29 +377,29 @@ $$
 
 ### Rationale for Accepting Two Errors
 
-Given the distribution of the overlaps, allowing two errors (4 out of 6 correct) significantly increases the likelihood of a participant's success from a mere 0.108% (for all correct) to 24.35%.
+Given the distribution of the overlaps, allowing two errors (4 out of 6 correct) increases the likelihood of a participant's success from a mere 0.108% (for all correct) to 24.35%.  This is significant.
 
-This still implies that getting 4 correct by guessing is relatively rare but within a more plausible range compared to getting all 6 correct.
+However, the statistics still imply that getting 4 correct by guessing is relatively rare but within a more plausible range compared to getting all 6 correct.
 
 ### Implications
 
 If we observe an individual consistently identifying 4 out of 6 cups correctly (allowing for two errors), it would be reasonable to suspect that they might have some ability beyond mere guessing.
 
-This margin of error provides a more realistic benchmark for assessing the participant's discerning ability while accounting for the inherent challenge of the task.
+This margin of error provides a more realistic benchmark for assessing the participant's discerning ability while accounting for the task's inherent challenge.
 
-In conclusion, this detailed analysis demonstrates the significantly higher probability of the participant getting two errors in their guesses. Allowing for two errors maybe a more lenient and practical measure of assessing the participant's claimed ability to discern the order of milk pouring in the tea cups. In some contexts, this approach balances the strictness of requiring perfect accuracy with the practicalities of human error and the inherent challenge of the task.  In other contexts like ensuring children's safety, however it would not be prudent to do so.  Sticking to the stringent "5 out of 6" rule ensures this test maintains high power and reliability, reducing the likelihood of erroneously accepting someone's claimed ability. In high-stakes settings, this higher power and lower error risk are essential. Balancing rigor and reliability ensures meaningful and trustworthy outcomes in data analytics.
+In conclusion, this detailed analysis demonstrates the significantly higher probability of the participant getting two errors in their guesses.  Allowing for two errors may be a more lenient and practical measure of assessing the participant's claimed ability to discern the order of milk pouring in the tea cups. In some contexts, this approach balances the strictness of requiring perfect accuracy with the practicalities of human error and the inherent challenge of the task.  In other contexts, like ensuring children's safety, it would not be prudent to do so.  Sticking to the stringent "5 out of 6" rule ensures this test maintains high power and reliability, reducing the likelihood of erroneously accepting someone's claimed ability. In high-stakes settings, this higher power and lower error risk are essential. Balancing rigour and reliability ensures meaningful and trustworthy outcomes in data analytics.
 
 ## Summary Task 1
 
-I have just completed this task, investing considerable time in reviewing the instructor's lectures and setting up my environment with the necessary libraries. After not using Anaconda for over 12 months, I had to delete and reinstall it along with VS-Code and add the Copilot AI extension. I also watched YouTube videos (listed in references) to learn how to use the Copilot AI tool. Additionally, I revised how to create README files and use Markdown language.
+I have just completed this task, investing considerable time in reviewing the instructor's lectures and setting up my environment with the necessary libraries. After not using Anaconda for over 12 months, I had to delete and reinstall it with VS-Code and add the Copilot AI extension. I also watched YouTube videos (listed in references) to learn how to use the Copilot AI tool. Additionally, I revised how to create README files and use Markdown language.
 
-In the lecture videos, I discovered various methods of calculating the total number of combinations. To deepen my understanding, I referred to other sources such as www.w3schools.com. Python for Data Analytics provided me with a solid grasp of using Python, plotting, and visualization. To ensure all bases were covered, I included each method in my task as demonstrated by the instructor, adding relevant notes to each section for context.
+In the lecture videos, I discovered various methods of calculating the total number of combinations. To deepen my understanding, I referred to other sources such as www.w3schools.com. Python for Data Analytics gave me a solid grasp of using Python, plotting, and visualization. To ensure all bases were covered, I included each method in my task as demonstrated by the instructor, adding relevant notes to each section for context.
 
 **Further Reading Performed**
 
 I explored research on this topic conducted by others. On the site https://lisds.github.io/textbook/wild-pandas/fishers_tea.html, it was noted that 'Muriel guessed correctly for each of the eight cups, and so correctly identified all four milk-first cups'. This test was not performed on an individual but outlined the necessary parameters for a test, comparing 'real-world' results versus the null hypothesis. I analyzed the code on that site and adapted it to display Fisher's table with 12 cups of tea. The four categories outlined in that experiment are also relevant in this test.
 
-I viewed the code in Github and found the printed results too long, instead I researched how extract the results into csv files.  I generated two files, 1. combinations.csv which was created to collect the combinations and to count them, and 2. The overlaps.csv which contained the combination, overlap, and length of overlap between each element of combs and labels_milk. I took this approach to make the tasks.ipynb file more readable. 
+I viewed the code in Github and found the printed results too long. Instead, I researched how to extract the results into CSV files. I generated two files: 1. combinations.csv, which was created to collect the combinations and count them, and 2. overlaps.csv, which contained the combination, overlap, and length of overlap between each element of combs and labels_milk. I took this approach to ensure the tasks.ipynb file became readable.
 
 ## References
 
