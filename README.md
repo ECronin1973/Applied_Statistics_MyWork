@@ -1338,7 +1338,7 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
 
  This project analyses the PlantGrowth dataset from Vicent Arel-Bundock's Rdatasets page. The dataset contains two main variables: a treatment group and the weight of plants within those groups. The project objective is to perform t-tests and ANOVA on this dataset while describing and explaining the work.
  
-### Objectives
+ ### Objectives
 
  - __Download and Save the Dataset:__ Download the dataset from Vicent Arel-Bundock's Rdatasets page and save it to your repository.
 
@@ -1368,6 +1368,7 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
  import numpy as np
  import statsmodels.api as sm
  from statsmodels.formula.api import ols
+ from scipy.stats import levene
 
  # Download the dataset
  url = 'https://vincentarelbundock.github.io/Rdatasets/csv/datasets/PlantGrowth.csv'
@@ -1525,36 +1526,26 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
 
  - The p-value indicates the probability of obtaining the observed difference (or more extreme) under the null hypothesis. A low p-value (typically < 0.05) suggests that the observed difference is statistically significant.
 
- ## What are the assumptions of a t-test?
+## Assumptions Made
 
- __Normality:__ 
+According to [Laerd Statistics](https://statistics.laerd.com/spss-tutorials/one-way-anova-using-spss-statistics.php), "When you choose to analyse your data using a one-way ANOVA, part of the process involves checking to make sure that the data you want to analyse can actually be analysed using a one-way ANOVA. You need to do this because it is only appropriate to use a one-way ANOVA if your data "passes" six assumptions that are required for a one-way ANOVA to give you a valid result". The following outlines each assumption and states whether this test meets each assumption.
 
- https://statisticsbyjim.com/hypothesis-testing/t-test/
+- Assumption # 1: Dependent Variable
+- Assumption # 2: Independent Variable
+- Assumption # 3: Independence of Observations
+- Assumption # 4: No Significant Outliers
+- Assumption # 5: Normality
+- Assumption # 6: Homogeneity of Variances
 
- - The data should be approximately normally distributed. This is especially important for small sample sizes
- - In the context of the PlantGrowth dataset, we need to check if the weights of the plants within each treatment group (ctrl, trt1, trt2) are normally distributed. This can be done using visual methods like histograms or Q-Q plots, or statistical tests like the Shapiro-Wilk test.
- 
- __Homogeneity of Variances:__ 
+In project.ipynb it is outlined how these assumptions directly affect this test.
 
- https://www.statisticshowto.com/probability-and-statistics/hypothesis-testing/anova/homogeneity-tests/
+## Levene's Test
 
- - The variances of the two groups should be equal. This assumption can be tested using tests such as Levene's test
- - For the PlantGrowth dataset, we need to ensure that the variances of the plant weights across the different treatment groups are equal. If the variances are not equal, the t-test results may not be valid.
+According to [Laerd Statistics](https://statistics.laerd.com/spss-tutorials/one-way-anova-using-spss-statistics.php) to confirm the assumption of homogeneity of variances in our data, we should use Levene's test. Levene's test checks whether the variances across different groups are equal, which is a crucial assumption for performing a one-way ANOVA. If Levene's test indicates that the variances are not equal, we may need to use an alternative test, such as the Welch ANOVA, which does not assume equal variances.  
 
- c. __Independence:__ 
+The output of this test was p-value (0.3412266241254737) which is greater than 0.05, so we failed to reject the null hypothesis. This means that the variances are equal across the treatment groups, confirming the assumption of homogeneity of variances. In other words, the variability in plant weights is consistent across the different treatment groups (ctrl, trt1, and trt2).
 
- https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/independence-statistics/
-
- -The observations within each group should be independent of each other. 
- - In the PlantGrowth dataset, one plant's weight should not influence another plant's weight when it is within the same group. This assumption is crucial to ensure that the t-test results are valid.
-
- d. __Random sampling:__ 
-
- https://www.statology.org/t-test-assumptions/
-
- - Both samples should be obtained using a random sampling method.
- - For the PlantGrowth dataset, the plants should have been randomly assigned to the different treatment groups. Random sampling helps ensure that the samples are representative of the population and that the t-test results are generalisable.
- -  By ensuring that these assumptions are met, we can confidently perform t-tests on the PlantGrowth dataset to determine if there are significant differences in plant weights between the treatment groups.  It is important to note however, that if one or more of these assumptions are violated, then the results of the two-sample t-test may be unreliable or even misleading.
+This result is important because it validates the use of ANOVA, which assumes that the variances of the groups being compared are equal which gives confidence in the ANOVA test and its results.
 
  ## T-Test performed
 
@@ -1767,7 +1758,7 @@ https://www.statisticshowto.com/probability-and-statistics/t-test/
 
  ### Conclusion to ANOVA test
  
- The ANOVA test results indicate that there is a significant difference in plant weights between at least two of the treatment groups (ctrl, trt1, and trt2). This suggests that the treatment applied to the plants has a measurable effect on their weights. The differences can be visually observed in the scatter plot. 
+ The ANOVA test results indicate that there is a significant difference in plant weights between at least two of the treatment groups (ctrl, trt1, and trt2). This suggests that the treatment applied to the plants has a measurable effect on their weights. Confidence in the ANOVA results were observed in Levene's test.  The differences can be visually observed also in the scatter plot. 
  
  ## Explain Your Work
 
