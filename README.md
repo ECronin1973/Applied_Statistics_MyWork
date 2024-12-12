@@ -1090,9 +1090,9 @@ Performing one-way ANOVA helps us determine if there are significant differences
 
 Increment no_type_ii by 1 whenever a type II error occurs.
 
-__Step Five: Summarize Results__
+__Step Five: Summarise Results__
 
-Summarize and explain the results obtained from the test.
+Summarise and explain the results obtained from the test.
 
 Summarizing the results helps in understanding the frequency and probability of type II errors in the given context.
 
@@ -1238,7 +1238,7 @@ print(f"Number of type II errors: {no_type_ii}")
 print(f"Probability of committing a type II error: {no_type_ii / 10000}")
 ```       
 
-### Summarize Results (Standard Deviation 0.1)
+### Summarise Results (Standard Deviation 0.1)
 
 The test results with a standard deviation of 0.1 indicate no type II errors were observed in the 10,000 iterations. This means that in every test, the one-way ANOVA correctly identified significant differences between the means of the three samples. Consequently, the probability of committing a type II error and failing to reject the null hypothesis when it is false is 0.0. This outcome suggests that the test conditions (sample size, means, and standard deviation) were such that the differences between the groups were always detected as significant.
 
@@ -1330,33 +1330,33 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
 
 # END
 
-
  # Project 2024/2025 Applied Statistics
 
  ## PlantGrowth Analysis 
  
  ### Overview
 
- This project analyzes the PlantGrowth dataset from Vicent Arel-Bundock's Rdatasets page. The dataset contains two main variables: a treatment group and the weight of plants within those groups. The project objective is to perform t-tests and ANOVA on this dataset while describing the dataset and explaining the work.
+ This project analyses the PlantGrowth dataset from Vicent Arel-Bundock's Rdatasets page. The dataset contains two main variables: a treatment group and the weight of plants within those groups. The project objective is to perform t-tests and ANOVA on this dataset while describing and explaining the work.
  
 ### Objectives
 
- - Download and Save the Dataset: Download the dataset from Vicent Arel-Bundock's Rdatasets page and save it to your repository.
+ - __Download and Save the Dataset:__ Download the dataset from Vicent Arel-Bundock's Rdatasets page and save it to your repository.
 
- - Describe the Dataset: Load the dataset into a pandas DataFrame and provide a detailed description in your notebook. This includes summarizing the dataset, displaying the first few rows, and providing statistical information about the variables.
+ - __Describe the Dataset:__ Load the dataset into a pandas DataFrame and provide a detailed description in your notebook. Include summarising the dataset, displaying the first few rows, and providing statistical information about the variables.
 
- - Describe the t-test: Explain what a t-test is, how it works, and what the assumptions are.
+ - __Describe the t-test:__ Explain what a t-test is, how it works, and the assumptions.
 
- - Perform a t-test: Conduct a t-test to determine whether there is a significant difference between the two treatment groups trt1 and trt2.
+ - __Perform a t-test:__ Conduct a t-test to determine whether there is a significant difference between the two treatment groups trt1 and trt2.
 
- - Perform ANOVA: Conduct an ANOVA to determine whether there is a significant difference between the three treatment groups ctrl, trt1, and trt2.
+ - __Perform ANOVA:__ Conduct an ANOVA to determine whether there is a significant difference between the three treatment groups ctrl, trt1, and trt2.
 
- - Explain the Use of ANOVA: Discuss why it is more appropriate to apply ANOVA rather than several t-tests when analyzing more than two groups.
+ - __Explain the Use of ANOVA:__ Discuss why applying ANOVA rather than several t-tests is more appropriate when analysing more than two groups.
 
+ ### The code for this project was generated with the help of an AI tool, and subsequently reviewed and verified for accuracy and functionality.
 
  ## Download and Save the Dataset: 
 
- The dataset was downloaded from [Vicent Arel-Bundocks Rdatasets page](https://vincentarelbundock.github.io/Rdatasets/datasets.html) and saved to the repository.  The following code was used to complete this task:
+ The dataset was downloaded from the [Vicent Arel-Bundocks Rdatasets page](https://vincentarelbundock.github.io/Rdatasets/datasets.html) and saved to the repository.  The following code was used to complete this task:
 
  ```<python>
  # Import libraries to complete this project
@@ -1387,7 +1387,7 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
 
  #### Ease of Data Manipulation
 
- DataFrames provide a powerful and flexible way to manipulate and analyze data. They allow you to easily filter, sort, and transform data using intuitive syntax.
+ DataFrames provide a powerful and flexible way to manipulate and analyze data. They allow you to quickly filter, sort, and transform data using intuitive syntax.
  For example, you can quickly select specific rows or columns, apply functions to the data, and perform aggregations.
  
  "Ease of Data Manipulation." pandas documentation, https://pandas.pydata.org/docs/#pandas-documentation
@@ -1401,14 +1401,13 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
  
  #### Handling Missing Data
 
- DataFrames provide robust methods for handling missing data. You can easily identify, fill, or drop missing values, ensuring that your analysis is accurate and reliable.
+ DataFrames provide robust methods for handling missing data. You can quickly identify, fill, or drop missing values, ensuring your analysis is accurate and reliable.
  
  "Handling Missing Data." pandas documentation, https://pandas.pydata.org/docs/user_guide/missing_data.html.
  
  #### Data Cleaning and Preparation
 
- pandas offers a wide range of functions for cleaning and preparing data. You can remove duplicates, convert data types, and handle categorical data with ease.
- This is crucial for ensuring that your data is in the right format for analysis.
+ Pandas offer a wide range of functions for cleaning and preparing data. You can easily remove duplicates, convert data types, and handle categorical data which is crucial for ensuring that your data is in the correct format for analysis.
  
  "Data Cleaning and Preparation." pandas documentation, https://pandas.pydata.org/docs/user_guide/index.html.
  
@@ -1420,16 +1419,16 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
   
  #### Data Visualization
 
- pandas works well with visualization libraries like Matplotlib and Seaborn. You can create a wide range of plots and charts to visualize your data and gain insights.
+ Pandas work well with visualization libraries like Matplotlib and Seaborn. You can create various plots and charts to visualize your data and gain insights.
  Visualizations are essential for communicating your findings and making data-driven decisions 
  
  "Data Visualization." pandas documentation, https://pandas.pydata.org/docs/user_guide/index.html.
 
  ## Exploration of Dataset
 
-  - To get an initial look at the dataset, the first few rows were displayed using the [head() method](https://www.w3schools.com/python/pandas/ref_df_head.asp). This gives us a quick overview of the data.  
-  - Next, we provide a summary of the dataset using the [describe() method](https://www.w3schools.com/python/pandas/ref_df_describe.asp). This method gives us important statistical information about the numerical columns in the dataset, such as the count, mean, standard deviation, minimum, and maximum values. 
-  - To get information on the dataset such as the number of observation, the [info() is used](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.info.html#pandas.DataFrame.info.)
+  - The first few rows of the dataset were displayed using the head() method, which gives a quick overview of the data. 
+  - Next, we summarise the dataset using the [describe() method](https://www.w3schools.com/python/pandas/ref_df_describe.asp). This method gives us crucial statistical information about the numerical columns in the dataset, such as the count, mean, standard deviation, minimum, and maximum values.
+  - To get information on the dataset, such as the number of observations, the [info() is used](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.info.html#pandas.DataFrame.info.)
 
   The following code was used to complete this task:
 
@@ -1454,7 +1453,7 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
  
  ## A summary of the dataset
 
- __Observations:__ The dataset contains 30 observations i.e., there are 30 individual data points or entries in the dataset. Each observation represents a single instance of data collected for analysis. In this case, each observation corresponds to the weight of a plant and the treatment group it belongs to.
+ __Observations:__ The dataset contains 30 individual data points or entries in the dataset. Each observation corresponds to the weight of a plant and the treatment group it belongs to.
 
  __Variables:__ There are three variables in the dataset weight:
 
@@ -1462,7 +1461,7 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
 
  __Unnamed: 0__: 
  
- This appears to be an index column t appears to be automatically generated when the dataset was created and can be ignored for analysis.
+ This appears to be an index column it appears to be automatically generated when the dataset was created and can be ignored for analysis.
 
  https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.drop.html
 
@@ -1488,19 +1487,19 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
 
  https://www.scribbr.com/statistics/t-test/
 
- A t-test is a statistical test used to compare the means of two groups to determine if they are significantly different from each other. This is a fundamental method in hypothesis testing to assess the differences between groups.
+ According to [scribbr.com]( https://www.scribbr.com/statistics/t-test/) a t-test is 'a statistical test used to compare the means of two groups to determine if they are significantly different from each other. This is a fundamental method in hypothesis testing to assess the differences between groups'.
 
  ##  How does a T-Test Work?
 
  https://www.statisticshowto.com/probability-and-statistics/t-test/
 
- The steps involved in a T-Test ensure that the t-test is conducted systematically and that the results are reliable and valid. They help in making informed decisions based on statistical evidence rather than mere speculation.  The steps are as follows.
+ According to [statisticshowto](https://www.statisticshowto.com/probability-and-statistics/t-test/) the steps involved in a T-Test ensure that the test is conducted systematically and that the results are reliable and valid. They help make informed decisions based on statistical evidence rather than mere speculation. The steps are as follows.
 
  ### Formulating Hypotheses
 
  https://www.scribbr.com/statistics/t-test/
 
- Formulating hypotheses is a crucial step in the t-test process, establishing a foundation for statistical analysis.
+ According to [scribbr.com]( https://www.scribbr.com/statistics/t-test/) formulating hypotheses is a crucial step in the t-test process, establishing a foundation for statistical analysis.
 
  - **Null Hypothesis (\(H_0\))**: Assumes there is no difference between the group means.
  - **Alternative Hypothesis (\(H_a\))**: Assumes there is a significant difference between the group means.
@@ -1510,21 +1509,21 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
  https://statisticsbyjim.com/hypothesis-testing/t-test/
   
  - Independent t-test: Compares the means of two independent groups.
- - Paired t-test: Compares means from the same group at different times (e.g., before and after a treatment)
- - One-sample t-test: Compares the mean of a single group against a known value or population mean 
+ - Paired t-test: Compares means from the same group at different times (e.g., before and after treatment).
+ - One-sample t-test: Compares the mean of a single group against a known value or population mean .
 
  ### Calculating the t-statistic: This involves the following steps
 
  https://www.statisticshowto.com/probability-and-statistics/t-test/
 
- - Compute the mean and standard deviation of the groups
- - Use these values to calculate the t-statistic, which reflects the size of the difference relative to the variability in the data
+ - Compute the mean and standard deviation of the groups.
+ - Use these values to calculate the t-statistic, which reflects the size of the difference relative to the variability in the data.
 
  ### Determining the p-value:
 
  https://statisticsbyjim.com/hypothesis-testing/t-test/
 
- - The p-value indicates the probability of obtaining the observed difference (or more extreme) under the null hypothesis. A low p-value (typically < 0.05) suggests that the observed difference is statistically significant
+ - The p-value indicates the probability of obtaining the observed difference (or more extreme) under the null hypothesis. A low p-value (typically < 0.05) suggests that the observed difference is statistically significant.
 
  ## What are the assumptions of a t-test?
 
@@ -1540,26 +1539,26 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
  https://www.statisticshowto.com/probability-and-statistics/hypothesis-testing/anova/homogeneity-tests/
 
  - The variances of the two groups should be equal. This assumption can be tested using tests such as Levene's test
- - For the PlantGrowth dataset, we need to ensure that the variances of the plant weights across the different treatment groups are equal. If the variances are not equal, the results of the t-test may not be valid.
+ - For the PlantGrowth dataset, we need to ensure that the variances of the plant weights across the different treatment groups are equal. If the variances are not equal, the t-test results may not be valid.
 
  c. __Independence:__ 
 
  https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/independence-statistics/
 
- - The observations within each group should be independent of each other
- - In the PlantGrowth dataset, this means that the weight of one plant should not influence the weight of another plant within the same treatment group. This assumption is crucial to ensure that the results of the t-test are valid.
+ -The observations within each group should be independent of each other. 
+ - In the PlantGrowth dataset, one plant's weight should not influence another plant's weight when it is within the same group. This assumption is crucial to ensure that the t-test results are valid.
 
  d. __Random sampling:__ 
 
  https://www.statology.org/t-test-assumptions/
 
  - Both samples should be obtained using a random sampling method.
- - For the PlantGrowth dataset, this means that the plants should have been randomly assigned to the different treatment groups. Random sampling helps to ensure that the samples are representative of the population and that the results of the t-test are generalizable.
- -  By ensuring that these assumptions are met, we can confidently perform t-tests on the PlantGrowth dataset to determine if there are significant differences in plant weights between the treatment groups.  It is important to note however, that if one or more of these assumptions are violated, then the results of the two sample t-test may be unreliable or even misleading.
+ - For the PlantGrowth dataset, the plants should have been randomly assigned to the different treatment groups. Random sampling helps ensure that the samples are representative of the population and that the t-test results are generalisable.
+ -  By ensuring that these assumptions are met, we can confidently perform t-tests on the PlantGrowth dataset to determine if there are significant differences in plant weights between the treatment groups.  It is important to note however, that if one or more of these assumptions are violated, then the results of the two-sample t-test may be unreliable or even misleading.
 
  ## T-Test performed
 
- A t-test was performed to determine if there is a significant difference between the two treatment groups (trt1 and trt2). Values were extracted from running the following code: 
+ A t-test was performed to determine if there is a significant difference between the two treatment groups (trt1 and trt2). Values were extracted by running the following code: 
 
  ```<python>
  # Filter the dataset to include only trt1 and trt2 groups
@@ -1677,9 +1676,9 @@ https://www.statisticshowto.com/probability-and-statistics/t-test/
   *Violin Plot Image (Source:plant_weights_violinplot_trt1_vs_trt2.png)*
 
 
-### Why Plots were generated
+ ### Why Plots were generated
 
-Plots were used as they have numerous benefits, especially in data analysis, interpretation, and communication. The following are the reasons plots were used:
+ Plots were used as they have numerous benefits, especially in data analysis, interpretation, and communication. The following are the reasons plots were used:
 
  **Enhanced Understanding**
 
@@ -1727,14 +1726,14 @@ Plots were used as they have numerous benefits, especially in data analysis, int
 
  https://www.statology.org/anova-f-value-p-value/
 
- - The F-statistic is a ratio of the variance between the group means to the variance within the groups. A higher F-statistic indicates a greater degree of difference between the group means relative to the variability within the groups.
-- In this case, the F-statistic is 4.846, which suggests that there is a noticeable difference between the means of the three treatment groups (ctrl, trt1, and trt2).
+ - The F-statistic is a ratio of the variance between the group means to the variance within the groups. A higher F-statistic indicates a greater difference between the group means relative to the group variability.
+ - In this case, the F-statistic is 4.846, which suggests a noticeable difference between the means of the three treatment groups (ctrl, trt1, and trt2).
 
  ### ANOVA p-value:
 
  https://www.scribbr.com/statistics/p-value/
 
- - The p-value indicates the probability of observing the data, or something more extreme, if the null hypothesis is true. The null hypothesis in ANOVA is that there are no differences between the group means.
+ - The p-value indicates the probability of observing the data or something more extreme if the null hypothesis is true. In ANOVA, the null hypothesis is that there are no differences between the group means.
  - A p-value of 0.0159 is less than the common significance level of 0.05. This means that there is less than a 1.59% chance that the observed differences between the group means occurred by random chance.
  -  Since the p-value is less than 0.05, we reject the null hypothesis and conclude that there is a statistically significant difference between the means of the three treatment groups
 
@@ -1770,10 +1769,9 @@ Plots were used as they have numerous benefits, especially in data analysis, int
  
  The ANOVA test results indicate that there is a significant difference in plant weights between at least two of the treatment groups (ctrl, trt1, and trt2). This suggests that the treatment applied to the plants has a measurable effect on their weights. The differences can be visually observed in the scatter plot. 
  
- 
  ## Explain Your Work
 
- This section discusses why it is more appropriate to apply ANOVA rather than several t-tests when analyzing more than two groups.  The following topics are identified.
+ This section discusses why applying ANOVA rather than several t-tests is more appropriate when analysing more than two groups. The following topics are identified.
  
  - Type I Error reduction 
  - Efficiency
@@ -1801,7 +1799,7 @@ Plots were used as they have numerous benefits, especially in data analysis, int
 
  ### Efficiency
 
- According to [Laerd Statistics](https://statistics.laerd.com/statistical-guides/one-way-anova-statistical-guide-2.php)ANOVA is preferred over multiple t-tests because it controls the Type I error rate, is more efficient by comparing all groups in a single test, and reduces the complexity and time required for analysis.
+ According to [Laerd Statistics](https://statistics.laerd.com/statistical-guides/one-way-anova-statistical-guide-2.php) ANOVA is preferred over multiple t-tests because it controls the Type I error rate, is more efficient by comparing all groups in a single test, and reduces the complexity and time required for analysis.
 
  ### Comprehensive Analysis
 
@@ -1820,7 +1818,7 @@ Plots were used as they have numerous benefits, especially in data analysis, int
 
  https://www.datacamp.com/tutorial/anova-test
 
- Effect Sizes was examined as it is a crucial metric in statistical analysis that measures the magnitude of the difference between groups. Unlike p-values, which only tell us whether a difference exists, effect size quantifies the size of that difference, providing more context on the practical significance of the findings. Effect size helps in understanding how large or small the observed effect is, beyond just knowing that it is statistically significant. Effect size complements p-values by providing additional information, helping in understanding the strength and importance of the findings.
+ Effect Sizes were examined as they are a crucial metric in statistical analysis that measures the magnitude of the difference between groups. Unlike p-values, which only tell us whether a difference exists, effect size quantifies the size of that difference, providing more context on the practical significance of the findings. Effect size helps in understanding how large or small the observed effect is, beyond just knowing that it is statistically significant. Effect size complements p-values by providing additional information, helping in understanding the strength and importance of the findings.
 
  ### Types of Effect Size
 
@@ -1846,7 +1844,7 @@ Plots were used as they have numerous benefits, especially in data analysis, int
 
  __Type I errors:__ 
  
- Based on the analysis, we can conclude that the ANOVA test is a better test as it reduces Type I errors.  The t-test however only looked at two groups where as the ANOVA test looked at three.  Further tests would need to be carried out to examine what the outcome of a t-test would be for the Ctrl v trt1 groups and ctrl v trt2 groups, and then compare this to the initial test carried out.
+ Based on the analysis, the ANOVA test is better as it reduces Type I errors. The t-test, however, only looked at two groups, whereas the ANOVA test looked at three. Further tests would need to be carried out to examine what the outcome of a t-test would be for the Ctrl v trt1 groups and ctrl v trt2 groups and then compare this to the initial test carried out.
 
  __Statistical Significance:__
  
@@ -1862,15 +1860,15 @@ Plots were used as they have numerous benefits, especially in data analysis, int
 
  __Assumptions Check__
 
- When conducting these tests, it is important to check the assumptions of both the t-test and ANOVA, such as normality, homogeneity of variances, and independence of observations. Ensuring these assumptions are met is crucial for the validity of the test results.
+ When conducting these tests, it is important to check the t-test and ANOVA's assumptions, such as normality, homogeneity of variances, and independence of observations. Ensuring these assumptions are met is crucial for the validity of the test results.
 
  __Visualizations__
 
- It cannot be under estimated how useful the plots in this project (such as scatter plots, box plots, swarm plots and violin plots) were in understanding and communicating the differences between groups. These plots provided a clear, visual summary of the data and support the statistical findings.  The helped identify where code had to be modified when completing the t-test.
+ It cannot be underestimated how useful the plots in this project (such as scatter plots, box plots, swarm plots, and violin plots) were in understanding and communicating the differences between groups. These plots provided a clear, visual summary of the data and supported the statistical findings. They also helped identify where code had to be modified when completing the t-test.
 
  __Practical Implications__
 
- [Policy and Recommendations:](https://www.fao.org/4/Y5061E/y5061e09.htm) The findings from the analysis can inform policy recommendations and best practices for agricultural extension services. This can help disseminate effective treatments to a broader audience, improving overall agricultural productivity.
+ __[Policy and Recommendations:](https://www.fao.org/4/Y5061E/y5061e09.htm)__ The findings from the analysis can inform policy recommendations and best practices for agricultural extension services. This can help disseminate effective treatments to a broader audience, improving overall agricultural productivity.
 
  ## References
 
