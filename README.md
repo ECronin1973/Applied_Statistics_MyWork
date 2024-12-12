@@ -1333,13 +1333,28 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
 
  # Project 2024/2025 Applied Statistics
 
- ### PlantGrowth Analysis 
+ ## PlantGrowth Analysis 
  
  ### Overview
 
- This project analyzes the PlantGrowth dataset from Vicent Arel-Bundocks Rdatasets page. The dataset contains two main variables: a treatment group and the weight of plants within those groups
+ This project analyzes the PlantGrowth dataset from Vicent Arel-Bundock's Rdatasets page. The dataset contains two main variables: a treatment group and the weight of plants within those groups. The project objective is to perform t-tests and ANOVA on this dataset while describing the dataset and explaining the work.
+ 
+### Objectives
 
- ## Step 1. Download and Save the Dataset: 
+ - Download and Save the Dataset: Download the dataset from Vicent Arel-Bundock's Rdatasets page and save it to your repository.
+
+ - Describe the Dataset: Load the dataset into a pandas DataFrame and provide a detailed description in your notebook. This includes summarizing the dataset, displaying the first few rows, and providing statistical information about the variables.
+
+ - Describe the t-test: Explain what a t-test is, how it works, and what the assumptions are.
+
+ - Perform a t-test: Conduct a t-test to determine whether there is a significant difference between the two treatment groups trt1 and trt2.
+
+ - Perform ANOVA: Conduct an ANOVA to determine whether there is a significant difference between the three treatment groups ctrl, trt1, and trt2.
+
+ - Explain the Use of ANOVA: Discuss why it is more appropriate to apply ANOVA rather than several t-tests when analyzing more than two groups.
+
+
+ ## 1. Download and Save the Dataset: 
 
  The dataset was downloaded from [Vicent Arel-Bundocks Rdatasets page](https://vincentarelbundock.github.io/Rdatasets/datasets.html) and saved to the repository.  The following code was used to complete this task:
 
@@ -1356,9 +1371,9 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
  # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html
  df = pd.read_csv(url)
 
- # Save the dataset to the repository 
+ # Save the dataset to the repository within the data folder
  # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_csv.html
- df.to_csv('PlantGrowth.csv', index=False)
+ df.to_csv('data/plantgrowth.csv', index=False)
  ```
 
  ## 2. Describe the Dataset: 
@@ -1367,41 +1382,40 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
 
  Source: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html
 
- __Ease of Data Manipulation__
+ #### Ease of Data Manipulation
 
  DataFrames provide a powerful and flexible way to manipulate and analyze data. They allow you to easily filter, sort, and transform data using intuitive syntax.
  For example, you can quickly select specific rows or columns, apply functions to the data, and perform aggregations.
  
  "Ease of Data Manipulation." pandas documentation, https://pandas.pydata.org/docs/#pandas-documentation
 
- __Integration with Other Libraries__
+ #### Integration with Other Libraries
 
  pandas integrates seamlessly with other Python libraries commonly used in data analysis, such as NumPy, SciPy, Matplotlib, and Seaborn.
  This integration makes it easy to perform complex statistical analyses, create visualizations, and conduct machine learning tasks.
  
  "Integration with Other Libraries." pandas documentation, https://pandas.pydata.org/docs/user_guide/index.html.
  
- __Handling Missing Data__
+ #### Handling Missing Data
 
  DataFrames provide robust methods for handling missing data. You can easily identify, fill, or drop missing values, ensuring that your analysis is accurate and reliable.
  
  "Handling Missing Data." pandas documentation, https://pandas.pydata.org/docs/user_guide/missing_data.html.
  
- __Data Cleaning and Preparation__
+ #### Data Cleaning and Preparation
 
  pandas offers a wide range of functions for cleaning and preparing data. You can remove duplicates, convert data types, and handle categorical data with ease.
  This is crucial for ensuring that your data is in the right format for analysis.
  
  "Data Cleaning and Preparation." pandas documentation, https://pandas.pydata.org/docs/user_guide/index.html.
  
- __Descriptive Statistics and Summarization__
+ #### Descriptive Statistics and Summarization
 
  DataFrames make it easy to generate descriptive statistics and summaries of your data. You can quickly calculate measures such as mean, median, standard deviation, and  
  
  "Descriptive Statistics and Summarization." pandas documentation, https://pandas.pydata.org/docs/user_guide/index.html.
- 
- 
- __Data Visualization__
+  
+ #### Data Visualization
 
  pandas works well with visualization libraries like Matplotlib and Seaborn. You can create a wide range of plots and charts to visualize your data and gain insights.
  Visualizations are essential for communicating your findings and making data-driven decisions 
@@ -1461,8 +1475,7 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
 
  https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html
 
-
- Data Types: 
+ __Data Types:__
  
  The weight variable is of type float64, the Unnamed: 0 variable is of type int64, and the group variable is of type object.
  
@@ -1472,13 +1485,13 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
 
  https://www.scribbr.com/statistics/t-test/
 
- a t-test is a statistical test used to compare the means of two groups to determine if they are significantly different from each other. This is a fundamental method in hypothesis testing to assess the differences between groups
+ A t-test is a statistical test used to compare the means of two groups to determine if they are significantly different from each other. This is a fundamental method in hypothesis testing to assess the differences between groups.
 
  ##  How does a T-Test Work?
 
  https://www.statisticshowto.com/probability-and-statistics/t-test/
 
- A t-test is a statistical test used to compare the means of two groups to determine if they are significantly different from each other. This is a fundamental method in hypothesis testing to assess the differences between groups
+ The steps involved in a T-Test ensure that the t-test is conducted systematically and that the results are reliable and valid. They help in making informed decisions based on statistical evidence rather than mere speculation.  The steps are as follows.
 
  ### Formulating Hypotheses
 
@@ -1539,9 +1552,9 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
 
  - Both samples should be obtained using a random sampling method.
  - For the PlantGrowth dataset, this means that the plants should have been randomly assigned to the different treatment groups. Random sampling helps to ensure that the samples are representative of the population and that the results of the t-test are generalizable.
- -  By ensuring that these assumptions are met, we can confidently perform t-tests on the PlantGrowth dataset to determine if there are significant differences in plant weights between the treatment groups.  It is important to note however, that if one or more of these assumptions are violated, then the results of the two sample t-test may be unreliable or even misleading. (https://www.statology.org/t-test-assumptions/).
+ -  By ensuring that these assumptions are met, we can confidently perform t-tests on the PlantGrowth dataset to determine if there are significant differences in plant weights between the treatment groups.  It is important to note however, that if one or more of these assumptions are violated, then the results of the two sample t-test may be unreliable or even misleading.
 
- ## t-test performed
+ ## 3. t-test performed
 
  A t-test was performed to determine if there is a significant difference between the two treatment groups (trt1 and trt2). Values were extracted from running the following code: 
 
@@ -1567,6 +1580,8 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
 
  print(f"t-statistic: {t_statistic}, p-value: {p_value}")
  ```
+
+https://www.statisticshowto.com/probability-and-statistics/t-test/
 
  __t-statistic value -3.0100985421243616.__ 
 
@@ -1606,7 +1621,7 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
  plt.ylabel('Weight') 
 
  # Save the Box Plot as an image file 
- plt.savefig('Plant_Weights_by_Treatment_Group.png') 
+ plt.savefig('images/plant_weights_by_treatment_group.png') 
 
  # Show the plot
  plt.show()
@@ -1619,7 +1634,7 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
  plt.ylabel('Weight') 
 
  # Save the Swarm Plot as an image file 
- plt.savefig('Plant_Weights_SwarmPlot_trt1_vs_trt2.png') 
+ plt.savefig('images/plant_weights_swarmplot_trt1_vs_trt2.png') 
 
  # Show the plot plt.show()
  plt.show()
@@ -1632,7 +1647,7 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
  plt.ylabel('Weight') 
 
  # Save the Violin Plot as an image file 
- plt.savefig('Plant_Weights_ViolinPlot_trt1_vs_trt2.png') 
+ plt.savefig('images/plant_weights_violinplot_trt1_vs_trt2.png') 
 
  # Show the plot plt.show()
  plt.show()
@@ -1640,17 +1655,17 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
  
  Plots were used as they have numerous benefits, especially in data analysis, interpretation, and communication. The following are the reasons plots were used:
 
- <img src="images\Plant_Weights_by_Treatment_Group.png" alt="Box Plot" style="float: left"> 
+ <img src="images\plant_weights_by_treatment_group.png" alt="Box Plot" style="float: left"> 
 
- *Box Plot Image (Source:Plant_Weights_by_Treatment_Group.png)*
+ *Box Plot Image (Source:plant_weights_by_treatment_group.png)*
  
- <img src="images\Plant_Weights_SwarmPlot_trt1_vs_trt2.png" alt="SwarmPlot" style="float: left"> 
+ <img src="images\plant_weights_swarmplot_trt1_vs_trt2.png" alt="SwarmPlot" style="float: left"> 
 
-  *Swarm Plot Image (Source:Plant_Weights_SwarmPlot_trt1_vs_trt2.png)*
+  *Swarm Plot Image (Source:plant_weights_swarmplot_trt1_vs_trt2.png)*
  
- <img src="images\Plant_Weights_ViolinPlot_trt1_vs_trt2.png" alt="Swarm Plot" style="float: left">
+ <img src="images\plant_weights_violinplot_trt1_vs_trt2.png" alt="Swarm Plot" style="float: left">
 
-  *Violin Plot Image (Source:Plant_Weights_ViolinPlot_trt1_vs_trt2.png)*
+  *Violin Plot Image (Source:plant_weights_violinplot_trt1_vs_trt2.png)*
 
 
  **Enhanced Understanding**
@@ -1697,8 +1712,8 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
 
  https://www.statology.org/anova-f-value-p-value/
 
- The F-statistic is a ratio of the variance between the group means to the variance within the groups. A higher F-statistic indicates a greater degree of difference between the group means relative to the variability within the groups.
- In this case, the F-statistic is 4.846, which suggests that there is a noticeable difference between the means of the three treatment groups (ctrl, trt1, and trt2).
+ - The F-statistic is a ratio of the variance between the group means to the variance within the groups. A higher F-statistic indicates a greater degree of difference between the group means relative to the variability within the groups.
+- In this case, the F-statistic is 4.846, which suggests that there is a noticeable difference between the means of the three treatment groups (ctrl, trt1, and trt2).
 
  ### ANOVA p-value:
 
@@ -1726,7 +1741,7 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
  plt.ylabel('Weight')
 
  # Save the Scatter Plot as an image file 
- plt.savefig('Plant_Weights_ScatterPlot.png') 
+ plt.savefig('images\Plant_Weights_ScatterPlot.png') 
 
  # Show the plot plt.show()
  plt.show()
@@ -1734,11 +1749,11 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
 
  <img src="images\Plant_Weights_ScatterPlot.png" alt="Scatter Plot" style="float: left;">
 
-  *Scatter Plot Image (Source:Plant_Weights_ScatterPlot.png)*
+  *Scatter Plot Image (Source:images\Plant_Weights_ScatterPlot.png)*
 
  ### Conclusion to ANOVA test
  
- The ANOVA test results indicate that there is a significant difference in plant weights between at least two of the treatment groups (ctrl, trt1, and trt2). This suggests that the treatment applied to the plants has a measurable effect on their weights.   The differences can be visually observed in the scatter plot. 
+ The ANOVA test results indicate that there is a significant difference in plant weights between at least two of the treatment groups (ctrl, trt1, and trt2). This suggests that the treatment applied to the plants has a measurable effect on their weights. The differences can be visually observed in the scatter plot. 
  
  
  ## Explain Your Work
