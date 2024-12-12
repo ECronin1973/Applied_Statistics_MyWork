@@ -1655,15 +1655,15 @@ https://www.statisticshowto.com/probability-and-statistics/t-test/
  
  Plots were used as they have numerous benefits, especially in data analysis, interpretation, and communication. The following are the reasons plots were used:
 
- <img src="images\plant_weights_by_treatment_group.png" alt="Box Plot" style="float: left"> 
+ <img src="images\Plant_Weights_by_Treatment_Group.png" alt="Box Plot" style="float: left"> 
 
  *Box Plot Image (Source:plant_weights_by_treatment_group.png)*
  
- <img src="images\plant_weights_swarmplot_trt1_vs_trt2.png" alt="SwarmPlot" style="float: left"> 
+ <img src="images\Plant_Weights_SwarmPlot_trt1_vs_trt2.png" alt="SwarmPlot" style="float: left"> 
 
   *Swarm Plot Image (Source:plant_weights_swarmplot_trt1_vs_trt2.png)*
  
- <img src="images\plant_weights_violinplot_trt1_vs_trt2.png" alt="Swarm Plot" style="float: left">
+ <img src="images\Plant_Weights_ViolinPlot_trt1_vs_trt2.png" alt="Swarm Plot" style="float: left">
 
   *Violin Plot Image (Source:plant_weights_violinplot_trt1_vs_trt2.png)*
 
