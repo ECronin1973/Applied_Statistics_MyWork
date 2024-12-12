@@ -1354,7 +1354,7 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
  - Explain the Use of ANOVA: Discuss why it is more appropriate to apply ANOVA rather than several t-tests when analyzing more than two groups.
 
 
- ## 1. Download and Save the Dataset: 
+ ## Download and Save the Dataset: 
 
  The dataset was downloaded from [Vicent Arel-Bundocks Rdatasets page](https://vincentarelbundock.github.io/Rdatasets/datasets.html) and saved to the repository.  The following code was used to complete this task:
 
@@ -1365,6 +1365,9 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
  import matplotlib.pyplot as plt
  import seaborn as sns
  from scipy.stats import f_oneway
+ import numpy as np
+ import statsmodels.api as sm
+ from statsmodels.formula.api import ols
 
  # Download the dataset
  url = 'https://vincentarelbundock.github.io/Rdatasets/csv/datasets/PlantGrowth.csv'
@@ -1376,7 +1379,7 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
  df.to_csv('data/plantgrowth.csv', index=False)
  ```
 
- ## 2. Describe the Dataset: 
+ ## Data Analysis on Dataset: 
 
  The dataset was loaded into pandas DataFrame as it is a common practice in data analysis for several reasons:
 
@@ -1422,7 +1425,7 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
  
  "Data Visualization." pandas documentation, https://pandas.pydata.org/docs/user_guide/index.html.
 
- ### Exploration of Dataset
+ ## Exploration of Dataset
 
   - To get an initial look at the dataset, the first few rows were displayed using the [head() method](https://www.w3schools.com/python/pandas/ref_df_head.asp). This gives us a quick overview of the data.  
   - Next, we provide a summary of the dataset using the [describe() method](https://www.w3schools.com/python/pandas/ref_df_describe.asp). This method gives us important statistical information about the numerical columns in the dataset, such as the count, mean, standard deviation, minimum, and maximum values. 
@@ -1449,7 +1452,7 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
  print(df.info())
  ```
  
- ### A summary of the dataset
+ ## A summary of the dataset
 
  __Observations:__ The dataset contains 30 observations i.e., there are 30 individual data points or entries in the dataset. Each observation represents a single instance of data collected for analysis. In this case, each observation corresponds to the weight of a plant and the treatment group it belongs to.
 
@@ -1554,7 +1557,7 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
  - For the PlantGrowth dataset, this means that the plants should have been randomly assigned to the different treatment groups. Random sampling helps to ensure that the samples are representative of the population and that the results of the t-test are generalizable.
  -  By ensuring that these assumptions are met, we can confidently perform t-tests on the PlantGrowth dataset to determine if there are significant differences in plant weights between the treatment groups.  It is important to note however, that if one or more of these assumptions are violated, then the results of the two sample t-test may be unreliable or even misleading.
 
- ## 3. t-test performed
+ ## T-Test performed
 
  A t-test was performed to determine if there is a significant difference between the two treatment groups (trt1 and trt2). Values were extracted from running the following code: 
 
@@ -1583,26 +1586,32 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
 
 https://www.statisticshowto.com/probability-and-statistics/t-test/
 
+ ### Output of T-Test
+ 
  __t-statistic value -3.0100985421243616.__ 
 
- - The t-statistic measures the size of the difference relative to the variation in the sample data. It represents the standardized difference between the means of the two groups (trt1 and trt2). Here’s what this value means:
+ The t-statistic measures the size of the difference relative to the variation in the sample data. It represents the standardized difference between the means of the two groups (trt1 and trt2). Here’s what this value means:
+
  - A negative t-statistic indicates that the mean of the first group (trt1) is less than the mean of the second group (trt2).
  - The magnitude of the t-statistic (-3.01 in this case) indicates how many standard deviations the means are apart. A value of -3.01 suggests that the means are about 3 standard deviations apart, which is quite substantial.
  
  __p-value: 0.0075184261182198574__
 
- - The p-value helps determine the significance of these results. Here’s what it means:
+ The p-value helps determine the significance of these results. Here’s what it means:
+
  - The p-value represents the probability of obtaining test results at least as extreme as the observed results, under the null hypothesis (which assumes that there is no difference between the group means).
  - A p-value of 0.0075 is less than the common significance threshold of 0.05, indicating strong evidence against the null hypothesis.
  
- ### Conclusion to t-test: 
+ ### Conclusion to T-Test: 
+
+ https://www.statisticshowto.com/probability-and-statistics/t-test/
  
  - Since the p-value is less than 0.05, we reject the null hypothesis. This means that there is a statistically significant difference between the means of the two treatment groups (trt1 and trt2).
  - The t-statistic of -3.01 suggests a significant difference in the means of the trt1 and trt2 groups, with the mean of trt1 being lower than that of trt2. 
  -  The p-value of 0.0075 indicates that this difference is statistically significant, meaning it is very unlikely to have occurred by chance.
  -  This analysis shows that the treatment group trt2 has a significantly different effect on plant growth compared to the treatment group trt1, under the conditions of this experiment.
 
- ### Plots Used in t-test
+ ## Plots Used in t-test
 
  A number of plots were generated to visually display the difference between the two treatment groups (trt1 and trt2).  The code was written to filter two groups only, so it excluded the 'Ctrl' group.  In addition to the t-statistic and p-values, it is easily visible to significant difference between both groups.  Plots were generated using the following code:
 
@@ -1653,7 +1662,7 @@ https://www.statisticshowto.com/probability-and-statistics/t-test/
  plt.show()
  ```
  
- Plots were used as they have numerous benefits, especially in data analysis, interpretation, and communication. The following are the reasons plots were used:
+ ### Images of generated plots
 
  <img src="images\Plant_Weights_by_Treatment_Group.png" alt="Box Plot" style="float: left"> 
 
@@ -1667,6 +1676,10 @@ https://www.statisticshowto.com/probability-and-statistics/t-test/
 
   *Violin Plot Image (Source:plant_weights_violinplot_trt1_vs_trt2.png)*
 
+
+### Why Plots were generated
+
+Plots were used as they have numerous benefits, especially in data analysis, interpretation, and communication. The following are the reasons plots were used:
 
  **Enhanced Understanding**
 
@@ -1692,7 +1705,7 @@ https://www.statisticshowto.com/probability-and-statistics/t-test/
 
   People tend to remember visual information better than text or numbers alone. Effective visualizations can make a lasting impression and improve the retention of information.
 
- ## 5. ANOVA Test Performed
+ ## ANOVA Test Performed
 
  ANOVA test was performed to determine if there is a significant difference between the three treatment groups (ctrl, trt1, and trt2).  The result of the test was ANOVA F-statistic: 4.846087862380136, p-value: 0.0159099583256229.  The following code was used to complete this task::
 
@@ -1708,6 +1721,8 @@ https://www.statisticshowto.com/probability-and-statistics/t-test/
  print(f"ANOVA F-statistic: {anova_stat}, p-value: {anova_p_value}")
  ```
 
+ ## Output of ANOVA tests
+ 
  ### ANOVA F-statistic:
 
  https://www.statology.org/anova-f-value-p-value/
@@ -1723,7 +1738,7 @@ https://www.statisticshowto.com/probability-and-statistics/t-test/
  - A p-value of 0.0159 is less than the common significance level of 0.05. This means that there is less than a 1.59% chance that the observed differences between the group means occurred by random chance.
  -  Since the p-value is less than 0.05, we reject the null hypothesis and conclude that there is a statistically significant difference between the means of the three treatment groups
 
- ### Plots Used in ANOVA test
+ ## Plots Used in ANOVA test
  
  https:www.geeksforgeeks.org/how-to-make-a-scatter-plot-in-python-using-seaborn/
 
@@ -1758,11 +1773,17 @@ https://www.statisticshowto.com/probability-and-statistics/t-test/
  
  ## Explain Your Work
 
- This section covers topics such as Type I Error reduction, Effect Sizes, t-test explained, ANOVA test explained, along with relevant references.
+ This section discusses why it is more appropriate to apply ANOVA rather than several t-tests when analyzing more than two groups.  The following topics are identified.
+ 
+ - Type I Error reduction 
+ - Efficiency
+ - Comprehensive Analysis
+ - Post-Hoc Tests
+ - Effect Sizes
 
- ## Reducing the risk of Type I Errors
+ ### Reducing the risk of Type I Errors
 
- The first consideration was to control Type 1 Error Rates in t-tests and ANOVA tests.  The following outlines which test is more appropriate. 
+ The first consideration was to control Type 1 Error Rates in t-tests and ANOVA tests. The following compares both groups 
 
   __Single Test for Multiple Comparisons__
 
@@ -1778,11 +1799,20 @@ https://www.statisticshowto.com/probability-and-statistics/t-test/
   - The familywise error rate is the probability of making one or more Type I errors across a set of comparisons. ANOVA controls this rate by using a single F-test to assess the overall differences among group means.
   -  By doing so, ANOVA ensures that the likelihood of incorrectly rejecting the null hypothesis (i.e., concluding that there is a difference when there isn't) remains at the desired significance level
 
- __Post-Hoc Tests__
+ ### Efficiency
+
+ According to [Laerd Statistics](https://statistics.laerd.com/statistical-guides/one-way-anova-statistical-guide-2.php)ANOVA is preferred over multiple t-tests because it controls the Type I error rate, is more efficient by comparing all groups in a single test, and reduces the complexity and time required for analysis.
+
+ ### Comprehensive Analysis
+
+ [Statology.org](https://www.statology.org/understanding-anova-when-and-how-to-use-it-in-your-research/) explains that ANOVA is a statistical method used to compare the means across three or more groups, providing a single overall test to determine if there are significant differences among the groups. This approach allows for a more holistic understanding of the data, identifying whether at least one group mean is different from the others without needing to perform numerous individual tests.
+
+### Post-Hoc Tests
 
  https://www.datacamp.com/tutorial/anova-test
+ https://www.statology.org/understanding-anova-when-and-how-to-use-it-in-your-research/
 
- - If the ANOVA indicates significant differences among group means, post-hoc tests (such as Tukey's HSD) can be performed to identify which specific groups differ from each other.
+ [Statology.org](https://www.statology.org/understanding-anova-when-and-how-to-use-it-in-your-research/) explains that ANOVA is used to determine if there are significant differences among group means and that post-hoc tests, such as Tukey's HSD, can be performed to identify which specific groups differ from each other
  - These post-hoc tests are designed to control the Type I error rate while making multiple comparisons, further reducing the risk of false positives.
  - In the PlantGrowth dataset, if we were to compare the weights of plants across three treatment groups (ctrl, trt1, and trt2) using multiple t-tests, we would increase the risk of Type I errors. Instead, by using ANOVA, we perform a single test to determine if there are any significant differences among the groups, thereby controlling the overall error rate
 
@@ -1790,74 +1820,28 @@ https://www.statisticshowto.com/probability-and-statistics/t-test/
 
  https://www.datacamp.com/tutorial/anova-test
 
- Effect Sizes were examined as it is a crucial metric in statistical analysis that measures the magnitude of the difference between groups. Unlike p-values, which only tell us whether a difference exists, effect size quantifies the size of that difference, providing more context on the practical significance of the findings. Effect size helps in understanding how large or small the observed effect is, beyond just knowing that it is statistically significant. Effect size complements p-values by providing additional information, helping in understanding the strength and importance of the findings.
+ Effect Sizes was examined as it is a crucial metric in statistical analysis that measures the magnitude of the difference between groups. Unlike p-values, which only tell us whether a difference exists, effect size quantifies the size of that difference, providing more context on the practical significance of the findings. Effect size helps in understanding how large or small the observed effect is, beyond just knowing that it is statistically significant. Effect size complements p-values by providing additional information, helping in understanding the strength and importance of the findings.
 
  ### Types of Effect Size
 
- Two effect's were relevant to this project.  Cohen's d Effect is relevant to the t-test, Eta Squared (η²) Effect is relevant to ANOVA test.
+ According to [Statology.org](https://www.statology.org/understanding-anova-when-and-how-to-use-it-in-your-research/) two effect's are relevant to this project.  Cohen's d Effect was relevant to the t-test, Eta Squared (η²) Effect was relevant to ANOVA test.
 
  ### Cohen's d Effect
 
  https://www.statology.org/interpret-cohens-d/
 
- Cohen's d is a measure of effect size used to indicate the standardized difference between two means. It is calculated as the difference between two means divided by the pooled standard deviation. Cohen's d values can be interpreted as follows:
- - Small effect: d = 0.2
- - Medium effect: d = 0.5
- - Large effect: d = 0.8
+ Cohen's d is a measure of effect size used to indicate the standardized difference between two means. It is calculated as the difference between two means divided by the pooled standard deviation. In this case, the negative value of -1.346156991832617 suggests that the mean weight of plants in one treatment group is significantly lower than the mean weight in the other group. The magnitude of this value indicates a large effect size, meaning there is a substantial difference between the two groups.
 
  ### Eta Squared (η²) Effect
 
  https://www.statology.org/eta-squared/
 
- Eta squared is used in the context of ANOVA to measure the proportion of total variance that is attributed to an effect. It ranges from 0 to 1, with higher values indicating a larger effect size. Eta squared can be interpreted as follows:
- - Small effect: η² = 0.01
- - Medium effect: η² = 0.06
- - Large effect: η² = 0.14
+ Eta squared is used in the context of ANOVA to measure the proportion of total variance that is attributed to an effect. It ranges from 0 to 1, with higher values indicating a larger effect size. An η² value of 0.2641482968321197 means that approximately 26.4% of the total variance in plant weights is due to the differences between the treatment groups. This indicates a large effect size, suggesting that the treatment groups have a significant impact on plant weights.
  
  ### Applying Effect Size to t-test and ANOVA test results
  
- In the context of the PlantGrowth dataset, calculating the effect size can provide additional insights into the differences between treatment groups. When comparing the two treatment groups (trt1 and trt2) using a t-test, Cohen's d is calculated to measure the effect size. In this project, the mean weight of trt1 is 4.661 and the mean weight of trt2 is 5.526, and the pooled standard deviation is 0.5, Cohen's d can be calculated as 0.865. A Cohen's d of 0.865 indicates a large effect size, suggesting a substantial difference between the two treatment groups.
+ In the context of the PlantGrowth dataset, the ANOVA results indicate that there are significant differences between the treatment groups, and the effect sizes (Cohen's d and eta squared) suggest that these differences are substantial. This means that the treatment groups have a significant impact on the plant weights, and the differences are not just statistically significant but also practically meaningful.
 
- In the ANOVA test, eta squared (η²) can be calculated to measure the effect size. This helps determine the proportion of total variance in plant weights that is attributed to the treatment groups (ctrl, trt1, and trt2). In this test, the sum of squares between groups (SSB) is 15.82 and the total sum of squares (SST) is 62.03, eta squared can be calculated as 0.255. An eta squared of 0.255 indicates a large effect size, suggesting that a significant portion of the variance in plant weights is due to the treatment groups.
-
- The effect size will be referenced in the conclusion as it provides a more comprehensive interpretation of the results, highlighting not only whether the differences are statistically significant but also how meaningful they are in practical terms.
- 
-  ## t-test Explained
-
-  A t-test was performed to determine if there is a significant difference between the two treatment groups (trt1 and trt2). The following values were extracted from running the code:
-
-  **t-statistic value -3.0100985421243616**
-
- - The t-statistic measures the size of the difference relative to the variation in the sample data. It represents the standardized difference between the means of the two groups (trt1 and trt2). Here’s what this value means:
- - A negative t-statistic indicates that the mean of the first group (trt1) is less than the mean of the second group (trt2).
- - The magnitude of the t-statistic (-3.01 in this case) indicates how many standard deviations the means are apart. A value of -3.01 suggests that the means are about 3 standard deviations apart, which is quite substantial.
-
-  **p-value: 0.0075184261182198574**
-
- - The p-value helps determine the significance of these results. Here’s what it means:
- - The p-value represents the probability of obtaining test results at least as extreme as the observed results, under the null hypothesis (which assumes that there is no difference between the group means).
- - A p-value of 0.0075 is less than the common significance threshold of 0.05, indicating strong evidence against the null hypothesis.
-
- ## ANOVA test Explained
-
- ANOVA test was performed to determine if there is a significant difference between the three treatment groups (ctrl, trt1, and trt2). The result of the test was:
-
- **ANOVA F-statistic: 4.846087862380136**
-
- - The F-statistic is a ratio of the variance between the group means to the variance within the groups. A higher F-statistic indicates a greater degree of difference between the group means relative to the variability within the groups.
- - In this case, the F-statistic is 4.846, which suggests that there is a noticeable difference between the means of the three treatment groups (ctrl, trt1, and trt2).
-
- **ANOVA p-value: 0.0159099583256229**
-
- - The p-value indicates the probability of observing the data, or something more extreme, if the null hypothesis is true. The null hypothesis in ANOVA is that there are no differences between the group means.
- - A p-value of 0.0159 is less than the common significance level of 0.05. This means that there is less than a 1.59% chance that the observed differences between the group means occurred by random chance.
- -  Since the p-value is less than 0.05, we reject the null hypothesis and conclude that there is a statistically significant difference between the means of the three treatment groups.
-
- ## Results 
-
-  - The t-test between trt1 and trt2 showed the p-value is less than 0.05, so we reject the null hypothesis. This means that there is a statistically significant difference between the means of the two treatment groups (trt1 and trt2). 
- - The ANOVA between ctrl, trt1, and trt2 showed that there is a significant difference in plant weights between at least two of the treatment groups (ctrl, trt1, and trt2). This suggests that the treatment applied to the plants has a measurable effect on their weights. The differences can be visually observed in the scatter plot.
- 
  ## Conclusion 
 
  __Type I errors:__ 
@@ -1866,7 +1850,7 @@ https://www.statisticshowto.com/probability-and-statistics/t-test/
 
  __Statistical Significance:__
  
-  The ANOVA test showed a statistically significant difference between the three treatment groups (ctrl, trt1, and trt2) with a p-value of 0.0159. This indicates that at least one of the group means is significantly different from the others.  The t-test however only examied two groups.
+  The ANOVA test showed a statistically significant difference between the three treatment groups (ctrl, trt1, and trt2) with a p-value of 0.0159. This indicates that at least one of the group means is significantly different from the others.  The t-test however only examined two groups.
 
  __Effect Size:__ 
  
@@ -1886,7 +1870,7 @@ https://www.statisticshowto.com/probability-and-statistics/t-test/
 
  __Practical Implications__
 
- If we successfully complete post-hoc analysis and identify where plant growth could actually be increased such as for example, if trt2 significantly increases plant growth compared to trt1, this could inform future agricultural practices or experimental designs.
+ [Policy and Recommendations:](https://www.fao.org/4/Y5061E/y5061e09.htm) The findings from the analysis can inform policy recommendations and best practices for agricultural extension services. This can help disseminate effective treatments to a broader audience, improving overall agricultural productivity.
 
  ## References
 
