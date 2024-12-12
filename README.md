@@ -427,6 +427,7 @@ The following online resources were used to complete Task 1 in `tasks.ipynb` and
 17. [GitHub - About READMEs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)
 18. [PEP 8 – Style Guide for Python Code](https://peps.python.org/pep-0008/)
 19. [Stone, A. (2018). A HYBRID SAMPLING METHOD FOR THREE-WAY CONTINGENCY TABLES.]( https://core.ac.uk/download/343436931.pdf)
+
 # END
 
 # Task 2: Assessing Normality of `numpy.random.normal()`
@@ -547,11 +548,9 @@ plt.show()
 
 *Q-Q Plot Image Source: images\qq_plot.png*
 
-
 ### Kolmogorov-Smirnov Test
 
 The kstest function will return a test statistic and a p-value. If the p-value is more significant than 0.05, it suggests that the sample likely comes from a normal distribution. Conversely, a p-value less than 0.05 suggests non-normality.  Output to Kolmogorov-Smirnov Test: Stat=0.0032511838823213735, p-value=0.24055406131498747
-
 
 ```<python>
 import numpy as np
@@ -610,7 +609,6 @@ plt.show()
 <img src="images/normal_distribution_97.5th_percentile.png" alt="normal_distribution_97.5th_percentile.png" style="float: left"> 
 
 *normal_distribution_97.5th_percentile Image Source: images/normal_distribution_97.5th_percentile.png*
-
 
 ## Summary of Analysis
 
@@ -716,7 +714,6 @@ The following online resources were used to complete Task 2 in `tasks.ipynb` and
 12. [97.5 th Percentile Point](https://en.wikipedia.org/wiki/97.5th_percentile_point)
 13. [GitHub - About READMEs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)
 14. [PEP 8 – Style Guide for Python Code](https://peps.python.org/pep-0008/)
-
 
 # END
 
@@ -1330,7 +1327,6 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
 10. [Maths Is Fun](https://www.mathsisfun.com/data/standard-normal-distribution.html)
 11. [Statology](https://www.statology.org/how-to-compare-standard-deviations/)
 12. [Bookdown.org](https://bookdown.org/kevin_davisross/probsim-book/normal-distributions.html)
-
 
 # END
 
