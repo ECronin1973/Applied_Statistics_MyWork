@@ -1532,7 +1532,7 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
  - Compute the mean and standard deviation of the groups.
  - Use these values to calculate the t-statistic, which reflects the size of the difference relative to the variability in the data.
 
- #### Filter the Data into Two Groups only
+ #### Filter the Data into Two Groups only / Calculate the Mean and Standard Deviations
  ```<python>
  # Filter the dataset to include only trt1 and trt2 groups
  df_original = pd.read_csv(url)
@@ -1573,9 +1573,7 @@ According to [Laerd Statistics](https://statistics.laerd.com/spss-tutorials/one-
 [Tukey-HSD test](https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/post-hoc/tukey-test-honest-significant-difference/) also has assumptions
 
 - Observations are independent within and among groups.
-
 - The groups for each mean in the test are normally distributed.
-
 - There is equal within-group variance across the groups associated with each mean in the test (homogeneity of variance).
 
 In project.ipynb it is outlined how these assumptions directly affect this test.
@@ -1610,7 +1608,6 @@ This result is important because it validates the use of ANOVA, which assumes th
  __t-statistic value -3.0100985421243616.__ 
 
  The t-statistic measures the size of the difference relative to the variation in the sample data. It represents the standardized difference between the means of the two groups (trt1 and trt2). Here’s what this value means:
-
  - A negative t-statistic indicates that the mean of the first group (trt1) is less than the mean of the second group (trt2).
  - The magnitude of the t-statistic (-3.01 in this case) indicates how many standard deviations the means are apart. A value of -3.01 suggests that the means are about 3 standard deviations apart, which is quite substantial.
  
@@ -1635,11 +1632,8 @@ This result is important because it validates the use of ANOVA, which assumes th
  A number of plots were generated to visually display the difference between the two treatment groups (trt1 and trt2).  The code was written to filter two groups only, so it excluded the 'Ctrl' group.  In addition to the t-statistic and p-values, it is easily visible to significant difference between both groups.  Plots were generated using the following code:
 
   ```<python>
-  # Set the style of the visualization
+ # Set the style of the visualisation for box plot
  sns.set_theme(style="whitegrid")
-
- # Filter the dataframe for two treatment groups only
- df_filtered = df[df['group'].isin(['trt1', 'trt2'])]
 
  # Create the box plot
  plt.figure(figsize=(10, 6)) 
@@ -1651,8 +1645,15 @@ This result is important because it validates the use of ANOVA, which assumes th
  # Save the Box Plot as an image file 
  plt.savefig('images/plant_weights_by_treatment_group.png') 
 
- # Show the plot
- plt.show()
+# Show the plot
+plt.show()
+
+ # Create the swarm plot 
+ # Filter the dataframe for the two treatment groups
+ df_filtered = df_original[df_original['group'].isin(['trt1', 'trt2'])]
+
+ # Set the style of the visualization 
+ sns.set_theme(style="whitegrid") 
 
  # Create the swarm plot 
  plt.figure(figsize=(10, 6)) 
@@ -1664,21 +1665,28 @@ This result is important because it validates the use of ANOVA, which assumes th
  # Save the Swarm Plot as an image file 
  plt.savefig('images/plant_weights_swarmplot_trt1_vs_trt2.png') 
 
- # Show the plot plt.show()
+ # Show the plot
  plt.show()
 
  # Create the violin plot 
- plt.figure(figsize=(10, 6)) 
- sns.violinplot(x='group', y='weight', data=df_filtered, hue='group', palette="muted", legend=True) 
- plt.title('Plant Weights by Treatment Group (trt1 vs trt2)') 
- plt.xlabel('Treatment Group') 
- plt.ylabel('Weight') 
+# Filter the dataset to include only trt1 and trt2 groups 
+df_filtered = df_original[df_original['group'].isin(['trt1', 'trt2'])] 
 
- # Save the Violin Plot as an image file 
- plt.savefig('images/plant_weights_violinplot_trt1_vs_trt2.png') 
+# Set the style of the visualization 
+sns.set_theme(style="whitegrid") 
 
- # Show the plot plt.show()
- plt.show()
+# Create the violin plot 
+plt.figure(figsize=(10, 6)) 
+sns.violinplot(x='group', y='weight', data=df_filtered, hue='group', palette="muted", legend=True) 
+plt.title('Plant Weights by Treatment Group (trt1 vs trt2)') 
+plt.xlabel('Treatment Group') 
+plt.ylabel('Weight') 
+
+# Save the Violin Plot as an image file 
+plt.savefig('images/plant_weights_violinplot_trt1_vs_trt2.png') 
+
+# Show the plot
+plt.show()
  ```
  
  ### Images of generated plots
@@ -1729,19 +1737,30 @@ This result is important because it validates the use of ANOVA, which assumes th
  ANOVA test was performed to determine if there is a significant difference between the three treatment groups (ctrl, trt1, and trt2).  The result of the test was ANOVA F-statistic: 4.846087862380136, p-value: 0.0159099583256229.  The following code was used to complete this task::
 
  ```<python>
- # Extract the treatment groups
- ctrl = df[df['group'] == 'ctrl']['weight']
- trt1 = df[df['group'] == 'trt1']['weight']
- trt2 = df[df['group'] == 'trt2']['weight']
+ # Perform Levene's test
+ levene_stat, levene_p_value = levene(ctrl, trt1, trt2)
+
+ print(f"Levene's Test: Stat={levene_stat}, p-value={levene_p_value}")
+
+ # Interpret Levene's test results
+ if levene_p_value > 0.05:
+     print("The variances are equal (homogeneity of variances).")
+ else:
+    print("The variances are not equal (heterogeneity of variances).")
 
  # Perform ANOVA
  anova_stat, anova_p_value = f_oneway(ctrl, trt1, trt2)
 
  print(f"ANOVA F-statistic: {anova_stat}, p-value: {anova_p_value}")
+
  ```
 
  ## Output of ANOVA tests
  
+ - Levene's Test: Stat=1.1191856948703909, p-value=0.3412266241254737
+ - The variances are equal (homogeneity of variances).
+ - ANOVA F-statistic: 4.846087862380136, p-value: 0.0159099583256229
+
  ### ANOVA F-statistic:
 
  https://www.statology.org/anova-f-value-p-value/
@@ -1757,27 +1776,28 @@ This result is important because it validates the use of ANOVA, which assumes th
  - A p-value of 0.0159 is less than the common significance level of 0.05. This means that there is less than a 1.59% chance that the observed differences between the group means occurred by random chance.
  -  Since the p-value is less than 0.05, we reject the null hypothesis and conclude that there is a statistically significant difference between the means of the three treatment groups
 
- ## Plots Used in ANOVA test
+  ## Plots Used in ANOVA test
  
  https:www.geeksforgeeks.org/how-to-make-a-scatter-plot-in-python-using-seaborn/
 
  A scatter plots was generated to visually display the difference between the three treatment groups (ctrl, trt1 and trt2).  In addition to the f-statistic and p-values, it is easily visible to significant difference between each group.  The following code was used to generate a scatter plot:
 
  ```<python>
+ # Create the scatter plot
  # Set the style of the visualization
  sns.set_theme(style="whitegrid")
 
  # Create the scatter plot
  plt.figure(figsize=(10, 6))
- sns.scatterplot(x='group', y='weight', data=df, hue='group', palette="muted", s=100, legend=True)
+ sns.scatterplot(x='group', y='weight', data=df_filtered, hue='group', palette="muted", s=100, legend=True)
  plt.title('Plant Weights by Treatment Group')
  plt.xlabel('Treatment Group')
  plt.ylabel('Weight')
 
  # Save the Scatter Plot as an image file 
- plt.savefig('images\Plant_Weights_ScatterPlot.png') 
+ plt.savefig('images/plant_weights_scatterplot.png') 
 
- # Show the plot plt.show()
+ # Show the plot
  plt.show()
  ```
 
@@ -1791,7 +1811,7 @@ This result is important because it validates the use of ANOVA, which assumes th
  
  ## Explain Your Work
 
- This section discusses why applying ANOVA rather than several t-tests is more appropriate when analysing more than two groups. The following topics are identified.
+ This section discusses why applying ANOVA rather than several t-tests is more appropriate when analysing more than two groups. The following topics are relevant.
  
  - Type I Error reduction 
  - Efficiency
@@ -1828,17 +1848,131 @@ This result is important because it validates the use of ANOVA, which assumes th
 ### Post-Hoc Tests
 
  https://www.datacamp.com/tutorial/anova-test
+
  https://www.statology.org/understanding-anova-when-and-how-to-use-it-in-your-research/
+
+ (https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/post-hoc/tukey-test-honest-significant-difference/) 
 
  [Statology.org](https://www.statology.org/understanding-anova-when-and-how-to-use-it-in-your-research/) explains that ANOVA is used to determine if there are significant differences among group means and that post-hoc tests, such as Tukey's HSD, can be performed to identify which specific groups differ from each other
  - These post-hoc tests are designed to control the Type I error rate while making multiple comparisons, further reducing the risk of false positives.
- - In the PlantGrowth dataset, if we were to compare the weights of plants across three treatment groups (ctrl, trt1, and trt2) using multiple t-tests, we would increase the risk of Type I errors. Instead, by using ANOVA, we perform a single test to determine if there are any significant differences among the groups, thereby controlling the overall error rate
+ - In the PlantGrowth dataset, if we were to compare the weights of plants across three treatment groups (ctrl, trt1, and trt2) using multiple t-tests, we would increase the risk of Type I errors. Instead, by using ANOVA, we perform a single test to determine if there are any significant differences among the groups, thereby controlling the overall error rate.
+
+ ## Tukey HSD Test
+ - [Wikipedia](https://en.wikipedia.org/wiki/Tukey%27s_range_test): Provides a comprehensive overview of the Tukey HSD test, its development, and its applications.
+ - [Oxford Reference](https://www.oxfordreference.com/display/10.1093/oi/authority.20110803110053894): Offers a quick reference and explanation of the Tukey HSD test, including its comparison with other multiple comparison methods.
+ - [Statistics How To:](https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/post-hoc/tukey-test-honest-significant-difference/) Explains the Tukey HSD test, its assumptions, and step-by-step calculations.
+
+ According to Statistics How To "the Tukey Test (or Tukey procedure), also called Tukey’s Honest Significant Difference test, is a post-hoc test based on the studentized range distribution. An ANOVA test can tell you if your results are significant overall, but it won’t tell you exactly where those differences lie. After you have run an ANOVA and found significant results, then you can run Tukey’s HSD to find out which specific groups’s means (compared with each other) are different. The test compares all possible pairs of means."
+
+ The following code was used to complete this task::
+
+ ```<python>
+ # Combine the data into a single array and create a corresponding array of group labels
+ data = np.concatenate([ctrl, trt1, trt2])
+ labels = ['ctrl'] * len(ctrl) + ['trt1'] * len(trt1) + ['trt2'] * len(trt2)
+
+ # Perform Tukey's HSD test
+ tukey_result = pairwise_tukeyhsd(data, labels)
+
+ # Show the result
+ print(tukey_result)
+ ```
+
+## Analysis of Tukey HSD Test Results
+
+ #### ctrl vs. trt1:
+
+| **Statistic**       | **Value**   |
+|---------------------|-------------|
+| Mean Difference     | -0.371      |
+| p-adj               | 0.3909      |
+| Lower Bound         | -1.0622     |
+| Upper Bound         | 0.3202      |
+| Reject              | False       |
+
+
+**Summary:**  The mean difference between the control group (ctrl) and the first treatment group (trt1) is -0.371. The p-value (0.3909) is greater than 0.05, indicating that the difference is not statistically significant. Therefore, we do not reject the null hypothesis, meaning there is no significant difference between ctrl and trt1
+
+#### ctrl vs. trt2:
+
+| **Statistic**       | **Value**   |
+|---------------------|-------------|
+| Mean Difference     | 0.494       |
+| p-adj               | 0.198       |
+| Lower Bound         | -0.1972     |
+| Upper Bound         | 1.1852      |
+| Reject              | False       |
+
+
+**Summary:**  The mean difference between the control group (ctrl) and the second treatment group (trt2) is 0.494. The p-value (0.198) is greater than 0.05, indicating that the difference is not statistically significant. Therefore, we do not reject the null hypothesis, meaning there is no significant difference between ctrl and trt2.
+
+#### trt1 vs. trt2:
+
+| **Statistic**       | **Value**   |
+|---------------------|-------------|
+| Mean Difference     | 0.865       |
+| p-adj               | 0.012       |
+| Lower Bound         | 0.1738      |
+| Upper Bound         | 1.5562      |
+| Reject              | True        |
+
+
+**Summary:** The mean difference between the first treatment group (trt1) and the second treatment group (trt2) is 0.865. The p-value (0.012) is less than 0.05, indicating that the difference is statistically significant. Therefore, we reject the null hypothesis, meaning there is a significant difference between trt1 and trt2.
 
  ## Consideration of Effect Sizes
 
  https://www.datacamp.com/tutorial/anova-test
 
  Effect Sizes were examined as they are a crucial metric in statistical analysis that measures the magnitude of the difference between groups. Unlike p-values, which only tell us whether a difference exists, effect size quantifies the size of that difference, providing more context on the practical significance of the findings. Effect size helps in understanding how large or small the observed effect is, beyond just knowing that it is statistically significant. Effect size complements p-values by providing additional information, helping in understanding the strength and importance of the findings.
+
+ The following code was used to evaluate effect size:
+
+ ```<python>
+ # Filter the dataset to include only ctrl, trt1, and trt2 groups
+ df_filtered = df_original[df_original['group'].isin(['ctrl', 'trt1', 'trt2'])]
+
+ # Extract the treatment groups
+ ctrl = df_filtered[df_filtered['group'] == 'ctrl']['weight']
+ trt1 = df_filtered[df_filtered['group'] == 'trt1']['weight']
+ trt2 = df_filtered[df_filtered['group'] == 'trt2']['weight']
+
+ # Calculate Cohen's d for the t-test between trt1 and trt2
+ group1 = trt1
+ group2 = trt2
+
+ # Calculate the means and pooled standard deviation
+ mean1, mean2 = np.mean(group1), np.mean(group2)
+ std1, std2 = np.std(group1, ddof=1), np.std(group2, ddof=1)
+ pooled_std = np.sqrt((std1**2 + std2**2) / 2)
+
+ # Calculate Cohen's d
+ cohens_d = (mean1 - mean2) / pooled_std
+ print(f"Cohen's d: {cohens_d}")
+
+ # Perform ANOVA and calculate eta squared (η²)
+ model = ols('weight ~ C(group)', data=df_filtered).fit()
+ anova_table = sm.stats.anova_lm(model, typ=2)
+
+ # Calculate eta squared
+ eta_squared = anova_table['sum_sq']['C(group)'] / anova_table['sum_sq'].sum()
+ print(f"Eta Squared (η²): {eta_squared}")
+
+ # Display the ANOVA table
+ print(anova_table)
+
+ ```
+
+### Output from effect size evaluation
+
+| **Statistic**       | **Value**   |
+|---------------------|-------------|
+| Cohen's d           | -1.346156991832617 |
+| Eta Squared (η²)    | 0.2641482968321197 |
+
+| **Source** | **sum_sq** | **df** | **F**      | **PR(>F)** |
+|------------|------------|--------|------------|------------|
+| C(group)   | 3.76634    | 2.0    | 4.846088   | 0.01591    |
+| Residual   | 10.49209   | 27.0   | NaN        | NaN        |
 
  ### Types of Effect Size
 
@@ -1858,13 +1992,43 @@ This result is important because it validates the use of ANOVA, which assumes th
  
  ### Applying Effect Size to t-test and ANOVA test results
  
- In the context of the PlantGrowth dataset, the ANOVA results indicate that there are significant differences between the treatment groups, and the effect sizes (Cohen's d and eta squared) suggest that these differences are substantial. This means that the treatment groups have a significant impact on the plant weights, and the differences are not just statistically significant but also practically meaningful.
+ Cohen's d Calculation
+ Cohen's d: A measure of effect size indicating the standardized difference between two means.
+ Value: -1.346
 
- ## Conclusion 
+ Interpretation: 
+ - The negative value suggests that the mean weight of plants in one treatment group is significantly lower than in the other. The magnitude indicates a large effect size, meaning there is a substantial difference between the two groups.
+
+ __Eta Squared (η²)__
+ Eta Squared (η²): A measure of effect size in ANOVA, indicating the proportion of total variance attributed to an effect.
+ Value: 0.264
+
+ Interpretation: Approximately 26.4% of the total variance in plant weights is due to differences between the treatment groups, indicating a large effect size and significant impact of the treatments.
+
+ __ANOVA Results__
+ C(group): Represents the variation between the treatment groups.
+
+ | **Statistic** | **Value**       |
+ |---------------|-----------------|
+ | sum_sq        | 3.76634         |
+ | df            | 2.0             |
+ | F             | 4.846088        |
+ | PR(>F)        | 0.01591         |
+
+
+ Interpretation: 
+ - The p-value is less than 0.05, indicating significant differences between the treatment groups.
+ - Residual: Represents the variation within the groups (random noise).
+ - sum_sq: 10.49209 (sum of squares within the groups)
+ - df: 27.0 (degrees of freedom for the residuals)
+
+ These figures show the impact of the treatment groups on plant weights.
+
+## Conclusion 
 
  __Type I errors:__ 
  
- Based on the analysis, the ANOVA test is better as it reduces Type I errors. The t-test, however, only looked at two groups, whereas the ANOVA test looked at three. Further tests would need to be carried out to examine what the outcome of a t-test would be for the Ctrl v trt1 groups and ctrl v trt2 groups and then compare this to the initial test carried out.
+ Based on the analysis, the ANOVA test is better as it reduces Type I errors. The t-test, however, only looked at two groups, whereas the ANOVA test looked at all three. Further tests would need to be carried out to examine what the outcome of a t-test would be for the Ctrl v trt1 groups and ctrl v trt2 groups and then compare this to the initial test carried out.
 
  __Statistical Significance:__
  
@@ -1876,7 +2040,7 @@ This result is important because it validates the use of ANOVA, which assumes th
 
  __Post-Hoc Analysis__
 
- There is a need for post-hoc tests (such as Tukey's HSD) to identify which specific groups differ from each other. This is necessary to pinpoint where the significant differences lie.
+ Tukey's HSD was performed and identified that trt1 and trt2 differed from each other. This was necessary to pinpoint where the significant differences lie.
 
  __Assumptions Check__
 
@@ -1892,40 +2056,50 @@ This result is important because it validates the use of ANOVA, which assumes th
 
  ## References
 
-1. [ATU Lectures - Applied Statistics, Dr Ian McLoughlin](https://vlegalwaymayo.atu.ie/course/view.php?id=10454)
-2. [Writing README.md files on GitHub](https://help.github.com/en/articles/basic-writing-and-formatting-syntax)
-3. [Creating tables in Markdown](https://www.makeuseof.com/tag/create-markdown-table/)
-4.  Dobson, A. J. (1983) An Introduction to Statistical Modelling. London: Chapman and Hall
-5. [Vicent Arel-Bundocks Rdatasets page](https://vincentarelbundock.github.io/Rdatasets/datasets.html)
-6. [pandas.DataFrame] (https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html)
-7. ["Ease of Data Manipulation." pandas documentation,](https://pandas.pydata.org/docs/#pandas-documentation)
-8. ["Integration with Other Libraries." pandas documentation,](https://pandas.pydata.org/docs/user_guide/index.html.)
-9. ["Handling Missing Data." pandas documentation,](https://pandas.pydata.org/docs/user_guide/missing_data.html.)
-10. ["Data Cleaning and Preparation." pandas documentation,](https://pandas.pydata.org/docs/user_guide/index.html.)
-11. ["Descriptive Statistics and Summarization." pandas documentation,](https://pandas.pydata.org/docs/user_guide/index.html.)
-12. ["Data Visualization." pandas documentation,](https://pandas.pydata.org/docs/user_guide/index.html.)
-13. [Pandas.DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.info.html#pandas-dataframe-info)
-13. [df.head()]((https://www.w3schools.com/python/pandas/ref_df_head.asp))
-14. [df.describe](https://www.w3schools.com/python/pandas/ref_df_describe.asp)
-15. [df.info](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.info.html#pandas.DataFrame.info)
-16. [pandas.DataFrame.columns](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.columns.html#pandas-dataframe-columns)
-17. [pandas.DataFrame.drop](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.drop.html#pandas-dataframe-drop)
-18. (https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html)
-19. [pandas.DataFrame.groupby](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html#pandas-dataframe-groupby)
-20. [pandas.DataFrame.dtypes](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dtypes.html#pandas-dataframe-dtypes)
-21. [scipy.stats](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_rel.html#ttest-rel)
-22. [Statology - The Four Assumptions Made in a T-Test](https://www.statology.org/t-test-assumptions/): This article explains the four key assumptions of a t-test, including independence, normality, homogeneity of variances, and random sampling.
-23. [Statistics for Research Students - Independent T-Test Assumptions](https://usq.pressbooks.pub/statisticsforresearchstudents/chapter/independent-t-test-assumptions/): This resource provides a detailed explanation of the assumptions underlying the independent t-test and how to interpret the results.
-24. [Statistics How To] (https://www.statisticshowto.com/probability-and-statistics/t-test/): Definition and Examples of T-Test, What is a T-Test, The T Score, T Values and P Values, Calculating the T Test, What is a paired T-Test.
-25. [Statistics By Jim - T Test Overview](https://statisticsbyjim.com/hypothesis-testing/t-test/) : How to Use & Examples: This article offers an overview of different types of t-tests, their assumptions, and examples of how to use them.
-26. ["T Test (Student’s T-Test): Definition and Examples." Statistics How To,](https://www.statisticshowto.com/probability-and-statistics/t-test/.)
-27. [Real Statistics Using Excel - Violations of T-Test Assumptions](https://real-statistics.com/students-t-distribution/problems-data-t-tests/): This page discusses what to do when the assumptions of a t-test are violated and provides references for further reading.
-28. [Datanovia - Independent T-Test Assumptions](https://www.datanovia.com/en/lessons/t-test-assumptions/independent-t-test-assumptions/): This tutorial explains the assumptions of the independent t-test and provides examples of how to check these assumptions using R.
-29. [Cleveland, W.S., & McGill, R. (1984). Graphical Perception: Theory, Experimentation, and Application to the Development of Graphical Methods. Journal of the American Statistical Association, 79(387), 531-554] (https://www.tandfonline.com/doi/abs/10.1080/01621459.1984.10478080)
-30. [Tufte, E.R. (2001). The Visual Display of Quantitative Information. Graphics Press.] (https://www.edwardtufte.com/tufte/books_vdqi)
-31.  [Few, S. (2012). Show Me the Numbers: Designing Tables and Graphs to Enlighten. Analytics Press.] https://www.goodreads.com/book/show/526835.Exploratory_Data_Analysis
-32. [Paivio, A. (1990). Mental Representations: A Dual Coding Approach. Oxford University Press](https://academic.oup.com/book/29962)
-33. [How to Interpret the F-Value and P-Value in ANOVA]( https://www.statology.org/anova-f-value-p-value/)
-34. [Understanding P-values | Definition and Examples](https://www.scribbr.com/statistics/p-value/)
-35. [ANOVA Test: An In-Depth Guide with Examples](https://www.datacamp.com/tutorial/anova-test)
-36. [Google search - how can I quote code in your README file using proper Markdown syntax for code blocks]
+ 1. [ANOVA Test: An In-Depth Guide with Examples](https://www.datacamp.com/tutorial/anova-test)
+ 2. [ATU Lectures - Applied Statistics, Dr Ian McLoughlin](https://vlegalwaymayo.atu.ie/course/view.php?id=10454)
+ 3. [Cleveland, W.S., & McGill, R. (1984). Graphical Perception: Theory, Experimentation, and Application to the Development of Graphical Methods. Journal of the American Statistical Association, 79(387), 531-554](https://www.tandfonline.com/doi/abs/10.1080/01621459.1984.10478080)
+ 4. [Creating tables in Markdown](https://www.makeuseof.com/tag/create-markdown-table/)
+ 5. [Datanovia - Independent T-Test Assumptions](https://www.datanovia.com/en/lessons/t-test-assumptions/independent-t-test-assumptions/): This tutorial explains the assumptions of the independent t-test and provides examples of how to check these assumptions using R.
+ 6. [Data Camp - anova test](https://www.datacamp.com/tutorial/anova-test)
+ 7. Dobson, A. J. (1983). An Introduction to Statistical Modelling. London: Chapman and Hall.
+ 8. Few, S. (2012). Show Me the Numbers: Designing Tables and Graphs to Enlighten. Analytics Press
+ 9. [Google search - how can I quote code in your README file using proper Markdown syntax for code blocks](https://www.google.com/search?q=how+can+I+quote+code+in+your+README+file+using+proper+Markdown+syntax+for+code+blocks)
+ 10. [How to Interpret the F-Value and P-Value in ANOVA]( https://www.statology.org/anova-f-value-p-value/)
+ 11. [IBM Anomaly Detection](https://www.ibm.com/topics/anomaly-detection)
+ 12. ["Integration with Other Libraries." pandas documentation,](https://pandas.pydata.org/docs/user_guide/index.html.)
+ 13. [Oxford Reference - Tukey HSD Test](https://www.oxfordreference.com/display/10.1093/oi/authority.20110803110053894)
+ 14. [otexts.co - Box Plots](https://otexts.com/weird/05-boxplots.html)
+ [Paivio, A. (1990). Mental Representations: A Dual Coding Approach. Oxford University Press](https://academic.oup.com/book/29962)
+ 15. [pandas.DataFrame] (https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html)
+ 16. [Pandas.DataFrame.Info](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.info.html#pandas-dataframe-info)
+ 17. [pandas.DataFrame.columns](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.columns.html#pandas-dataframe-columns)
+ 18. [pandas.DataFrame.drop](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.drop.html#pandas-dataframe-drop)
+ 19. [pandas.DataFrame.dtypes](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dtypes.html#pandas-dataframe-dtypes)
+ 20. [pandas.DataFrame.groupby](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html#pandas-dataframe-groupby)
+ 21. [df.describe](https://www.w3schools.com/python/pandas/ref_df_describe.asp)
+ 22. [df.head()]((https://www.w3schools.com/python/pandas/ref_df_head.asp))
+ 23. [df.info](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.info.html#pandas.DataFrame.info)
+ 24. [Pandas Documentation - "Data Cleaning and Preparation."](https://pandas.pydata.org/docs/user_guide/index.html.)
+ 25. [Pandas Documentation - "Data Visualization." pandas documentation](https://pandas.pydata.org/docs/user_guide/index.html.)
+ 26. [Pandas Documentation - "Descriptive Statistics and Summarization."](https://pandas.pydata.org/docs/user_guide/index.html.)
+ 28. [Pandas Documentation - "Ease of Data Manipulation."](https://pandas.pydata.org/docs/#pandas-documentation)
+ 29. [Pandas Documentation - "Handling Missing Data."](https://pandas.pydata.org/docs/user_guide/missing_data.html.)
+ 30. [Paivio, A. (1990). Mental Representations: A Dual Coding Approach. Oxford University Press](https://academic.oup.com/book/29962)
+ 31. [scipy.stats](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_rel.html#ttest-rel)
+ 32. [Real Statistics Using Excel - Violations of T-Test Assumptions](https://real-statistics.com/students-t-distribution/problems-data-t-tests/): This page discusses what to do when the assumptions of a t-test are violated and provides references for further reading.
+ 33. [Statology.org - The Four Assumptions Made in a T-Test](https://www.statology.org/t-test-assumptions/): This article explains the four key assumptions of a t-test, including independence, normality, homogeneity of variances, and random sampling.
+ 34. [Statology.org - How to interpret Cohen's d (With Examples)](https://www.statology.org/interpret-cohens-d/)
+ 35. [Statology.org - Post-Hoc Tests](https://www.statology.org/understanding-anova-when-and-how-to-use-it-in-your-research/)
+ 36. [Statology.org - What is Eta Squared? (Definition & Example)](https://www.statology.org/eta-squared/)
+ 37. [Statology.org - Violin Plots](https://www.statology.org/violin-plot-in-r/)
+ 38. [Statistics By Jim - T Test Overview](https://statisticsbyjim.com/hypothesis-testing/t-test/) : How to Use & Examples: This article offers an overview of different types of t-tests, their assumptions, and examples of how to use them.
+ 39. [Statistics for Research Students - Independent T-Test Assumptions](https://usq.pressbooks.pub/statisticsforresearchstudents/chapter/independent-t-test-assumptions/): This resource provides a detailed explanation of the assumptions underlying the independent t-test and how to interpret the results.
+ 40.  [Statistics How To do a t-test](https://www.statisticshowto.com/probability-and-statistics/t-test/): Definition and Examples of T-Test, What is a T-Test, The T Score, T Values and P Values, Calculating the T Test, What is a paired T-Test.
+ 41. [Statistics how to - Tukey-HSD Assumptions](https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/post-hoc/tukey-test-honest-significant-difference/)
+ 42. [Tufte, E.R. (2001). The Visual Display of Quantitative Information. Graphics Press.](https://www.edwardtufte.com/tufte/books_vdqi)
+ 43. ["T Test (Student’s T-Test): Definition and Examples." Statistics How To,](https://www.statisticshowto.com/probability-and-statistics/t-test/.)
+ 44. [Understanding P-values | Definition and Examples](https://www.scribbr.com/statistics/p-value/)
+ 45. [Vicent Arel-Bundocks Rdatasets page](https://vincentarelbundock.github.io/Rdatasets/datasets.html)
+ 46. [Writing README.md files on GitHub](https://help.github.com/en/articles/basic-writing-and-formatting-syntax)
+ 47.[Wikipedia - Tukey HSD Test](https://en.wikipedia.org/wiki/Tukey%27s_range_test)
