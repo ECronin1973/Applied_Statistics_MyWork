@@ -1752,7 +1752,6 @@ plt.show()
  anova_stat, anova_p_value = f_oneway(ctrl, trt1, trt2)
 
  print(f"ANOVA F-statistic: {anova_stat}, p-value: {anova_p_value}")
-
  ```
 
  ## Output of ANOVA tests
@@ -2052,7 +2051,9 @@ plt.show()
 
  __Practical Implications__
 
- __[Policy and Recommendations:](https://www.fao.org/4/Y5061E/y5061e09.htm)__ The findings from the analysis can inform policy recommendations and best practices for agricultural extension services. This can help disseminate effective treatments to a broader audience, improving overall agricultural productivity.
+ The findings from the analysis can inform policy recommendations and best practices for agricultural extension services in Ireland. This can help disseminate effective treatments to a broader audience, improving overall agricultural productivity. Overall, the FAO report provides valuable insights and recommendations that could shape Ireland's agricultural and rural development policies to promote sustainability, food security, and economic growth.
+
+ For more details, you can refer to the [FAO Report](https://www.fao.org/4/Y5061E/y5061e09.htm).
 
  ## References
 
@@ -2102,4 +2103,5 @@ plt.show()
  44. [Understanding P-values | Definition and Examples](https://www.scribbr.com/statistics/p-value/)
  45. [Vicent Arel-Bundocks Rdatasets page](https://vincentarelbundock.github.io/Rdatasets/datasets.html)
  46. [Writing README.md files on GitHub](https://help.github.com/en/articles/basic-writing-and-formatting-syntax)
- 47.[Wikipedia - Tukey HSD Test](https://en.wikipedia.org/wiki/Tukey%27s_range_test)
+ 47. [Wikipedia - Tukey HSD Test](https://en.wikipedia.org/wiki/Tukey%27s_range_test)
+ 48. [Website for Food and Agriculture Organization of the United Nations](https://www.fao.org/4/Y5061E/y5061e09.htm)
