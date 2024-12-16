@@ -1369,6 +1369,7 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
  import statsmodels.api as sm
  from statsmodels.formula.api import ols
  from scipy.stats import levene
+ from statsmodels.stats.multicomp import pairwise_tukeyhsd
 
  # Download the dataset
  url = 'https://vincentarelbundock.github.io/Rdatasets/csv/datasets/PlantGrowth.csv'
@@ -1435,16 +1436,25 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
 
  ```<python>
  # Describe the dataset
- # # To get an initial look at the dataset, we can display the first few rows using the head() method. This gives us a quick overview of the data.
+ ## To get an initial look at the dataset, we can display the first few rows using the head() method. This gives us a quick overview of the data.
  # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html
+ # Extract the treatment groups
+ ctrl = df[df['group'] == 'ctrl']['weight']
+ trt1 = df[df['group'] == 'trt1']['weight']
+ trt2 = df[df['group'] == 'trt2']['weight']
+
+ df = pd.DataFrame({'ctrl': ctrl, 'trt1': trt1, 'trt2': trt2})
  print(df.head())
 
- # Print the summary statistics of the dataset
+ # Show full dataframe output.
+ df
+ 
+ # Describe the dataset
  # We provide a summary of the dataset using the describe() method. 
  # This method gives us important statistical information about the numerical columns 
  # in the dataset, such as the count, mean, standard deviation, minimum, and maximum values.
  # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.describe.html
- print(df.describe())
+ df.describe()
 
  # Information about the dataset 
  # The info() method provides a concise summary of the dataset
@@ -1484,13 +1494,15 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
  
  https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dtypes.html
 
- ## What is a T-Test ?
+ ## Step 3: Perform T-Test
+ 
+ ### What is a T-Test ?
 
  https://www.scribbr.com/statistics/t-test/
 
  According to [scribbr.com]( https://www.scribbr.com/statistics/t-test/) a t-test is 'a statistical test used to compare the means of two groups to determine if they are significantly different from each other. This is a fundamental method in hypothesis testing to assess the differences between groups'.
 
- ##  How does a T-Test Work?
+ ###  How does a T-Test Work?
 
  https://www.statisticshowto.com/probability-and-statistics/t-test/
 
@@ -1520,6 +1532,27 @@ The following online resources were used to complete Task 4 in `tasks.ipynb` and
  - Compute the mean and standard deviation of the groups.
  - Use these values to calculate the t-statistic, which reflects the size of the difference relative to the variability in the data.
 
+ #### Filter the Data into Two Groups only
+ ```<python>
+ # Filter the dataset to include only trt1 and trt2 groups
+ df_original = pd.read_csv(url)
+ df_filtered = df_original[df_original['group'].isin(['trt1', 'trt2'])]
+
+ # Extract the treatment groups
+ trt1 = df_filtered[df_filtered['group'] == 'trt1']['weight']
+ trt2 = df_filtered[df_filtered['group'] == 'trt2']['weight']
+
+ # Calculate the Means and Standard Deviations
+ # Calculate means and standard deviations
+ mean_trt1 = trt1.mean()
+ mean_trt2 = trt2.mean()
+ std_trt1 = trt1.std()
+ std_trt2 = trt2.std()
+
+ print(f"Mean of trt1: {mean_trt1}, Standard Deviation of trt1: {std_trt1}")
+ print(f"Mean of trt2: {mean_trt2}, Standard Deviation of trt2: {std_trt2}")
+```
+
  ### Determining the p-value:
 
  https://statisticsbyjim.com/hypothesis-testing/t-test/
@@ -1537,6 +1570,14 @@ According to [Laerd Statistics](https://statistics.laerd.com/spss-tutorials/one-
 - Assumption # 5: Normality
 - Assumption # 6: Homogeneity of Variances
 
+[Tukey-HSD test](https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/post-hoc/tukey-test-honest-significant-difference/) also has assumptions
+
+- Observations are independent within and among groups.
+
+- The groups for each mean in the test are normally distributed.
+
+- There is equal within-group variance across the groups associated with each mean in the test (homogeneity of variance).
+
 In project.ipynb it is outlined how these assumptions directly affect this test.
 
 ## Levene's Test
@@ -1549,33 +1590,21 @@ This result is important because it validates the use of ANOVA, which assumes th
 
  ## T-Test performed
 
+ https://www.statisticshowto.com/probability-and-statistics/t-test/
+
  A t-test was performed to determine if there is a significant difference between the two treatment groups (trt1 and trt2). Values were extracted by running the following code: 
 
  ```<python>
- # Filter the dataset to include only trt1 and trt2 groups
- df_filtered = df[df['group'].isin(['trt1', 'trt2'])]
-
- # Extract the treatment groups
- trt1 = df_filtered[df_filtered['group'] == 'trt1']['weight']
- trt2 = df_filtered[df_filtered['group'] == 'trt2']['weight']
-
- # Calculate means and standard deviations
- mean_trt1 = trt1.mean()
- mean_trt2 = trt2.mean()
- std_trt1 = trt1.std()
- std_trt2 = trt2.std()
-
- print(f"Mean of trt1: {mean_trt1}, Standard Deviation of trt1: {std_trt1}")
- print(f"Mean of trt2: {mean_trt2}, Standard Deviation of trt2: {std_trt2}")
-
  # Perform the t-test
  t_statistic, p_value = ttest_ind(trt1, trt2)
-
  print(f"t-statistic: {t_statistic}, p-value: {p_value}")
+
+ # Use scipy.stats to verify the t-statistic
+ # Use scipy.stats to verify the t-statistic
+ # https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_rel.html
+ t_statistic_scipy, p_value = ttest_ind(trt1, trt2)
+ print(f"scipy.stats t-statistic: {t_statistic_scipy}, p-value: {p_value}")
  ```
-
-https://www.statisticshowto.com/probability-and-statistics/t-test/
-
  ### Output of T-Test
  
  __t-statistic value -3.0100985421243616.__ 
